@@ -5,34 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MVP Marketing Group | High School Sponsorship Sales</title>
     <style>
-        /* === Premium Sports & Entertainment Styles === */
+        /* Refined Premium B2B Styles */
         :root {
-            /* Primary Brand Colors */
-            --navy-deep: #0A192F; /* Very deep navy for layering */
-            --slate-blue: #10172A; /* Slate transition color */
-            --black-rich: #000000; /* Deep black panels */
+            --navy: #002244; 
             --gold: #F2A900; 
-            
-            /* Text and UI */
+            --slate: #1E293B; /* Premium Slate Blue/Gray */
+            --dark: #111827; 
+            --gray-light: #F9FAFB;
+            --gray-border: #E5E7EB;
+            --text-main: #374151;
             --white: #FFFFFF;
-            --text-light-gray: #D1D5DB;
-            --text-dark-gray: #4B5563;
-            --gray-border: rgba(255,255,255,0.08); /* White border for dark bg */
         }
         
         body, html {
             margin: 0;
             padding: 0;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: var(--text-light-gray);
-            background-color: var(--navy-deep); /* Base page color */
+            color: var(--text-main);
+            background-color: var(--gray-light);
             scroll-behavior: smooth;
-            overflow-x: hidden; /* Prevent horizontal scroll from slants */
         }
-        h1, h2, h3, h4 { margin-top: 0; line-height: 1.15; color: var(--white); font-weight: 800; letter-spacing: -1px; }
-        p { margin-top: 0; line-height: 1.7; color: var(--text-light-gray); font-size: 1.05rem; }
+        h1, h2, h3, h4 { margin-top: 0; line-height: 1.2; color: var(--navy); font-weight: 800; }
+        p { margin-top: 0; line-height: 1.6; color: var(--text-main); }
 
-        /* Transparent, Overlaid Navigation */
+        /* Transparent, Blended Navigation */
         header {
             background-color: transparent;
             padding: 1.5rem 5%;
@@ -44,10 +40,7 @@
             top: 0;
             z-index: 1000;
         }
-        .logo img {
-            height: 60px; 
-            width: auto;
-        }
+        .logo img { height: 60px; width: auto; }
         nav { display: flex; gap: 30px; align-items: center; }
         nav a {
             color: var(--white);
@@ -67,168 +60,109 @@
             border: 2px solid var(--white);
             transition: all 0.3s ease;
         }
-        .nav-cta:hover { background-color: var(--white); color: var(--navy-deep) !important; text-shadow: none; }
+        .nav-cta:hover { background-color: var(--white); color: var(--navy) !important; text-shadow: none; }
 
-        /* === Dynamic Section Transitions & Panelling === */
-        .section-pad { padding: 100px 5%; position: relative; }
-        .slant-down {
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); /* Bottom edge slant */
-        }
-        .section-header { text-align: center; margin-bottom: 70px; }
-        .section-header h2 { font-size: 3.5rem; margin-bottom: 20px; }
-        .section-header p { font-size: 1.25rem; color: #E5E7EB; max-width: 800px; margin: 0 auto; }
-
-        /* 1. Hero Section -> Fades into Stats */
+        /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(10,25,47,0.8), rgba(16,23,42,1)), url('https://images.unsplash.com/photo-1504450758481-7338eba7524a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover;
+            background: linear-gradient(rgba(0,34,68,0.85), rgba(0,15,30,0.95)), url('https://images.unsplash.com/photo-1504450758481-7338eba7524a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover;
             color: var(--white);
-            padding: 240px 5% 180px; 
+            padding: 220px 5% 180px; 
             text-align: center;
         }
-        .hero h2 {
-            font-size: 5rem;
-            margin-bottom: 20px;
-            color: var(--white);
-        }
+        .hero h2 { font-size: 4.2rem; margin-bottom: 20px; color: var(--white); letter-spacing: -1px; }
         .hero h2 span { color: var(--gold); }
-        .hero p {
-            font-size: 1.35rem;
-            max-width: 850px;
-            margin: 0 auto 50px;
-            color: var(--text-light-gray);
-        }
+        .hero p { font-size: 1.25rem; max-width: 800px; margin: 0 auto 40px; color: #E5E7EB; }
 
-        /* 2. Floating Stats over Hero Transition -> Layered on Problem */
+        /* Floating Stats Block */
         .stats-container {
             max-width: 1200px;
-            margin: -110px auto 0 auto;
+            margin: -90px auto 60px auto;
             position: relative;
-            z-index: 20; /* High layer to float */
+            z-index: 10;
             padding: 0 5%;
         }
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
+            gap: 20px;
             background: var(--white);
-            padding: 25px;
+            padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border: 1px solid var(--gray-border);
         }
-        .stat-item {
-            text-align: center;
-            border-right: 1px solid var(--gray-border);
-            border-color: #eaeaea;
-            padding: 10px;
-        }
+        .stat-item { text-align: center; border-right: 1px solid var(--gray-border); padding: 10px; }
         .stat-item:last-child { border-right: none; }
-        .stat-num {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--navy-deep);
-            margin-bottom: 3px;
-            letter-spacing: -1px;
-        }
-        .stat-label {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text-dark-gray);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+        .stat-num { font-size: 2rem; font-weight: 800; color: var(--navy); margin-bottom: 5px; letter-spacing: -0.5px; }
+        .stat-label { font-size: 0.85rem; font-weight: 600; color: var(--text-main); text-transform: uppercase; letter-spacing: 0.5px; }
 
-        /* 3. The Challenge Section -> Fades/Bleeds from Slate into Black */
-        .problem { 
-            padding: 160px 5% 120px; 
-            background: linear-gradient(180deg, var(--slate-blue) 0%, var(--black-rich) 100%);
-            z-index: 10; /* Lower than stats */
-        }
+        /* The Gap Section */
+        .problem { padding: 60px 5% 100px; background-color: var(--gray-light); }
         .two-col-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 70px;
+            gap: 60px;
             max-width: 1200px;
             margin: 0 auto;
             align-items: center;
         }
-        .problem-text h2 { font-size: 3rem; margin-bottom: 25px; }
-        .problem-text p { font-size: 1.15rem; margin-bottom: 25px;}
+        .problem-text h2 { font-size: 2.5rem; letter-spacing: -1px; margin-bottom: 20px;}
+        .problem-text p { font-size: 1.1rem; color: #4B5563; margin-bottom: 20px;}
 
-        /* 4. The Blueprint Vertical Timeline -> Slants/Overlaps Navy Proof Section */
-        .bg-black-panel {
-            background-color: var(--black-rich);
-            color: var(--white);
-            margin-top: -1px; /* Blends with Problem gradient */
-        }
-        .timeline {
-            position: relative;
-            max-width: 1000px;
+        /* Section Utility Layouts */
+        .section-pad { padding: 100px 5%; background-color: var(--white); }
+        .bg-gray { background-color: var(--gray-light); border-top: 1px solid var(--gray-border); }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 2.6rem; margin-bottom: 15px; letter-spacing: -1px; }
+        .section-header p { font-size: 1.1rem; color: #4B5563; max-width: 700px; margin: 0 auto; }
+
+        /* === NEW: Layered "Overlap" Blueprint Section (Slate Blue) === */
+        .bg-slate { background-color: var(--slate); color: var(--white); }
+        .bg-slate h2 { color: var(--white); }
+        .bg-slate .section-header p { color: #E5E7EB; }
+
+        .overlap-container {
+            max-width: 1100px;
             margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
         }
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 4px;
-            background-color: rgba(255,255,255,0.05); 
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .timeline-item {
-            padding: 0 60px 60px 60px;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
-        }
-        .timeline-item:last-child { padding-bottom: 0; }
-        .timeline-item.left { left: 0; text-align: right; }
-        .timeline-item.right { left: 50%; }
-        
-        .timeline-circle {
-            position: absolute;
-            top: 0;
-            width: 48px;
-            height: 48px;
-            background: var(--black-rich); 
-            border: 4px solid var(--gold);
-            border-radius: 50%;
-            z-index: 10;
+        .overlap-item {
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 1.3rem;
-            color: var(--white);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-        }
-        .timeline-item.left .timeline-circle { right: -28px; }
-        .timeline-item.right .timeline-circle { left: -28px; }
-        
-        .timeline-content {
-            background: rgba(255,255,255,0.03); /* Layered translucent panel */
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-            border: 1px solid var(--gray-border); 
-            text-align: left;
             position: relative;
-            transition: transform 0.3s ease, border-color 0.3s ease;
         }
-        .timeline-content:hover { transform: translateY(-5px); border-color: var(--gold); background: rgba(255,255,255,0.05); }
-        .timeline-content h3 { font-size: 1.6rem; margin-bottom: 15px; color: var(--white); }
-        .timeline-content p { font-size: 1.1rem; color: #E5E7EB; margin: 0; }
-
-        /* 5. Consulting Options TEASER -> Clean Gray Light Panel */
-        .bg-gray-teaser {
-            background-color: var(--gray-light);
-            border-top: 1px solid #ddd;
-            border-bottom: 1px solid #ddd;
+        .overlap-item:nth-child(even) { flex-direction: row-reverse; }
+        
+        .overlap-image {
+            width: 55%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            z-index: 1;
         }
-        .bg-gray-teaser h2 { color: var(--navy-deep); }
-        .bg-gray-teaser p { color: var(--text-dark-gray); }
+        
+        .overlap-text {
+            width: 50%;
+            background: var(--white);
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+            z-index: 2;
+            position: relative;
+        }
+        
+        /* The specific layering/overlap offsets */
+        .overlap-item:nth-child(odd) .overlap-text { margin-left: -10%; border-left: 4px solid var(--gold); }
+        .overlap-item:nth-child(even) .overlap-text { margin-right: -10%; border-right: 4px solid var(--gold); }
+        
+        .overlap-text .step { font-size: 0.9rem; font-weight: 800; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; display: block; }
+        .overlap-text h3 { color: var(--navy); font-size: 1.8rem; margin-bottom: 15px; }
+        .overlap-text p { color: var(--text-main); font-size: 1.05rem; line-height: 1.6; margin: 0; }
 
+        /* Consulting Teaser Grid */
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -238,112 +172,97 @@
         }
         .price-card {
             background: var(--white);
-            padding: 55px 45px;
+            padding: 50px 40px;
             border-radius: 8px;
             border: 1px solid var(--gray-border);
-            border-color: #eaeaea;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
             position: relative;
             display: flex;
             flex-direction: column;
         }
         .price-card.featured {
-            border: 3px solid var(--gold); /* Swapped highlight to Gold for high contrast */
-            box-shadow: 0 15px 40px rgba(242,169,0,0.15);
-            transform: scale(1.03);
+            border: 2px solid var(--navy);
+            box-shadow: 0 15px 30px rgba(0,34,68,0.08);
+            transform: scale(1.02);
         }
-        .price-card h3 { font-size: 1.6rem; margin-bottom: 5px; color: var(--navy-deep); }
-        .price-card .subtitle { color: var(--text-dark-gray); font-size: 0.95rem; margin-bottom: 25px; display: block; font-style: italic;}
+        .price-card h3 { font-size: 1.5rem; margin-bottom: 5px; color: var(--navy); }
+        .price-card .subtitle { color: #6B7280; font-size: 0.95rem; margin-bottom: 20px; display: block; font-style: italic;}
         
         .price-card ul.teaser-list { list-style: none; padding: 0; margin: 0; flex-grow: 1; }
-        .price-card ul.teaser-list li { padding: 14px 0; border-bottom: 1px solid #eee; color: var(--text-dark-gray); font-size: 1rem; }
+        .price-card ul.teaser-list li { padding: 12px 0; border-bottom: 1px solid var(--gray-border); color: #4B5563; font-size: 0.95rem; }
         .price-card ul.teaser-list li:last-child { border-bottom: none; }
-        .price-card ul.teaser-list li::before { content: "✓"; color: var(--gold); font-weight: bold; margin-right: 12px; font-size: 1.1rem; }
+        .price-card ul.teaser-list li::before { content: "✓"; color: var(--gold); font-weight: bold; margin-right: 10px; font-size: 1.1rem; }
 
-        .pricing-cta-wrapper { text-align: center; margin-top: 60px; }
+        .pricing-cta-wrapper { text-align: center; margin-top: 50px; }
         .large-btn {
-            background-color: var(--navy-deep);
+            background-color: var(--navy);
             color: var(--white);
-            padding: 16px 45px;
+            padding: 16px 40px;
             border-radius: 4px;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 700;
             text-decoration: none;
             display: inline-block;
             transition: all 0.3s ease;
-            border: 2px solid var(--navy-deep);
+            border: 2px solid var(--navy);
         }
-        .large-btn:hover { background-color: var(--gold); border-color: var(--gold); color: var(--navy-deep); }
+        .large-btn:hover { background-color: var(--gold); border-color: var(--gold); color: var(--navy); }
 
-        /* 6. Success Stories -> Layered Navy on Slate Footer */
-        .bg-navy-proof { background-color: var(--navy-deep); color: var(--white); }
-        .bg-navy-proof h2 { color: var(--white); }
-        .bg-navy-proof p { color: var(--text-light-gray); }
-
+        /* Success Stories */
+        .bg-navy { background-color: var(--navy); color: var(--white); }
+        .bg-navy h2 { color: var(--white); }
+        .bg-navy p { color: #D1D5DB; }
         .client-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 70px;
+            gap: 60px;
             max-width: 1200px;
             margin: 0 auto;
         }
-        .case-study h4 { color: var(--gold); font-size: 1.25rem; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;}
-        .case-study p { color: #E5E7EB; font-size: 1.1rem; line-height: 1.7; margin-bottom: 30px;}
+        .case-study h4 { color: var(--gold); font-size: 1.2rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px;}
+        .case-study p { color: #E5E7EB; line-height: 1.6; margin-bottom: 30px;}
         
         .quote-card {
-            background: rgba(255,255,255,0.04);
-            padding: 40px;
+            background: rgba(255,255,255,0.05);
+            padding: 35px;
             border-radius: 8px;
             border-left: 4px solid var(--gold);
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
-        .quote-card p { font-style: italic; font-size: 1.2rem; color: var(--white); margin-bottom: 15px; line-height: 1.7;}
-        .quote-card .author { font-size: 0.9rem; font-weight: 700; color: #9CA3AF; text-transform: uppercase; letter-spacing: 1px; }
+        .quote-card p { font-style: italic; font-size: 1.1rem; color: var(--white); margin-bottom: 15px;}
+        .quote-card .author { font-size: 0.85rem; font-weight: 700; color: #9CA3AF; text-transform: uppercase; }
 
-        /* 7. Leadership Section -> Fades into Footer Slate */
-        .bg-leadership-fade {
-            padding: 120px 5%;
-            background: linear-gradient(180deg, var(--gray-light) 0%, var(--white) 100%);
-            border-top: 1px solid #ddd;
-        }
-        .bg-leadership-fade h2 { color: var(--navy-deep); text-align: center; }
+        /* Team */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 30px;
-            max-width: 1100px;
-            margin: 60px auto 0 auto;
+            max-width: 1000px;
+            margin: 0 auto;
         }
-        .team-member { padding: 50px; background: var(--white); border: 1px solid #eee; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
-        .team-member h4 { font-size: 1.6rem; margin-bottom: 5px; color: var(--navy-deep); }
-        .team-member span { color: var(--gold); font-weight: 800; font-size: 0.95rem; text-transform: uppercase; display: block; margin-bottom: 20px; letter-spacing: 1px;}
-        .team-member p { font-size: 1rem; color: var(--text-dark-gray); }
+        .team-member { padding: 40px; background: var(--white); border: 1px solid var(--gray-border); border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .team-member h4 { font-size: 1.5rem; margin-bottom: 5px; color: var(--navy); }
+        .team-member span { color: var(--gold); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; display: block; margin-bottom: 15px;}
+        .team-member p { font-size: 0.95rem; color: #4B5563; }
 
-        /* Footer (Slate Blue Background) */
-        footer { background: var(--slate-blue); color: #9CA3AF; text-align: center; padding: 70px 5%; font-size: 0.95rem; border-top: 1px solid var(--gray-border); }
+        /* Footer */
+        footer { background: var(--dark); color: #9CA3AF; text-align: center; padding: 60px 5%; font-size: 0.9rem; }
 
-        /* === Mobile Responsiveness === */
+        /* Mobile Adjustments */
         @media (max-width: 1024px) {
             .pricing-grid, .stats-grid { grid-template-columns: 1fr 1fr; }
             .hero h2 { font-size: 3.5rem; }
-            .hero p { font-size: 1.15rem; }
-            .two-col-grid, .client-grid, .team-grid { grid-template-columns: 1fr; gap: 50px;}
-            .section-header h2 { font-size: 2.8rem; }
-            .stat-item { border-right: none; border-bottom: 1px solid #eee; }
+            .two-col-grid, .client-grid, .team-grid { grid-template-columns: 1fr; gap: 40px;}
+            .stat-item { border-right: none; border-bottom: 1px solid var(--gray-border); }
             .stat-item:nth-child(even) { border-right: none; }
-            header { position: relative; background-color: var(--navy-deep); width: 100%; padding: 1.5rem 0; justify-content: center;}
-            .logo { position: absolute; left: 5%; }
-            .stats-container { margin-top: -60px; }
+            header { position: relative; background-color: var(--navy); }
+            .stats-container { margin-top: -40px; }
             nav { display: none; }
         }
-        @media (max-width: 768px) {
-            .slant-down { clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%); }
-            .timeline::after { left: 30px; }
-            .timeline-item { width: 100%; padding: 0 0 50px 80px; }
-            .timeline-item.left { left: 0; text-align: left; }
-            .timeline-item.right { left: 0; }
-            .timeline-item.left .timeline-circle, .timeline-item.right .timeline-circle { left: 8px; }
-            .price-card.featured { transform: scale(1); }
+        @media (max-width: 900px) {
+            .overlap-item, .overlap-item:nth-child(even) { flex-direction: column; }
+            .overlap-image { width: 100%; height: auto; }
+            .overlap-text { width: 90%; margin: -40px auto 0 auto !important; }
         }
         @media (max-width: 600px) {
             .stats-grid { grid-template-columns: 1fr; }
@@ -400,37 +319,40 @@
                 <p>MVP Marketing Group bridges this gap, saving clients time, energy, and costs by handling the entire process to maximize long-term revenue potential and sponsorship satisfaction.</p>
             </div>
             <div class="problem-visual">
-                <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="High school stadium under lights" style="width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="High school stadium under lights" style="width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
             </div>
         </div>
     </section>
 
-    <section id="blueprint" class="section-pad bg-black-panel slant-down">
+    <section id="blueprint" class="section-pad bg-slate">
         <div class="section-header">
             <h2>The Full-Service Playbook</h2>
             <p>You handle the athletics. We handle the business. When you partner with MVP, we take complete ownership of your sponsorship lifecycle from initial audit to final contract delivery.</p>
         </div>
         
-        <div class="timeline">
-            <div class="timeline-item left">
-                <div class="timeline-circle">1</div>
-                <div class="timeline-content">
+        <div class="overlap-container">
+            <div class="overlap-item">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Business Strategy" class="overlap-image">
+                <div class="overlap-text">
+                    <span class="step">Step 01</span>
                     <h3>Asset Valuation</h3>
                     <p>We don't just sell; we strategize. We conduct a deep-dive audit of your digital, physical, and multimedia assets to build high-yield, custom sponsorship packages backed by data-driven pricing.</p>
                 </div>
             </div>
             
-            <div class="timeline-item right">
-                <div class="timeline-circle">2</div>
-                <div class="timeline-content">
+            <div class="overlap-item">
+                <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Active Sales Handshake" class="overlap-image">
+                <div class="overlap-text">
+                    <span class="step">Step 02</span>
                     <h3>Active Market Sales</h3>
                     <p>We act as an extension of your department. Leveraging our network and proven 1:1 presentation strategies, we actively pitch, negotiate, and close local and regional business partnerships on your behalf.</p>
                 </div>
             </div>
             
-            <div class="timeline-item left">
-                <div class="timeline-circle">3</div>
-                <div class="timeline-content">
+            <div class="overlap-item">
+                <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="White Glove Service" class="overlap-image">
+                <div class="overlap-text">
+                    <span class="step">Step 03</span>
                     <h3>White-Glove Fulfillment</h3>
                     <p>A signed contract is just the beginning. We manage the day-to-day deliverables, ensuring your sponsors receive maximum ROI and VIP care, making year-over-year renewals absolutely effortless.</p>
                 </div>
@@ -438,7 +360,7 @@
         </div>
     </section>
 
-    <section id="consulting" class="section-pad bg-gray-teaser">
+    <section id="consulting" class="section-pad bg-gray">
         <div class="section-header">
             <h2>Consultation Options</h2>
             <p>Expert perspective and assistance customized for your booster club, department, or foundation. We offer tiered packages to fit your exact needs and capacity.</p>
@@ -455,16 +377,6 @@
                     <li>1:1 Virtual reporting</li>
                 </ul>
             </div>
-            <div class="price-card featured">
-                <h3>Gold Package</h3>
-                <span class="subtitle">Teach me, Show me, Coach me!</span>
-                <ul class="teaser-list">
-                    <li><strong>Includes all Silver services</strong></li>
-                    <li><strong>3 days of onsite training</strong></li>
-                    <li>Live sales presentations by MVP</li>
-                    <li>In-person pitch coaching</li>
-                </ul>
-            </div>
             <div class="price-card">
                 <h3>Silver Package</h3>
                 <span class="subtitle">Need help building it?</span>
@@ -475,6 +387,16 @@
                     <li>Virtual fulfillment best practices</li>
                 </ul>
             </div>
+            <div class="price-card featured">
+                <h3>Gold Package</h3>
+                <span class="subtitle">Teach me, Show me, Coach me!</span>
+                <ul class="teaser-list">
+                    <li><strong>Includes all Silver services</strong></li>
+                    <li><strong>3 days of onsite training</strong></li>
+                    <li>Live sales presentations by MVP</li>
+                    <li>In-person pitch coaching</li>
+                </ul>
+            </div>
         </div>
 
         <div class="pricing-cta-wrapper">
@@ -482,7 +404,7 @@
         </div>
     </section>
 
-    <section id="clients" class="section-pad bg-navy-proof slant-down">
+    <section id="clients" class="section-pad bg-navy">
         <div class="section-header">
             <h2>A Proven Track Record in Texas</h2>
             <p>Successfully partnering with Celina ISD, Denton ISD, Burleson ISD, Mesquite ISD, Crowley ISD, and North Central Texas College.</p>
@@ -519,8 +441,11 @@
         </div>
     </section>
 
-    <section id="team" class="bg-leadership-fade">
-        <h2>Know Your Team</h2>
+    <section id="team" class="section-pad bg-gray">
+        <div class="section-header">
+            <h2>Know Your Team</h2>
+            <p>Led by industry leaders and experts in high school marketing and advertising.</p>
+        </div>
         <div class="team-grid">
             <div class="team-member">
                 <h4>Michael Vogelaar</h4>
@@ -536,8 +461,8 @@
     </section>
 
     <footer id="contact">
-        <h3 style="color: white; margin-bottom: 20px; font-size: 2rem;">Ready to maximize your revenue?</h3>
-        <p style="margin-bottom: 30px; color: var(--text-light-gray);">Contact the MVP team to schedule your virtual or in-person consultation.</p>
+        <h3 style="color: white; margin-bottom: 20px;">Ready to maximize your revenue?</h3>
+        <p style="margin-bottom: 30px;">Contact the MVP team to schedule your virtual or in-person consultation.</p>
         <p>&copy; 2026 MVP Marketing Group. All rights reserved.</p>
     </footer>
 
