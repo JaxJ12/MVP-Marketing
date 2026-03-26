@@ -10,14 +10,14 @@
         :root {
             --navy: #002244; 
             --navy-dark: #00152b; 
+            --navy-light: #003b73;
             --gold: #F2A900; 
-            --slate: #1E293B; 
-            --dark: #050505; 
-            --gray-light: #F9FAFB;
-            --gray-border: #E5E7EB;
+            --cream: #f9fafb; 
+            --off-white: #f1f5f9;
+            --text: #1a1a1a; 
+            --muted: #64748b;
             --text-main: #374151;
             --white: #FFFFFF;
-            --bot-glow: rgba(0, 34, 68, 0.4);
         }
         
         body, html {
@@ -33,23 +33,36 @@
         h1, h2, h3, h4 { margin-top: 0; line-height: 1.1; color: var(--navy); font-weight: 800; }
         p { margin-top: 0; line-height: 1.8; color: var(--text-main); margin-bottom: 1.5rem; }
 
-        /* --- REDESIGNED NAVIGATION (SYNCED TO APPROACH) --- */
+        /* --- UNIFORM NAVIGATION (Synced exactly to Approach/Contact) --- */
         nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1rem 2.5rem; display: flex; align-items: center; justify-content: space-between; background: rgba(0,34,68,0.97); backdrop-filter: blur(8px); }
         .nav-logo { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 10px; text-decoration: none; }
         .nav-mark { width: 34px; height: 34px; background: var(--gold); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: var(--navy); }
-        .nav-links { display: flex; list-style: none; gap: 30px; }
+        .nav-links { display: flex; list-style: none; gap: 30px; margin: 0; padding: 0; }
         .nav-links a { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.7); text-decoration: none; padding: 0.5rem 0; transition: color 0.2s; }
         .nav-links a:hover, .nav-links a.active { color: var(--gold); }
         .nav-cta { background: var(--gold) !important; color: var(--navy) !important; border-radius: 4px !important; padding: 8px 18px !important; font-weight: 700 !important; border: none; }
 
-        /* --- REDESIGNED HERO SECTION --- */
+        /* --- UNIFORM HERO SECTION (Synced exactly to Approach/Contact) --- */
         .page-hero { background: var(--navy); padding: 9rem 2.5rem 5rem; position: relative; overflow: hidden; }
         .hero-pattern { position: absolute; inset: 0; opacity: 0.04; background-image: repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 50%); background-size: 20px 20px; }
         .hero-bar { position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--gold); }
         .hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; text-align: center; }
         .page-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
         .page-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,5vw,4.5rem); font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 1.25rem; letter-spacing: -2px; }
+        .page-title em { font-style: normal; color: var(--gold); }
         .page-sub { font-size: 1.1rem; color: rgba(255,255,255,0.65); line-height: 1.8; font-weight: 400; max-width: 750px; margin: 0 auto; }
+
+        /* --- Mobile Nav (Synced) --- */
+        .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+        .nav-hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: all 0.3s; }
+        .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+        .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+        .nav-mobile { display: none; position: fixed; top: 70px; left: 0; right: 0; background: rgba(0,34,68,0.98); backdrop-filter: blur(10px); z-index: 99; padding: 1rem 2.5rem 1.5rem; flex-direction: column; gap: 0.5rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .nav-mobile.open { display: flex; }
+        .nav-mobile a { font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.8); text-decoration: none; padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); transition: color 0.2s; }
+        .nav-mobile a:last-child { border-bottom: none; }
+        .nav-mobile a:hover, .nav-mobile a.active { color: var(--gold); }
 
         /* --- Case Study Sections --- */
         .impact-section { padding: 100px 5%; background: var(--white); }
@@ -77,8 +90,8 @@
             flex-direction: column;
             justify-content: space-between;
         }
-        .testimonial-card p { font-style: italic; font-size: 1.1rem; color: #cbd5e1; }
-        .testimonial-card .author { font-weight: 700; color: white; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; margin-top: 20px; }
+        .testimonial-card p { font-style: italic; font-size: 1.1rem; color: #cbd5e1; margin-bottom: 20px; }
+        .testimonial-card .author { font-weight: 700; color: white; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; margin-top: auto; }
         .testimonial-card .title { font-size: 0.8rem; color: var(--gold); }
 
         /* --- Footer --- */
@@ -131,18 +144,6 @@
         @keyframes slideIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
         .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
         .fade-up.in { opacity: 1; transform: translateY(0); }
-
-        /* --- Mobile Nav --- */
-        .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-        .nav-hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: all 0.3s; }
-        .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .nav-hamburger.open span:nth-child(2) { opacity: 0; }
-        .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-        .nav-mobile { display: none; position: fixed; top: 70px; left: 0; right: 0; background: rgba(0,34,68,0.98); backdrop-filter: blur(10px); z-index: 99; padding: 1rem 2.5rem 1.5rem; flex-direction: column; gap: 0.5rem; border-top: 1px solid rgba(255,255,255,0.1); }
-        .nav-mobile.open { display: flex; }
-        .nav-mobile a { font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.8); text-decoration: none; padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); transition: color 0.2s; }
-        .nav-mobile a:last-child { border-bottom: none; }
-        .nav-mobile a:hover, .nav-mobile a.active { color: var(--gold); }
 
         @media (max-width: 1024px) {
             .case-study-item { grid-template-columns: 1fr; gap: 40px; }
@@ -269,7 +270,7 @@
                 <a href="approach.html">Approach</a>
                 <a href="blueprint.html">Playbook</a>
                 <a href="consulting.html">Consulting</a>
-                <a href="clients.html">Success Stories</a>
+                <a href="clients.html">Results</a>
                 <a href="contact.html">Contact</a>
             </div>
             <div class="foot-copy">&copy; 2026 MVP Marketing Group. All rights reserved.</div>
