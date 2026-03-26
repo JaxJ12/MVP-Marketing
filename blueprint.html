@@ -4,85 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Playbook | MVP Marketing Group</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/png" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --navy: #002244; --gold: #F2A900; --slate: #1E293B; --dark: #050505; 
-            --gray-light: #F9FAFB; --gray-border: #E5E7EB; --text-main: #374151;
-            --white: #FFFFFF; --bot-glow: rgba(242, 169, 0, 0.4);
+            --navy: #002244; 
+            --gold: #F2A900; 
+            --slate: #1E293B; 
+            --dark: #050505; 
+            --gray-light: #F9FAFB;
+            --gray-border: #E5E7EB;
+            --text-main: #374151;
+            --white: #FFFFFF;
+            --bot-glow: rgba(0, 34, 68, 0.4);
         }
         
-        body, html { margin: 0; padding: 0; font-family: 'Inter', sans-serif; color: var(--text-main); background-color: var(--white); scroll-behavior: smooth; font-size: 15px; overflow-x: hidden; }
+        body, html {
+            margin: 0; padding: 0;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background-color: var(--white);
+            scroll-behavior: smooth;
+            font-size: 15px;
+            overflow-x: hidden;
+        }
+
         h1, h2, h3, h4 { margin-top: 0; line-height: 1.1; color: var(--navy); font-weight: 800; }
         p { margin-top: 0; line-height: 1.8; color: var(--text-main); margin-bottom: 1.5rem; font-weight: 400; }
 
-        /* --- Standardized Universal Header --- */
-        header { 
-            background-color: var(--navy); 
-            padding: 1rem 5%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
+        /* --- Navigation (Matched to Approach) --- */
+        header {
+            background-color: var(--navy);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
-        .logo img { height: 45px; width: auto; transition: 0.3s; }
+        .logo img { height: 45px; width: auto; transition: transform 0.3s; }
         .logo img:hover { transform: scale(1.05); }
 
         nav { display: flex; gap: 30px; align-items: center; }
-        nav a { color: var(--white); text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: 0.3s; opacity: 1; }
+        nav a { color: var(--white); text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: color 0.2s; }
         nav a:hover { color: var(--gold); }
-        .nav-cta { 
-            padding: 9px 20px; border-radius: 4px; font-weight: 700; border: 2px solid var(--white); 
-            font-size: 0.85rem; color: var(--white) !important; text-decoration: none; transition: 0.3s; 
+        .nav-cta {
+            padding: 8px 18px;
+            border-radius: 4px;
+            font-weight: 700;
+            border: 2px solid var(--white);
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            color: var(--white) !important;
         }
-        .nav-cta:hover { background: white; color: var(--navy) !important; text-shadow: none; }
+        .nav-cta:hover { background-color: var(--white); color: var(--navy) !important; text-shadow: none; }
 
-        /* --- Hero with Strategy Ghost Text --- */
-        .playbook-hero { 
-            padding: 160px 5% 100px; text-align: center; 
-            background: linear-gradient(rgba(0,34,68,0.85), rgba(5,5,5,0.9)), url('https://images.unsplash.com/photo-1504450758481-7338eba7524a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover; 
-            color: white; position: relative;
+        /* --- SUBPAGE HERO --- */
+        .playbook-hero {
+            background: linear-gradient(rgba(0,34,68,0.85), rgba(5,5,5,0.92)), url('https://images.unsplash.com/photo-1504450758481-7338eba7524a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover;
+            color: var(--white);
+            padding: 160px 5% 100px;
+            text-align: center;
+            position: relative;
         }
         .playbook-hero h1 { color: var(--white); font-size: 4.5rem; letter-spacing: -4px; margin-bottom: 20px; position: relative; z-index: 1; }
         .playbook-hero p { color: var(--gold); font-weight: 700; text-transform: uppercase; letter-spacing: 4px; font-size: 0.9rem; position: relative; z-index: 1; }
-        .ghost-text { position: absolute; top: 15%; left: 50%; transform: translateX(-50%); font-size: 11rem; font-weight: 900; color: rgba(255,255,255,0.04); z-index: 0; pointer-events: none; text-transform: uppercase; letter-spacing: 25px; }
+        
+        /* GHOST TEXT OVERLAY */
+        .ghost-text {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10rem;
+            font-weight: 900;
+            color: rgba(255,255,255,0.03);
+            z-index: 0;
+            text-transform: uppercase;
+            pointer-events: none;
+            letter-spacing: 20px;
+        }
 
-        /* --- Strategy Lifecycle Section (Roadmap) --- */
-        .roadmap-section { padding: 100px 5%; background: var(--gray-light); border-top: 1px solid var(--gray-border); }
-        .roadmap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--gray-border); background: white; border-radius: 8px; overflow: hidden; max-width: 1200px; margin: 60px auto 0; }
-        .roadmap-item { padding: 60px 35px; border-right: 1px solid var(--gray-border); position: relative; transition: 0.3s; }
-        .roadmap-item:last-child { border-right: none; }
-        .roadmap-item:hover { background: var(--navy); color: white; }
-        .roadmap-item:hover h4, .roadmap-item:hover p { color: white; }
-        .roadmap-num { font-size: 2.5rem; font-weight: 900; color: var(--gold); opacity: 0.15; position: absolute; top: 20px; right: 20px; }
-        .roadmap-item h4 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; }
+        /* --- Blueprint Stages (Vertical Roadmap) --- */
+        .stages-section { padding: 120px 5%; max-width: 1100px; margin: 0 auto; }
+        .stage-item { display: grid; grid-template-columns: 80px 1fr; gap: 40px; margin-bottom: 80px; position: relative; }
+        .stage-item:not(:last-child)::after { content: ''; position: absolute; top: 80px; left: 38px; width: 4px; height: calc(100% - 20px); background: var(--gray-border); border-radius: 2px; }
+        .stage-num { width: 80px; height: 80px; background: var(--navy); color: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 800; border: 4px solid var(--white); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .stage-content h2 { font-size: 2.2rem; margin-bottom: 15px; letter-spacing: -1px; }
+        .stage-content p { font-size: 1.1rem; color: #64748b; }
 
-        /* --- Commercial Pillars Section --- */
-        .pillars { padding: 120px 5%; background: var(--white); text-align: center; }
-        .pillar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 60px auto 0; }
-        .pillar-card { padding: 60px 40px; border: 1px solid var(--gray-border); border-radius: 4px; transition: 0.4s; text-align: left; }
-        .pillar-card:hover { border-color: var(--gold); transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
-        .pillar-card h3 { font-size: 1.4rem; margin-bottom: 20px; border-bottom: 2px solid var(--gold); display: inline-block; padding-bottom: 10px; }
-        .pillar-card ul { padding: 0; list-style: none; margin-top: 20px; }
-        .pillar-card li { margin-bottom: 12px; padding-left: 20px; position: relative; color: #555; font-size: 0.95rem; }
-        .pillar-card li::before { content: '→'; position: absolute; left: 0; color: var(--gold); font-weight: 900; }
-
-        /* --- Operational Relief (Stewardship) --- */
-        .relief { padding: 100px 5%; background: var(--gray-light); }
-        .relief-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; max-width: 1100px; margin: 0 auto; align-items: center; }
-        .relief-content h2 { font-size: 2.8rem; margin-bottom: 30px; letter-spacing: -2px; }
-        .relief-image img { width: 100%; border-radius: 4px; box-shadow: 0 40px 80px rgba(0,0,0,0.1); }
-
-        /* --- Core Values --- */
-        .values-bg { padding: 100px 5%; background: var(--navy); color: white; text-align: center; }
-        .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; max-width: 1200px; margin: 60px auto 0; }
-        .value-card { background: rgba(255,255,255,0.05); padding: 40px 30px; border-radius: 4px; border-top: 4px solid var(--gold); text-align: left; }
-        .value-card h4 { color: white; font-size: 1.2rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
-        .value-card p { color: #94a3b8; font-size: 0.9rem; margin: 0; }
+        /* --- Asset Grid --- */
+        .asset-bg { background-color: var(--gray-light); padding: 100px 5%; border-top: 1px solid var(--gray-border); }
+        .section-header { text-align: center; margin-bottom: 70px; }
+        .section-header h2 { font-size: 2.8rem; letter-spacing: -1.5px; }
+        .asset-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .asset-card { background: white; border-radius: 4px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid var(--gray-border); transition: transform 0.3s; }
+        .asset-card:hover { transform: translateY(-10px); border-color: var(--gold); }
+        .asset-img { height: 200px; background-size: cover; background-position: center; }
+        .asset-info { padding: 40px; }
+        .asset-info h3 { font-size: 1.4rem; margin-bottom: 20px; color: var(--navy); }
+        .asset-info ul { padding: 0; list-style: none; }
+        .asset-info li { margin-bottom: 12px; padding-left: 20px; position: relative; font-size: 0.95rem; color: #555; }
+        .asset-info li::before { content: '→'; position: absolute; left: 0; color: var(--gold); font-weight: 900; }
 
         /* --- SAP STYLE FINAL FOOTER --- */
         .footer-deep { background: #0A0A0A; padding: 100px 5% 50px; border-top: 1px solid rgba(255,255,255,0.05); }
@@ -91,11 +116,10 @@
         .footer-col p { color: #9CA3AF; font-size: 0.95rem; line-height: 1.6; }
         .footer-links { list-style: none; padding: 0; margin: 0; }
         .footer-links li { margin-bottom: 12px; }
-        .footer-links a { color: #9CA3AF; text-decoration: none; font-size: 0.95rem; transition: color 0.3s; }
-        .footer-links a:hover { color: var(--gold); }
+        .footer-links a { color: #94a3b8; text-decoration: none; transition: 0.3s; font-size: 0.95rem; }
+        .footer-links a:hover { color: var(--gold); padding-left: 5px; }
         .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 50px; display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
-        .footer-bottom p { color: #6B7280; font-size: 0.85rem; margin: 0; }
-        .footer-brand { color: white; font-weight: 800; font-size: 1.1rem; text-decoration: none; }
+        .footer-brand { color: white; font-weight: 800; font-size: 1.2rem; text-decoration: none; }
 
         /* --- Chatbot Widget --- */
         .chat-widget { position: fixed; bottom: 30px; right: 30px; z-index: 9999; display: flex; flex-direction: column; align-items: flex-end; }
@@ -108,7 +132,7 @@
         .chat-header { background: var(--navy); color: white; padding: 18px; display: flex; justify-content: space-between; font-weight: 700; }
         .chat-body { height: 330px; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; background: #fdfdfd; }
         .chat-msg { padding: 12px 16px; border-radius: 18px; font-size: 0.95rem; max-width: 85%; line-height: 1.5; }
-        .msg-bot { background: #f1f5f9; border: 1px solid #e2e8f0; align-self: flex-start; color: var(--text-main); }
+        .msg-bot { background: #f1f5f9; border: 1px solid #e2e8f0; align-self: flex-start; }
         .msg-user { background: var(--navy); color: white; align-self: flex-end; }
         .chat-footer { padding: 15px; display: flex; gap: 8px; background: white; border-top: 1px solid #eee; }
         .chat-input { flex: 1; border: 1px solid #ddd; padding: 10px 18px; border-radius: 30px; outline: none; font-size: 0.95rem; }
@@ -119,9 +143,12 @@
         @keyframes slideIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
         @media (max-width: 1024px) {
-            .roadmap-grid, .pillar-grid, .values-grid, .footer-grid, .relief-grid { grid-template-columns: 1fr; gap: 40px; }
-            .roadmap-item { border-right: none; border-bottom: 1px solid var(--gray-border); }
+            .asset-grid, .footer-grid { grid-template-columns: 1fr; }
+            .stage-item { grid-template-columns: 1fr; text-align: center; }
+            .stage-item::after { display: none; }
+            .stage-num { margin: 0 auto 20px; }
             nav { display: none; }
+            .playbook-hero h1 { font-size: 3rem; }
         }
     </style>
 </head>
@@ -140,101 +167,86 @@
     </header>
 
     <div class="playbook-hero">
-        <div class="ghost-text">Strategy</div>
-        <p>Comprehensive Execution Model</p>
-        <h1>The Revenue Playbook</h1>
+        <div class="ghost-text">Playbook</div>
+        <p>Execution Strategy</p>
+        <h1>The Revenue Blueprint</h1>
     </div>
 
-    <section class="roadmap-section">
-        <div style="text-align: center; margin-bottom: 60px;">
-            <h2>The Lifecycle of Optimization</h2>
-            <p style="color: #64748b;">A systematic roadmap for scaling your district's commercial ecosystem.</p>
+    <section class="stages-section">
+        <div class="stage-item">
+            <div class="stage-num">01</div>
+            <div class="stage-content">
+                <h2>Asset Maximization</h2>
+                <p>We perform a deep-dive audit of your entire commercial inventory. This includes a professional valuation of all physical signage, digital placements, and multimedia opportunities to ensure your district is maximizing the market rate for its brand visibility.</p>
+            </div>
         </div>
-        <div class="roadmap-grid">
-            <div class="roadmap-item">
-                <span class="roadmap-num">01</span>
-                <h4>Asset Audit</h4>
-                <p>Ground-up valuation of physical, digital, and social touchpoints within the district.</p>
+
+        <div class="stage-item">
+            <div class="stage-num">02</div>
+            <div class="stage-content">
+                <h2>Executive Partnership Pitch</h2>
+                <p>Our team develops high-end sales literature and 1:1 presentation decks tailored to your district's story. We handle the heavy lift of regional and local business outreach, pitching your value to decision-makers with professional-grade ROI data.</p>
             </div>
-            <div class="roadmap-item">
-                <span class="roadmap-num">02</span>
-                <h4>Market Pitch</h4>
-                <p>Professional 1:1 presentations to regional decision-makers with data-backed ROI metrics.</p>
+        </div>
+
+        <div class="stage-item">
+            <div class="stage-num">03</div>
+            <div class="stage-content">
+                <h2>Contractual Integrity</h2>
+                <p>Negotiating multi-year terms can be a hurdle for districts. We manage the entire term-based negotiation process, ensuring all district interests are protected while securing sustainable commitments from commercial partners.</p>
             </div>
-            <div class="roadmap-item">
-                <span class="roadmap-num">03</span>
-                <h4>Contracting</h4>
-                <p>Managing legal term sheets and securing multi-year commitments from commercial partners.</p>
-            </div>
-            <div class="roadmap-item">
-                <span class="roadmap-num">04</span>
-                <h4>Stewardship</h4>
-                <p>High-touch fulfillment ensuring sponsor ROI and effortless annual renewals.</p>
+        </div>
+
+        <div class="stage-item">
+            <div class="stage-num">04</div>
+            <div class="stage-content">
+                <h2>Continuous Stewardship</h2>
+                <p>A partnership only thrives through elite service. We manage the daily fulfillment—logo proofing, installation sightlines, and impact reporting—to ensure sponsors are delighted and year-over-year renewals are a formality.</p>
             </div>
         </div>
     </section>
 
-    <section class="pillars">
-        <h2>Commercial Pillars</h2>
-        <div class="pillar-grid">
-            <div class="pillar-card">
-                <h3>Visibility</h3>
-                <ul>
-                    <li>Stadium Naming Rights</li>
-                    <li>Static Perimeter Signage</li>
-                    <li>Digital LED Takeovers</li>
-                </ul>
-            </div>
-            <div class="pillar-card">
-                <h3>Engagement</h3>
-                <ul>
-                    <li>Social Media Narrative</li>
-                    <li>Live-Stream Commercials</li>
-                    <li>In-Game PA Features</li>
-                </ul>
-            </div>
-            <div class="pillar-card">
-                <h3>Stewardship</h3>
-                <ul>
-                    <li>Full Logo Proofing</li>
-                    <li>Zero-Staff Oversight</li>
-                    <li>Renewal Strategy</li>
-                </ul>
-            </div>
+    <section class="asset-bg">
+        <div class="section-header">
+            <h2>The Commercial Channels</h2>
+            <p>We activate district revenue across three primary modern touchpoints.</p>
         </div>
-    </section>
-
-    <section class="relief">
-        <div class="relief-grid">
-            <div class="relief-content">
-                <h2>Autonomous Stewardship</h2>
-                <p>Athletic departments are already at peak capacity. Our playbook is designed to act as a seamless extension of your office, removing the operational weight of sales, installation, and sponsor management.</p>
-                <p>By professionalizing the entire process, we ensure your staff stays focused on the student-athletes while the district benefits from a professionally managed, high-yield revenue stream.</p>
+        <div class="asset-grid">
+            <div class="asset-card">
+                <div class="asset-img" style="background-image: url('https://images.unsplash.com/photo-1541252260730-0412e8e2108e?q=80&w=1000&auto=format&fit=crop');"></div>
+                <div class="asset-info">
+                    <h3>On-Site Dominance</h3>
+                    <ul>
+                        <li>Stadium Naming Rights</li>
+                        <li>Complex Wayfinding Partners</li>
+                        <li>Static Perimeter Signage</li>
+                        <li>Digital Scoreboard Takeovers</li>
+                    </ul>
+                </div>
             </div>
-            <div class="relief-image">
-                <img src="https://images.unsplash.com/photo-1551836022-d5d8b3c824d8?q=80&w=2070&auto=format&fit=crop" alt="Consulting Session">
+            <div class="asset-card">
+                <div class="asset-img" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop');"></div>
+                <div class="asset-info">
+                    <h3>Digital Ecosystem</h3>
+                    <ul>
+                        <li>Social Media Storytelling</li>
+                        <li>Website Brand Takeovers</li>
+                        <li>Live-Stream Ad Integration</li>
+                        <li>Digital Ticketing Partnerships</li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </section>
-
-    <section class="values-bg">
-        <h2>Our Core Values</h2>
-        <div class="values-grid">
-            <div class="value-card">
-                <h4>Integrity</h4>
-                <p>Building trusted, long-term partnerships that protect the reputation of the district.</p>
-            </div>
-            <div class="value-card">
-                <h4>Precision</h4>
-                <p>Using data-driven models to ensure no district asset is undervalued.</p>
-            </div>
-            <div class="value-card">
-                <h4>Stewardship</h4>
-                <p>Providing elite fulfillment that guarantees high sponsor ROI and renewals.</p>
-            </div>
-            <div class="value-card">
-                <h4>Collaboration</h4>
-                <p>Operating as a seamless, integrated extension of district and foundation staff.</p>
+            <div class="asset-card">
+                <div class="asset-img" style="background-image: url('https://images.unsplash.com/photo-1478737270239-2f02b77fc618?q=80&w=1000&auto=format&fit=crop');"></div>
+                <div class="asset-info">
+                    <h3>Multimedia Synergy</h3>
+                    <ul>
+                        <li>Public Address Branding</li>
+                        <li>Game-Day Video Featurettes</li>
+                        <li>Radio & Streaming Broadcasts</li>
+                        <li>Halftime Activation Events</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -242,16 +254,17 @@
     <footer class="footer-deep">
         <div class="footer-grid">
             <div class="footer-col">
-                <h4>The Mission</h4>
-                <p>MVP Marketing Group is dedicated to maximizing revenue for Texas high schools through elite, full-service sponsorship management.</p>
+                <h4 style="color: white; font-weight: 800;">MVP Marketing Group</h4>
+                <p>Professionalizing high school and collegiate athletics through strategic commercial rights management and full-service execution.</p>
             </div>
             <div class="footer-col">
-                <h4>Navigation</h4>
+                <h4>Sitemap</h4>
                 <ul class="footer-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="approach.html">Our Approach</a></li>
+                    <li><a href="approach.html">The Approach</a></li>
                     <li><a href="blueprint.html">The Playbook</a></li>
                     <li><a href="consulting.html">Consulting Options</a></li>
+                    <li><a href="index.html#team">Leadership</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -263,8 +276,8 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <a href="index.html" class="footer-brand">MVP Marketing Group</a>
-            <p>Confidential Strategy • Spring 2026 • Powered by MVP Marketing Group</p>
+            <p>Confidential Strategy Proposal • Spring 2026</p>
+            <p>&copy; 2026 MVP Marketing Group. All rights reserved.</p>
         </div>
     </footer>
 
@@ -276,11 +289,11 @@
         <div class="chat-window" id="chat-window">
             <div class="chat-header"><h4>MVP Strategic Advisor</h4><div onclick="toggleChat()" style="cursor:pointer;">✖</div></div>
             <div class="chat-body" id="chat-body">
-                <div class="chat-msg msg-bot">Hello! I'm the MVP Strategic Advisor. How can I clarify our Revenue Architecture model or Playbook stages for you?</div>
+                <div class="chat-msg msg-bot">Hello. I am the MVP Strategic Advisor. How can I clarify our Revenue Architecture or Playbook stages for you today?</div>
                 <div id="typing-indicator" style="display:none; font-size: 0.75rem; color: #888; padding: 10px;">Advisor is searching...</div>
             </div>
             <div class="chat-footer">
-                <input type="text" id="chat-input" class="chat-input" placeholder="Ask about our strategy..." onkeypress="if(event.key==='Enter') sendMessage()">
+                <input type="text" id="chat-input" class="chat-input" placeholder="Ask a question..." onkeypress="if(event.key==='Enter') sendMessage()">
                 <button class="chat-send" onclick="sendMessage()">➤</button>
             </div>
         </div>
@@ -310,7 +323,7 @@
                 appendMessage(data.reply, 'bot');
             } catch (err) {
                 indicator.style.display = 'none';
-                appendMessage("The advisor is offline. Please check your connection.", 'bot');
+                appendMessage("The advisor is offline. Please check your MVP_Marketing_API connection.", 'bot');
             }
         }
         function appendMessage(text, side) {
