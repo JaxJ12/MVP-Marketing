@@ -13,6 +13,7 @@
             --gray-light: #F8F9FA;
             --gray-border: #E5E7EB;
             --text-main: #374151;
+            --text-muted: #6B7280;
             --white: #FFFFFF;
         }
         
@@ -30,7 +31,7 @@
         header {
             background-color: var(--white);
             box-shadow: 0 1px 10px rgba(0,0,0,0.05);
-            padding: 1.2rem 5%;
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -65,7 +66,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,45,98,0.9), rgba(0,25,55,0.95)), url('https://images.unsplash.com/photo-1504450758481-7338eba7524a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover;
+            background: linear-gradient(rgba(0,45,98,0.92), rgba(0,25,55,0.97)), url('https://images.unsplash.com/photo-1504450758481-7338eba7524a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover;
             color: var(--white);
             padding: 180px 5% 120px;
             text-align: center;
@@ -86,30 +87,37 @@
             line-height: 1.6;
         }
 
-        /* Animated Stats Strip */
+        /* Subdued, Professional Stats Bar */
         .stats {
             display: flex;
             justify-content: center;
-            gap: 80px;
-            padding: 60px 5%;
-            background-color: var(--gray-light);
+            background-color: var(--white);
+            border-top: 1px solid var(--gray-border);
             border-bottom: 1px solid var(--gray-border);
+            max-width: 1200px;
+            margin: 0 auto;
             flex-wrap: wrap;
         }
-        .stat-item { text-align: center; }
+        .stat-item {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 30px;
+            border-right: 1px solid var(--gray-border);
+        }
+        .stat-item:last-child { border-right: none; }
         .stat-num {
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: var(--navy);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #4B5563; /* Subdued Gray-Blue */
             margin-bottom: 5px;
-            letter-spacing: -1px;
+            letter-spacing: -0.5px;
         }
         .stat-label {
             font-size: 0.9rem;
-            text-transform: uppercase;
-            font-weight: 600;
-            color: #6B7280;
-            letter-spacing: 1px;
+            font-weight: 500;
+            color: var(--text-muted);
+            letter-spacing: 0.3px;
         }
 
         /* Section Layouts */
@@ -159,7 +167,7 @@
         .price-card .amount { font-size: 2.5rem; font-weight: 800; color: var(--navy); margin-bottom: 25px; }
         .price-card .amount span { font-size: 1rem; color: #6B7280; font-weight: 500; }
         .price-card ul { list-style: none; padding: 0; margin: 0; }
-        .price-card ul li { padding: 10px 0; border-bottom: 1px solid var(--gray-border); color: #4B5563; font-size: 0.95rem; }
+        .price-card ul li { padding: 12px 0; border-bottom: 1px solid var(--gray-border); color: #4B5563; font-size: 0.95rem; }
         .price-card ul li:last-child { border-bottom: none; }
 
         /* Case Studies & Quotes */
@@ -175,7 +183,7 @@
             margin: 0 auto;
         }
         .case-study h4 { color: var(--gold); font-size: 1.3rem; margin-bottom: 10px; }
-        .case-study p { color: #E5E7EB; line-height: 1.6; }
+        .case-study p { color: #E5E7EB; line-height: 1.6; margin-bottom: 25px;}
         
         .quote-card {
             background: rgba(255,255,255,0.05);
@@ -184,7 +192,7 @@
             border-left: 4px solid var(--gold);
             margin-bottom: 25px;
         }
-        .quote-card p { font-style: italic; font-size: 1.1rem; color: var(--white); margin-bottom: 15px; }
+        .quote-card p { font-style: italic; font-size: 1.1rem; color: var(--white); margin-bottom: 15px; line-height: 1.6;}
         .quote-card .author { font-size: 0.9rem; font-weight: 600; color: #9CA3AF; text-transform: uppercase; }
 
         /* Team */
@@ -202,13 +210,10 @@
         /* Footer */
         footer { background: var(--dark); color: #9CA3AF; text-align: center; padding: 40px 5%; font-size: 0.9rem; }
 
-        /* Fade Animations */
-        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
-
         @media (max-width: 900px) {
             .hero h2 { font-size: 3rem; }
             .client-grid { grid-template-columns: 1fr; }
+            .stat-item { border-right: none; border-bottom: 1px solid var(--gray-border); }
             nav { display: none; }
         }
     </style>
@@ -226,45 +231,45 @@
         </nav>
     </header>
 
-    <section class="hero fade-in">
+    <section class="hero">
         <h2>A Turnkey Solution <span>for Schools.</span></h2>
         <p>We provide full-service sales, marketing solutions, and contract fulfillment to maximize revenue potential, saving your staff time, energy, and minimizing burnout.</p>
     </section>
 
     <section class="stats">
-        <div class="stat-item fade-in">
-            <div class="stat-num" data-target="30">0</div>
-            <div class="stat-label">Years of Success</div>
+        <div class="stat-item">
+            <div class="stat-num">30+ Years</div>
+            <div class="stat-label">Combined Success</div>
         </div>
-        <div class="stat-item fade-in">
-            <div class="stat-num" data-target="80">0</div>
-            <div class="stat-label">Properties & Districts</div>
+        <div class="stat-item">
+            <div class="stat-num">80+ Districts</div>
+            <div class="stat-label">& Collegiate Properties Partnered</div>
         </div>
-        <div class="stat-item fade-in">
-            <div class="stat-num prefix-dollar suffix-k" data-target="420">0</div>
+        <div class="stat-item">
+            <div class="stat-num">$420K+</div>
             <div class="stat-label">Fresh Revenue (Denton ISD)</div>
         </div>
-        <div class="stat-item fade-in">
-            <div class="stat-num suffix-percent" data-target="300">0</div>
+        <div class="stat-item">
+            <div class="stat-num">300%+</div>
             <div class="stat-label">Sponsorship Increase (Mesquite ISD)</div>
         </div>
     </section>
 
     <section id="services" class="section-pad">
-        <div class="section-header fade-in">
+        <div class="section-header">
             <h2>Service One: Full Service | TurnKey</h2>
             <p>From crafting master marketing plans to delivering signed contacts, we ensure complete sponsor satisfaction from start to renewal.</p>
         </div>
         <div class="services-grid">
-            <div class="service-card fade-in">
+            <div class="service-card">
                 <h3>Master Planning</h3>
                 <p>Asset analysis to discover what inventory can be included in partnerships. We identify optimal sales tools and create sponsorship packages with a custom pricing strategy.</p>
             </div>
-            <div class="service-card fade-in">
+            <div class="service-card">
                 <h3>Ad Sales</h3>
                 <p>The MVP Team handles the full sponsorship sales process for you. From securing the meeting, 1:1 customized presentations, to negotiations that lead to the final signed agreement.</p>
             </div>
-            <div class="service-card fade-in">
+            <div class="service-card">
                 <h3>Contract Fulfillment</h3>
                 <p>Allow MVP to help service your agreements. This saves your staff and teams time and energy, ensuring each sponsor gets the attention they deserve and preventing deliverables from falling behind.</p>
             </div>
@@ -272,13 +277,13 @@
     </section>
 
     <section id="consulting" class="section-pad" style="background-color: var(--gray-light); border-top: 1px solid var(--gray-border);">
-        <div class="section-header fade-in">
+        <div class="section-header">
             <h2>Service Two: Consultation Options</h2>
             <p>Schedule the exact amount of time and intensity of assistance you need to help your booster club, department, or foundation.</p>
         </div>
         <div class="pricing-grid">
             
-            <div class="price-card fade-in">
+            <div class="price-card">
                 <h3>Bronze Package</h3>
                 <span class="subtitle">Quick and Easy</span>
                 <div class="amount">$250<span>/HR</span></div>
@@ -290,7 +295,7 @@
                 </ul>
             </div>
 
-            <div class="price-card featured fade-in">
+            <div class="price-card featured">
                 <h3>Gold Package</h3>
                 <span class="subtitle">Teach me, Show me, Coach me in person!</span>
                 <div class="amount">$20,000</div>
@@ -302,7 +307,7 @@
                 </ul>
             </div>
 
-            <div class="price-card fade-in">
+            <div class="price-card">
                 <h3>Silver Package</h3>
                 <span class="subtitle">Need help building it, but we can do it!</span>
                 <div class="amount">$5,000</div>
@@ -318,13 +323,13 @@
     </section>
 
     <section id="clients" class="section-pad bg-navy">
-        <div class="section-header fade-in">
+        <div class="section-header">
             <h2>We want you to get the service you deserve.</h2>
             <p>Successfully partnering with Celina ISD, Denton ISD, Burleson ISD, Mesquite ISD, and Crowley ISD.</p>
         </div>
         <div class="client-grid">
             
-            <div class="case-studies-col fade-in">
+            <div class="case-studies-col">
                 <div class="case-study">
                     <h4>Denton Public School Foundation</h4>
                     <p>Despite a significant opportunity, they lacked the expertise, resources, and sales capacity for sponsorships. Following years of untapped potential, they turned to MVP Marketing. Within months, we successfully generated over $420K in fresh revenue for the district and student scholarships.</p>
@@ -339,7 +344,7 @@
                 </div>
             </div>
 
-            <div class="quotes-col fade-in">
+            <div class="quotes-col">
                 <div class="quote-card">
                     <p>"MVP marketing and Mike Vogelaar are first class, innovative and exceptionally professional. We feel fortunate to partner with them here in the Denton ISD."</p>
                     <div class="author">— Joey Florence, Denton ISD Athletic Director</div>
@@ -349,7 +354,7 @@
                     <div class="author">— Jake Laughlin, North Central Texas College</div>
                 </div>
                 <div class="quote-card">
-                    <p>"MVP Marketing helped us with a professional level of marketing campaign at the grassroot level. This is difficult to find today with the turnover and limited staffing in every organization. They made it easy and successful."</p>
+                    <p>"MVP Marketing helped us with a professional level of marketing campaign at the grassroot level. This is difficult to find today with turnover and limited staffing in every organization. They made it easy and successful."</p>
                     <div class="author">— Stacey Kunz</div>
                 </div>
             </div>
@@ -358,16 +363,16 @@
     </section>
 
     <section id="team" class="section-pad">
-        <div class="section-header fade-in">
+        <div class="section-header">
             <h2>Know Your Team</h2>
         </div>
         <div class="team-grid">
-            <div class="team-member fade-in">
+            <div class="team-member">
                 <h4>Michael Vogelaar</h4>
                 <span>CEO / Co-Founder</span>
                 <p>After over a decade of selling sponsorships with a scoreboard company, 3 things became clear to Michael. First, there's incredible demand for marketing. Second, every school is understaffed. Lastly, why not him? Having sold multimillion-dollar naming rights and generated tens of millions in sponsorships, he founded MVP Marketing Group.</p>
             </div>
-            <div class="team-member fade-in">
+            <div class="team-member">
                 <h4>Drew Mitchell</h4>
                 <span>Co-Founder</span>
                 <p>Bringing extensive experience in sports marketing and strategic partnerships, Drew works alongside Mike to deliver turnkey solutions that maximize revenue and sponsorship satisfaction for organizations and properties across Texas.</p>
@@ -379,56 +384,5 @@
         <p>&copy; 2026 MVP Marketing Group. All rights reserved.</p>
     </footer>
 
-    <script>
-        // Scroll Fade-In Observer
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.15 });
-
-        document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
-
-        // Animated Number Counters
-        const counters = document.querySelectorAll('.stat-num');
-        const speed = 150; 
-
-        const animateCounters = () => {
-            counters.forEach(counter => {
-                const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText.replace(/[^0-9]/g, '');
-                const inc = target / speed;
-
-                if (count < target) {
-                    let nextValue = Math.ceil(count + inc);
-                    let displayValue = nextValue;
-                    if(counter.classList.contains('prefix-dollar')) displayValue = '$' + displayValue;
-                    if(counter.classList.contains('suffix-k')) displayValue = displayValue + 'K+';
-                    if(counter.classList.contains('suffix-percent')) displayValue = displayValue + '%';
-                    if(target === 30 || target === 80) displayValue = displayValue + '+';
-
-                    counter.innerText = displayValue;
-                    setTimeout(animateCounters, 25);
-                } else {
-                    let finalValue = target;
-                    if(counter.classList.contains('prefix-dollar')) finalValue = '$' + finalValue;
-                    if(counter.classList.contains('suffix-k')) finalValue = finalValue + 'K+';
-                    if(counter.classList.contains('suffix-percent')) finalValue = finalValue + '%';
-                    if(target === 30 || target === 80) finalValue = finalValue + '+';
-                    counter.innerText = finalValue;
-                }
-            });
-        }
-
-        const statObserver = new IntersectionObserver((entries) => {
-            if(entries[0].isIntersecting) {
-                animateCounters();
-                statObserver.disconnect();
-            }
-        });
-        statObserver.observe(document.querySelector('.stats'));
-    </script>
 </body>
 </html>
