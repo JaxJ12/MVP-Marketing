@@ -32,20 +32,23 @@
         h1, h2, h3, h4 { margin-top: 0; line-height: 1.2; color: var(--navy); font-weight: 800; }
         p { margin-top: 0; line-height: 1.7; color: var(--text-main); margin-bottom: 1.2rem; }
 
-        /* --- Navigation --- */
+        /* --- Navigation (Transparent Overlay) --- */
         header {
-            background-color: var(--navy);
-            padding: 1rem 5%;
+            background-color: transparent;
+            padding: 1.2rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
-            top: 0;
+            position: absolute;
+            width: 90%; 
+            top: 0; 
             z-index: 1000;
         }
-        .logo img { height: 45px; width: auto; }
+        .logo img { height: 45px; width: auto; transition: transform 0.3s; }
+        .logo img:hover { transform: scale(1.05); }
+
         nav { display: flex; gap: 30px; align-items: center; }
-        nav a { color: var(--white); text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: color 0.2s; }
+        nav a { color: var(--white); text-decoration: none; font-weight: 600; font-size: 0.85rem; text-shadow: 0 1px 3px rgba(0,0,0,0.4); transition: color 0.2s; }
         nav a:hover { color: var(--gold); }
         .nav-cta {
             padding: 8px 18px;
@@ -57,22 +60,22 @@
         }
         .nav-cta:hover { background-color: var(--white); color: var(--navy) !important; text-shadow: none; }
 
-        /* --- SUBPAGE HERO (Premium Layout) --- */
+        /* --- SUBPAGE HERO --- */
         .approach-hero {
             background: linear-gradient(rgba(0,34,68,0.85), rgba(0,15,30,0.92)), url('https://images.unsplash.com/photo-1504450758481-7338eba7524a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover;
             color: var(--white);
-            padding: 120px 5% 90px;
+            padding: 200px 5% 120px;
             text-align: center;
             position: relative;
         }
-        .approach-hero h1 { color: var(--white); font-size: 3.2rem; margin-bottom: 20px; letter-spacing: -2px; z-index: 1; position: relative; }
+        .approach-hero h1 { color: var(--white); font-size: 3.5rem; margin-bottom: 20px; letter-spacing: -2px; z-index: 1; position: relative; }
         .approach-hero h1 span { color: var(--gold); }
-        .approach-hero p { font-size: 1.15rem; max-width: 750px; margin: 0 auto; color: #E5E7EB; line-height: 1.6; z-index: 1; position: relative; }
+        .approach-hero p { font-size: 1.1rem; max-width: 750px; margin: 0 auto; color: #E5E7EB; line-height: 1.6; z-index: 1; position: relative; text-transform: uppercase; letter-spacing: 3px; font-weight: 600; }
         .hero-gold { position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 10px; background: var(--gold); border-radius: 5px; }
         
         .ghost-text {
             position: absolute;
-            top: 10%;
+            top: 15%;
             left: 50%;
             transform: translateX(-50%);
             font-size: 12rem;
@@ -85,13 +88,13 @@
         }
 
         /* --- Strategy Overview --- */
-        .overview-section { padding: 90px 5%; background: var(--gray-light); border-bottom: 1px solid var(--gray-border); }
-        .overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1100px; margin: 0 auto; align-items: center; }
-        .overview-text h2 { font-size: 2.5rem; margin-bottom: 25px; letter-spacing: -1px; }
+        .overview-section { padding: 100px 5%; background: var(--gray-light); border-bottom: 1px solid var(--gray-border); }
+        .overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; max-width: 1200px; margin: 0 auto; align-items: center; }
+        .overview-text h2 { font-size: 2.8rem; margin-bottom: 30px; letter-spacing: -1px; }
 
         /* --- The Roadmap (Visual Timeline) --- */
-        .roadmap { padding: 90px 5%; background: var(--white); }
-        .roadmap-header { text-align: center; margin-bottom: 70px; }
+        .roadmap { padding: 100px 5%; background: var(--white); }
+        .roadmap-header { text-align: center; margin-bottom: 80px; }
         .roadmap-line-container {
             max-width: 1100px;
             margin: 0 auto;
@@ -111,7 +114,7 @@
             z-index: 0;
         }
         .roadmap-step {
-            width: 20%;
+            width: 22%;
             text-align: center;
             position: relative;
             z-index: 1;
@@ -128,36 +131,40 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         .step-bubble svg { width: 35px; height: 35px; fill: var(--gold); }
-        .roadmap-step h4 { font-size: 1.1rem; margin-bottom: 10px; }
+        .roadmap-step h4 { font-size: 1rem; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-weight: 700; }
+        .roadmap-step h3 { font-size: 1.2rem; margin-bottom: 15px; }
         .roadmap-step p { font-size: 0.9rem; line-height: 1.6; color: var(--text-main); }
 
         /* --- Commercial Channels --- */
-        .channels { padding: 90px 5%; background: var(--slate); color: var(--white); }
-        .channels h2 { color: var(--white); text-align: center; font-size: 2.6rem; margin-bottom: 60px; }
-        .channel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1100px; margin: 0 auto; }
-        .channel-card { background: rgba(255,255,255,0.05); padding: 40px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; transition: transform 0.3s; }
-        .channel-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.08); }
-        .channel-card h3 { color: var(--gold); font-size: 1.4rem; margin-bottom: 20px; }
+        .channels { padding: 100px 5%; background: var(--slate); color: var(--white); }
+        .channels h2 { color: var(--white); text-align: center; font-size: 2.8rem; margin-bottom: 70px; letter-spacing: -1px; }
+        .channel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .channel-card { background: rgba(255,255,255,0.05); padding: 45px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s ease; }
+        .channel-card:hover { transform: translateY(-10px); background: rgba(255,255,255,0.08); border-color: var(--gold); }
+        .channel-card h3 { color: var(--gold); font-size: 1.5rem; margin-bottom: 25px; border-bottom: 1px solid rgba(242, 169, 0, 0.3); padding-bottom: 15px; }
         .channel-list { list-style: none; padding: 0; margin: 0; }
-        .channel-list li { margin-bottom: 12px; font-size: 0.95rem; color: #E5E7EB; padding-left: 20px; position: relative; }
+        .channel-list li { margin-bottom: 15px; font-size: 1rem; color: #E5E7EB; padding-left: 25px; position: relative; line-height: 1.4; }
         .channel-list li::before { content: '→'; color: var(--gold); position: absolute; left: 0; font-weight: bold; }
 
         /* --- Relief Section --- */
-        .relief-section { padding: 90px 5%; background: var(--gray-light); }
-        .relief-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 70px; max-width: 1100px; margin: 0 auto; align-items: center; }
-        .relief-image { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid var(--gray-border); }
-        .relief-image img { width: 100%; border-radius: 4px; display: block;}
+        .relief-section { padding: 100px 5%; background: var(--gray-light); }
+        .relief-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; max-width: 1200px; margin: 0 auto; align-items: center; }
+        .relief-text h2 { font-size: 2.6rem; margin-bottom: 30px; }
+        .relief-image { background: white; padding: 15px; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.08); border: 1px solid var(--gray-border); }
+        .relief-image img { width: 100%; border-radius: 8px; display: block;}
 
         /* --- Core Values --- */
-        .values-section { padding: 90px 5%; background: var(--white); }
-        .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; max-width: 1100px; margin: 0 auto; }
-        .value-card { text-align: center; padding: 30px; }
-        .value-icon { width: 70px; height: 70px; background: var(--navy); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; box-shadow: 0 5px 15px rgba(0,34,68,0.1); }
-        .value-icon svg { width: 32px; height: 32px; fill: var(--gold); }
-        .value-card h4 { font-size: 1.2rem; margin-bottom: 12px; }
-        .value-card p { font-size: 0.9rem; line-height: 1.6; }
+        .values-section { padding: 100px 5%; background: var(--white); }
+        .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .value-card { text-align: center; padding: 40px 20px; border-radius: 12px; transition: background 0.3s; }
+        .value-card:hover { background: var(--gray-light); }
+        .value-icon { width: 80px; height: 80px; background: var(--navy); border-radius: 15px; display: flex; align-items: center; justify-content: center; margin: 0 auto 30px; box-shadow: 0 10px 20px rgba(0,34,68,0.15); transition: transform 0.3s; }
+        .value-card:hover .value-icon { transform: rotate(5deg) scale(1.05); }
+        .value-icon svg { width: 35px; height: 35px; fill: var(--gold); }
+        .value-card h4 { font-size: 1.3rem; margin-bottom: 15px; }
+        .value-card p { font-size: 0.95rem; line-height: 1.7; color: var(--text-main); }
 
-        /* --- Deep Footer --- */
+        /* --- Footer --- */
         .footer-deep { background: #0A0A0A; padding: 80px 5% 40px; border-top: 1px solid rgba(255,255,255,0.05); }
         .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1.5fr; gap: 60px; max-width: 1200px; margin: 0 auto 60px; text-align: left; }
         .footer-col h4 { color: white; font-size: 1.1rem; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
@@ -168,7 +175,7 @@
         .footer-links a:hover { color: var(--gold); }
         .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 40px; display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
         .footer-bottom p { color: #6B7280; font-size: 0.85rem; margin: 0; }
-        .footer-brand { color: white; font-weight: 800; font-size: 1.1rem; text-decoration: none; }
+        .footer-brand { color: white; font-weight: 800; font-size: 1.2rem; text-decoration: none; }
 
         /* --- Chatbot Widget --- */
         .chat-widget { position: fixed; bottom: 30px; right: 30px; z-index: 9999; display: flex; flex-direction: column; align-items: flex-end; }
@@ -178,11 +185,21 @@
         .chat-toggle svg { width: 30px; height: 30px; fill: white; }
         .chat-window { position: absolute; bottom: 85px; right: 0; width: 340px; background: white; border-radius: 15px; display: none; flex-direction: column; box-shadow: 0 20px 60px rgba(0,0,0,0.25); border: 1px solid #ddd; overflow: hidden; animation: slideIn 0.3s ease-out; }
         .chat-window.active { display: flex; }
-        .chat-header { background: var(--navy); color: white; padding: 18px; display: flex; justify-content: space-between; font-weight: 700; }
-        .chat-body { height: 330px; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; background: #fdfdfd; }
+        
+        .chat-header { background: var(--navy); color: white !important; padding: 15px 18px; display: flex; justify-content: space-between; align-items: center; }
+        .chat-header h4 { color: white !important; margin: 0; font-size: 0.95rem; display: flex; align-items: center; }
+        .chat-header h4 img { height: 22px; width: auto; margin-right: 10px; }
+        .chat-header div { color: white !important; font-size: 1.2rem; cursor: pointer; }
+
+        .chat-body { height: 280px; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; background: #fdfdfd; }
         .chat-msg { padding: 12px 16px; border-radius: 18px; font-size: 0.95rem; max-width: 85%; line-height: 1.5; }
         .msg-bot { background: #f1f5f9; border: 1px solid #e2e8f0; align-self: flex-start; color: var(--text-main); }
-        .msg-user { background: var(--navy); color: white; align-self: flex-end; }
+        .msg-user { background: var(--navy); color: white !important; align-self: flex-end; }
+
+        .chat-suggestions { padding: 10px 15px; background: #fff; display: flex; flex-wrap: wrap; gap: 8px; border-top: 1px solid #eee; }
+        .suggestion-btn { background: #f8fafc; border: 1px solid var(--gray-border); padding: 6px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; color: var(--navy); cursor: pointer; transition: 0.2s; }
+        .suggestion-btn:hover { background: var(--navy); color: white; border-color: var(--navy); }
+
         .chat-footer { padding: 15px; display: flex; gap: 8px; background: white; border-top: 1px solid #eee; }
         .chat-input { flex: 1; border: 1px solid #ddd; padding: 10px 18px; border-radius: 30px; outline: none; font-size: 0.95rem; }
         .chat-send { background: var(--navy); color: white; border: none; border-radius: 50%; width: 42px; height: 42px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
@@ -193,9 +210,8 @@
 
         @media (max-width: 1024px) {
             .roadmap-grid, .channel-grid, .values-grid, .footer-grid, .overview-grid, .relief-grid { grid-template-columns: 1fr; }
-            .roadmap-line-container { flex-direction: column; align-items: center; gap: 50px; }
             .roadmap-line-container::after { display: none; }
-            .roadmap-step { width: 100%; max-width: 400px; }
+            .roadmap-step { width: 100%; max-width: 450px; margin: 0 auto 40px; }
             nav { display: none; }
             .approach-hero h1 { font-size: 2.8rem; }
             .ghost-text { font-size: 8rem; }
@@ -207,7 +223,7 @@
     <header>
         <a href="index.html" class="logo"><img src="logo.png" alt="MVP Logo"></a>
         <nav>
-            <a href="approach.html" style="color: var(--gold); opacity: 1;">The Approach</a>
+            <a href="approach.html" style="color: var(--gold); font-weight: 800;">The Approach</a>
             <a href="blueprint.html">The Playbook</a>
             <a href="consulting.html">Consulting Options</a>
             <a href="clients.html">Success Stories</a>
@@ -218,7 +234,7 @@
 
     <div class="approach-hero">
         <div class="ghost-text">Strategy</div>
-        <p>commercial Rights management</p>
+        <p>Commercial Rights Management</p>
         <h1>The Revenue Architecture</h1>
         <div class="hero-gold"></div>
     </div>
@@ -226,12 +242,12 @@
     <section class="overview-section">
         <div class="overview-grid">
             <div class="overview-text">
-                <h2>The Approach</h2>
+                <h2>Our Approach</h2>
                 <p>MVP Marketing Group is a leading Texas consulting firm specializing in full-service sales, strategic marketing solutions, and professional contract fulfillment for school athletic departments and collegiate properties.</p>
                 <p>With over 30 years of combined experience generating revenue for 80+ districts, we offer the expert leadership needed to transform physical and digital assets into high-performance commercial revenue engines.</p>
-                <p>We are not " scoreboard salespeople." We are comprehensive rights managers, leveraging data and 1:1 negotiation to secure professional-grade partnerships at the grassroot level.</p>
+                <p>We are not "scoreboard salespeople." We are comprehensive rights managers, leveraging data and 1:1 negotiation to secure professional-grade partnerships at the grassroots level.</p>
             </div>
-            <img src="https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Executive Meeting" style="width: 100%; border-radius: 8px; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
+            <img src="https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Executive Meeting" style="width: 100%; border-radius: 12px; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
         </div>
     </section>
 
@@ -248,7 +264,7 @@
                 </div>
                 <h4>Phase 1</h4>
                 <h3>Asset Audit</h3>
-                <p>Ground-up validation of digital, physical, and media touchpoints.</p>
+                <p>Ground-up validation of digital, physical, and media touchpoints within the district infrastructure.</p>
             </div>
             
             <div class="roadmap-step">
@@ -257,7 +273,7 @@
                 </div>
                 <h4>Phase 2</h4>
                 <h3>Market Pricing</h3>
-                <p>Data-driven pricing models backed by professional market analytics.</p>
+                <p>Data-driven pricing models backed by professional market analytics to ensure maximum asset yield.</p>
             </div>
             
             <div class="roadmap-step">
@@ -266,7 +282,7 @@
                 </div>
                 <h4>Phase 3</h4>
                 <h3>Executive Sales</h3>
-                <p>Professional 1:1 presentation strategies to local and regional decision-makers.</p>
+                <p>Professional 1:1 presentation strategies to local, regional, and national decision-makers.</p>
             </div>
             
             <div class="roadmap-step">
@@ -275,7 +291,7 @@
                 </div>
                 <h4>Phase 4</h4>
                 <h3>Stewardship</h3>
-                <p>White-glove contract fulfillment ensuring sponsor satisfaction and annual renewals.</p>
+                <p>White-glove contract fulfillment ensuring sponsor satisfaction and simplified annual renewals.</p>
             </div>
         </div>
     </section>
@@ -288,9 +304,10 @@
                 <ul class="channel-list">
                     <li>Stadium Naming Rights</li>
                     <li>Static Perimeter Signage</li>
-                    <li>Digital Scoreboard takeovers</li>
+                    <li>Digital Scoreboard Takeovers</li>
                     <li>Gymnasium Naming Rights</li>
                     <li>Complex Brand Pillars</li>
+                    <li>Field/Court Branding</li>
                 </ul>
             </div>
             <div class="channel-card">
@@ -301,16 +318,18 @@
                     <li>Digital Broadcast Ad Integration</li>
                     <li>Live-Stream Commercial Placements</li>
                     <li>Mobile Ticketing App Presence</li>
+                    <li>E-Newsletter Sponsorships</li>
                 </ul>
             </div>
             <div class="channel-card">
-                <h3>Multimedia synergy</h3>
+                <h3>Multimedia Synergy</h3>
                 <ul class="channel-list">
                     <li>Public Address Audio Branding</li>
                     <li>Halftime Sponsor Featurettes</li>
                     <li>In-Game PA Announcements</li>
                     <li>Video Board Feature Activations</li>
                     <li>Radio Broadcast Sponsorship</li>
+                    <li>Coach’s Show Integration</li>
                 </ul>
             </div>
         </div>
@@ -337,28 +356,28 @@
                     <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
                 </div>
                 <h4>Integrity</h4>
-                <p>Building trusted partnerships with districts that protect their long-term interests.</p>
+                <p>Building trusted partnerships with districts that protect their long-term interests and reputation.</p>
             </div>
             <div class="value-card">
                 <div class="value-icon">
                     <svg viewBox="0 0 24 24"><path d="M19 14h-2v4h2v-4zM7 14H5v4h2v-4zm6 0h-2v4h2v-4zm5-6V3c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v5H2v14h20V8h-4zm-2 0H9V3h6v5zm-2 12H9v-2h4v2zm4 0h-2v-2h2v2zm2 0h-2v-2h2v2z"/></svg>
                 </div>
                 <h4>Results</h4>
-                <p>A data-driven commitment to maximizing new, freshwater district revenue potential.</p>
+                <p>A data-driven commitment to maximizing new, freshwater district revenue potential through expert sales.</p>
             </div>
             <div class="value-card">
                 <div class="value-icon">
                     <svg viewBox="0 0 24 24"><path d="M21 18v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2a1 1 0 00-1-1v-1.5c.34 0 .66.07.97.18L3 13.11c-.5-.14-1-.18-1-.11v-1.5a1 1 0 001-1V5a3 3 0 013-3h12a3 3 0 013 3v4a1 1 0 001 1v1.5a4.01 4.01 0 00-1 .11v1.36l.97 3.32c.31-.11.63-.18.97-.18V17a1 1 0 00-1 1zM11.5 6a1.5 1.5 0 100 3 1.5 1.5 0 000-3zm6 0a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/></svg>
                 </div>
                 <h4>Stewardship</h4>
-                <p>High-touch service ensuring all sponsor terms are fulfilled with white-glove care.</p>
+                <p>High-touch service ensuring all sponsor terms are fulfilled with white-glove care and accountability.</p>
             </div>
             <div class="value-card">
                 <div class="value-icon">
                     <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5s-3 1.34-3 3 1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05.02.05.03.1.04.15 1.16.84 1.93 2.03 1.93 3.3V19h7v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
                 </div>
                 <h4>Collaboration</h4>
-                <p>Operating as a seamless, integrated extension of athletic and foundation staff.</p>
+                <p>Operating as a seamless, integrated extension of athletic and foundation staff in your district.</p>
             </div>
         </div>
     </section>
@@ -382,12 +401,12 @@
                 <h4>Inquiry</h4>
                 <ul class="footer-links">
                     <li><a href="mailto:contact@mvpmarketinggroup.org">contact@mvpmarketinggroup.org</a></li>
-                    <li><a href="index.html#contact">Online contact Form →</a></li>
+                    <li><a href="index.html#contact">Online Contact Form →</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>Confidential Partnership Proposal • Spring 2026</p>
+            <p>Confidential Partnership Strategy • Spring 2026</p>
             <p>&copy; 2026 MVP Marketing Group. All rights reserved.</p>
         </div>
     </footer>
@@ -398,11 +417,21 @@
             <svg viewBox="0 0 24 24"><path d="M20,2H4C2.9,2,2,2.9,2,4v18l4-4h14c1.1,0,2-0.9,2-2V4C22,2.9,21.1,2,20,2z"/></svg>
         </div>
         <div class="chat-window" id="chat-window">
-            <div class="chat-header"><h4>MVP Strategic Advisor</h4><div onclick="toggleChat()" style="cursor:pointer;"></div></div>
+            <div class="chat-header">
+                <h4><img src="logo.png" alt="MVP Logo"> MVP Advisor</h4>
+                <div onclick="toggleChat()">✖</div>
+            </div>
             <div class="chat-body" id="chat-body">
                 <div class="chat-msg msg-bot">Hello! I'm the MVP Strategic Advisor. How can I clarify our Revenue Architecture methodology or Core Values for you today?</div>
                 <div id="typing-indicator" style="display:none; font-size: 0.75rem; color: #888; padding: 10px;">Advisor is searching...</div>
             </div>
+
+            <div class="chat-suggestions">
+                <button class="suggestion-btn" onclick="sendSuggestion('Explain the Roadmap to Optimization.')">Roadmap Phases</button>
+                <button class="suggestion-btn" onclick="sendSuggestion('What are your Pillars of Engagement?')">Commercial Pillars</button>
+                <button class="suggestion-btn" onclick="sendSuggestion('How do you provide operational relief?')">Operational Relief</button>
+            </div>
+
             <div class="chat-footer">
                 <input type="text" id="chat-input" class="chat-input" placeholder="Ask about MVP strategy..." onkeypress="if(event.key==='Enter') sendMessage()">
                 <button class="chat-send" onclick="sendMessage()">➤</button>
@@ -415,6 +444,12 @@
             document.getElementById('chat-window').classList.toggle('active');
             document.getElementById('chat-pop').style.display = 'none';
         }
+
+        async function sendSuggestion(text) {
+            document.getElementById('chat-input').value = text;
+            sendMessage();
+        }
+
         async function sendMessage() {
             const input = document.getElementById('chat-input');
             const text = input.value.trim();
@@ -436,6 +471,7 @@
                 appendMessage("Advisor offline. Please check connection.", 'bot');
             }
         }
+
         function appendMessage(text, side) {
             const msg = document.createElement('div');
             msg.className = `chat-msg msg-${side}`;
