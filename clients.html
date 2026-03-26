@@ -16,43 +16,32 @@
             --off-white: #f1f5f9;
             --text: #1a1a1a; 
             --muted: #64748b;
-            --text-main: #374151;
-            --white: #FFFFFF;
         }
         
-        body, html {
-            margin: 0; padding: 0;
-            font-family: 'Inter', sans-serif;
-            color: var(--text-main);
-            background-color: var(--white);
-            scroll-behavior: smooth;
-            font-size: 15px;
-            overflow-x: hidden;
-        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
 
-        h1, h2, h3, h4 { margin-top: 0; line-height: 1.1; color: var(--navy); font-weight: 800; }
-        p { margin-top: 0; line-height: 1.8; color: var(--text-main); margin-bottom: 1.5rem; }
-
-        /* --- SCREEN STYLES (Synced EXACTLY to Approach Template) --- */
+        /* --- SCREEN STYLES (100% Synced to Approach Template) --- */
         nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1rem 2.5rem; display: flex; align-items: center; justify-content: space-between; background: rgba(0,34,68,0.97); backdrop-filter: blur(8px); }
         .nav-logo { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 10px; text-decoration: none; }
         .nav-mark { width: 34px; height: 34px; background: var(--gold); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: var(--navy); }
-        .nav-links { display: flex; list-style: none; gap: 30px; margin: 0; padding: 0; }
+        .nav-links { display: flex; list-style: none; gap: 30px; }
         .nav-links a { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.7); text-decoration: none; padding: 0.5rem 0; transition: color 0.2s; }
         .nav-links a:hover, .nav-links a.active { color: var(--gold); }
         .nav-cta { background: var(--gold) !important; color: var(--navy) !important; border-radius: 4px !important; padding: 8px 18px !important; font-weight: 700 !important; border: none; }
 
-        /* --- NEW HERO SECTION (Synced EXACTLY to Approach Template) --- */
+        /* --- NEW HERO SECTION (100% Synced to Approach Template) --- */
         .page-hero { background: var(--navy); padding: 9rem 2.5rem 5rem; position: relative; overflow: hidden; }
         .hero-pattern { position: absolute; inset: 0; opacity: 0.04; background-image: repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 50%); background-size: 20px 20px; }
         .hero-bar { position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--gold); }
         .hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; text-align: center; }
         .page-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
         .page-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,5vw,4.5rem); font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 1.25rem; letter-spacing: -2px; }
-        .page-title em { color: var(--gold); font-style: normal; }
+        .page-title em { font-style: normal; color: var(--gold); }
         .page-sub { font-size: 1.1rem; color: rgba(255,255,255,0.65); line-height: 1.8; font-weight: 400; max-width: 750px; margin: 0 auto; }
 
-        /* --- Mobile Nav (Synced EXACTLY to Approach Template) --- */
+        /* --- Mobile Nav --- */
         .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
         .nav-hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: all 0.3s; }
         .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -65,21 +54,22 @@
         .nav-mobile a:hover, .nav-mobile a.active { color: var(--gold); }
 
         /* --- Case Study Sections --- */
-        .impact-section { padding: 100px 5%; background: var(--white); }
+        .impact-section { padding: 100px 5%; background: #fff; border-bottom: 1px solid #e2e8f0; }
         .case-study-container { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 100px; }
         .case-study-item { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
         .case-study-item:nth-child(even) { direction: rtl; }
         .case-study-item:nth-child(even) .case-content { direction: ltr; }
 
-        .case-content h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 25px; color: var(--navy); }
+        .case-content h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 20px; color: var(--navy); line-height: 1.1; }
+        .case-content p { color: var(--muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem; }
         .case-content .stat-highlight { color: var(--gold); font-weight: 800; font-size: 1.2rem; display: block; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
         .case-image { border-radius: 12px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
         .case-image img { width: 100%; display: block; transition: transform 0.5s; }
         .case-study-item:hover .case-image img { transform: scale(1.03); }
 
         /* --- Testimonials --- */
-        .testimonials-section { padding: 100px 5%; background: var(--slate); color: white; }
-        .testimonials-section h2 { font-family: 'Playfair Display', serif; color: white; font-size: 2.8rem; margin-bottom: 70px; text-align: center; }
+        .testimonials-section { padding: 100px 5%; background: var(--navy); color: #fff; }
+        .testimonials-section h2 { font-family: 'Playfair Display', serif; color: #fff; font-size: 2.8rem; margin-bottom: 70px; text-align: center; }
         .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; }
         .testimonial-card { 
             background: rgba(255,255,255,0.05); 
@@ -90,9 +80,9 @@
             flex-direction: column;
             justify-content: space-between;
         }
-        .testimonial-card p { font-style: italic; font-size: 1.1rem; color: #cbd5e1; margin-bottom: 20px; }
-        .testimonial-card .author { font-weight: 700; color: white; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; margin-top: auto; }
-        .testimonial-card .title { font-size: 0.8rem; color: var(--gold); }
+        .testimonial-card p { font-style: italic; font-size: 1.05rem; color: #cbd5e1; margin-bottom: 20px; line-height: 1.7; }
+        .testimonial-card .author { font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; margin-top: auto; }
+        .testimonial-card .title { font-size: 0.8rem; color: var(--gold); margin-top: 4px; }
 
         /* --- Footer --- */
         footer { background: #0A0A0A; padding: 4rem 2.5rem; border-top: 1px solid rgba(255,255,255,0.05); }
@@ -158,27 +148,29 @@
 <body>
 
     <nav>
-    <a href="index.html" class="nav-logo"><div class="nav-mark"><img src="logo.png" alt="MVP" style="width: 20px; height: auto;"></div>MVP Marketing Group</a>
-    <ul class="nav-links">
-      <li><a href="approach.html" class="active">The Approach</a></li>
-      <li><a href="blueprint.html">The Playbook</a></li>
-      <li><a href="consulting.html">Consulting</a></li>
-      <li><a href="clients.html">Success Stories</a></li>
-      <li><a href="contact.html" class="nav-cta">Contact</a></li>
-    </ul>
-    <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
+        <a href="index.html" class="nav-logo">
+            <div class="nav-mark"><img src="logo.png" alt="MVP Logo" style="width: 20px; height: auto;"></div>
+            MVP Marketing Group
+        </a>
+        <ul class="nav-links">
+            <li><a href="approach.html">The Approach</a></li>
+            <li><a href="blueprint.html">The Playbook</a></li>
+            <li><a href="consulting.html">Consulting</a></li>
+            <li><a href="clients.html" class="active">Success Stories</a></li>
+            <li><a href="contact.html" class="nav-cta">Contact</a></li>
+        </ul>
+        <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
 
-  <div class="nav-mobile" id="mobileMenu">
-    <a href="approach.html" class="active">The Approach</a>
-    <a href="blueprint.html">The Playbook</a>
-    <a href="consulting.html">Consulting Options</a>
-    <a href="clients.html">Success Stories</a>
-    <a href="contact.html" style="color: var(--gold);">Contact</a>
-  </div>
-
+    <div class="nav-mobile" id="mobileMenu">
+        <a href="approach.html">The Approach</a>
+        <a href="blueprint.html">The Playbook</a>
+        <a href="consulting.html">Consulting Options</a>
+        <a href="clients.html" class="active">Success Stories</a>
+        <a href="contact.html" style="color: var(--gold);">Contact</a>
+    </div>
 
     <div class="page-hero">
         <div class="hero-pattern"></div>
