@@ -26,12 +26,13 @@
             background-color: var(--gray-light);
             scroll-behavior: smooth;
             overflow-x: hidden;
+            font-size: 15px; /* Scaled down base font */
         }
 
         /* --- Navigation --- */
         header {
             background-color: transparent;
-            padding: 1.5rem 5%;
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -40,15 +41,15 @@
             top: 0;
             z-index: 1000;
         }
-        .logo img { height: 65px; width: auto; transition: transform 0.3s; }
+        .logo img { height: 50px; width: auto; transition: transform 0.3s; }
         .logo img:hover { transform: scale(1.05); }
 
-        nav { display: flex; gap: 35px; align-items: center; }
+        nav { display: flex; gap: 25px; align-items: center; }
         nav a {
             color: var(--white);
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             transition: color 0.2s;
             text-shadow: 0 1px 4px rgba(0,0,0,0.4);
         }
@@ -56,9 +57,10 @@
         .nav-cta {
             background-color: transparent;
             color: var(--white) !important;
-            padding: 12px 28px;
+            padding: 8px 20px;
             border-radius: 4px;
             font-weight: 700;
+            font-size: 0.85rem;
             border: 2px solid var(--white);
             transition: all 0.3s ease;
         }
@@ -68,29 +70,29 @@
         .hero {
             background: linear-gradient(rgba(0,34,68,0.88), rgba(0,15,30,0.96)), url('https://images.unsplash.com/photo-1504450758481-7338eba7524a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover;
             color: var(--white);
-            padding: 240px 5% 200px; 
+            padding: 160px 5% 140px; 
             text-align: center;
         }
         .hero h2 {
-            font-size: 4.8rem;
-            margin-bottom: 25px;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
             font-weight: 800;
-            letter-spacing: -2px;
+            letter-spacing: -1.5px;
             color: var(--white);
         }
         .hero h2 span { color: var(--gold); }
         .hero p {
-            font-size: 1.35rem;
-            max-width: 900px;
-            margin: 0 auto 50px;
+            font-size: 1.15rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
             color: #E5E7EB;
             line-height: 1.6;
         }
 
         /* --- Stats Block --- */
         .stats-container {
-            max-width: 1200px;
-            margin: -100px auto 80px auto;
+            max-width: 1100px;
+            margin: -70px auto 60px auto;
             position: relative;
             z-index: 10;
             padding: 0 5%;
@@ -98,151 +100,132 @@
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
+            gap: 20px;
             background: var(--white);
-            padding: 40px;
+            padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
             border: 1px solid var(--gray-border);
         }
-        .stat-item { text-align: center; border-right: 1px solid var(--gray-border); padding: 10px; }
+        .stat-item { text-align: center; border-right: 1px solid var(--gray-border); padding: 5px; }
         .stat-item:last-child { border-right: none; }
         .stat-num {
-            font-size: 2.4rem;
+            font-size: 1.8rem;
             font-weight: 800;
             color: var(--navy);
-            margin-bottom: 8px;
-            letter-spacing: -1px;
+            margin-bottom: 4px;
+            letter-spacing: -0.5px;
         }
         .stat-label {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-weight: 700;
             color: var(--text-main);
             text-transform: uppercase;
-            letter-spacing: 0.8px;
+            letter-spacing: 0.5px;
         }
 
-        /* --- The Approach --- */
-        .approach { padding: 120px 5%; background-color: var(--gray-light); }
+        /* --- Sections --- */
+        .approach { padding: 80px 5%; background-color: var(--gray-light); }
         .two-col-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            max-width: 1200px;
+            gap: 60px;
+            max-width: 1100px;
             margin: 0 auto;
             align-items: center;
         }
-        .approach-text h2 { font-size: 3rem; margin-bottom: 30px; letter-spacing: -1px;}
-        .approach-text p { font-size: 1.15rem; color: #4B5563; margin-bottom: 25px; line-height: 1.8;}
+        .approach-text h2 { font-size: 2.5rem; margin-bottom: 20px; letter-spacing: -1px;}
+        .approach-text p { font-size: 1.05rem; color: #4B5563; margin-bottom: 20px; line-height: 1.7;}
 
-        /* --- Overlapping Layout (Slate Blue) --- */
-        .bg-slate { background-color: var(--slate); color: var(--white); padding: 120px 5%; }
-        .bg-slate h2 { color: var(--white); font-size: 3rem; text-align: center; margin-bottom: 80px; letter-spacing: -1px; }
+        .bg-slate { background-color: var(--slate); color: var(--white); padding: 80px 5%; }
+        .bg-slate h2 { color: var(--white); font-size: 2.5rem; text-align: center; margin-bottom: 60px; letter-spacing: -1px; }
         
         .overlap-container {
-            max-width: 1150px;
+            max-width: 1000px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 120px;
+            gap: 80px;
         }
         .overlap-item { display: flex; align-items: center; position: relative; }
         .overlap-item:nth-child(even) { flex-direction: row-reverse; }
         
         .overlap-image {
-            width: 58%;
-            height: 420px;
+            width: 55%;
+            height: 320px;
             object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
             z-index: 1;
         }
         
         .overlap-text {
             width: 50%;
             background: var(--white);
-            padding: 60px;
-            border-radius: 12px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
             z-index: 2;
             position: relative;
-            margin-left: -12%;
+            margin-left: -8%;
         }
-        .overlap-item:nth-child(even) .overlap-text { margin-left: 0; margin-right: -12%; border-right: 5px solid var(--gold); border-left: none; }
-        .overlap-item:nth-child(odd) .overlap-text { border-left: 5px solid var(--gold); }
+        .overlap-item:nth-child(even) .overlap-text { margin-left: 0; margin-right: -8%; border-right: 4px solid var(--gold); border-left: none; }
+        .overlap-item:nth-child(odd) .overlap-text { border-left: 4px solid var(--gold); }
         
-        .overlap-text .step { font-size: 1rem; font-weight: 800; color: var(--gold); text-transform: uppercase; margin-bottom: 15px; display: block; }
-        .overlap-text h3 { color: var(--navy); font-size: 2rem; margin-bottom: 20px; }
-        .overlap-text p { color: var(--text-main); font-size: 1.1rem; line-height: 1.8; margin: 0; }
+        .overlap-text .step { font-size: 0.85rem; font-weight: 800; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; display: block; }
+        .overlap-text h3 { color: var(--navy); font-size: 1.6rem; margin-bottom: 15px; }
+        .overlap-text p { color: var(--text-main); font-size: 1rem; line-height: 1.7; margin: 0; }
 
-        /* --- Value Proposition --- */
-        .value-prop { padding: 120px 5%; background-color: var(--white); text-align: center; }
-        .value-prop h2 { font-size: 2.8rem; margin-bottom: 30px; }
-        .value-prop p { font-size: 1.25rem; max-width: 900px; margin: 0 auto; color: #4B5563; line-height: 1.8; }
+        .value-prop { padding: 80px 5%; background-color: var(--white); text-align: center; }
+        .value-prop h2 { font-size: 2.2rem; margin-bottom: 25px; }
+        .value-prop p { font-size: 1.15rem; max-width: 800px; margin: 0 auto; color: #4B5563; line-height: 1.7; }
 
-        /* --- Consulting Teaser --- */
-        .consulting-teaser { padding: 100px 5%; background-color: var(--gray-light); border-top: 1px solid var(--gray-border); }
-        .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; }
-        .price-card { background: var(--white); padding: 50px 40px; border-radius: 8px; border: 1px solid var(--gray-border); display: flex; flex-direction: column; }
-        .price-card.featured { border: 2px solid var(--navy); transform: scale(1.02); box-shadow: 0 15px 30px rgba(0,34,68,0.08); }
-        .teaser-list { list-style: none; padding: 0; margin: 0; flex-grow: 1; }
-        .teaser-list li { padding: 12px 0; border-bottom: 1px solid var(--gray-border); color: var(--text-main); font-size: 0.95rem; }
-        .teaser-list li::before { content: "✓"; color: var(--gold); font-weight: bold; margin-right: 10px; }
+        .consulting-teaser { padding: 80px 5%; background-color: var(--gray-light); border-top: 1px solid var(--gray-border); }
+        .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1100px; margin: 0 auto; }
+        .price-card { background: var(--white); padding: 35px 30px; border-radius: 8px; border: 1px solid var(--gray-border); display: flex; flex-direction: column; }
+        .price-card h3 { font-size: 1.3rem; }
+        .teaser-list li { padding: 10px 0; font-size: 0.9rem; }
 
-        /* --- Success & Testimonials --- */
-        .bg-navy { background-color: var(--navy); color: var(--white); padding: 120px 5%; }
-        .bg-navy h2 { color: var(--white); text-align: center; margin-bottom: 80px; font-size: 3rem;}
+        .bg-navy { background-color: var(--navy); color: var(--white); padding: 80px 5%; }
+        .bg-navy h2 { color: var(--white); text-align: center; margin-bottom: 60px; font-size: 2.5rem;}
         
         .client-grid {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 100px;
-            max-width: 1250px;
-            margin: 0 auto;
-        }
-        .case-study { margin-bottom: 50px; }
-        .case-study h4 { color: var(--gold); font-size: 1.5rem; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
-        .case-study p { color: #E5E7EB; line-height: 1.8; font-size: 1.1rem; }
-        
-        .quote-card {
-            background: rgba(255,255,255,0.06);
-            padding: 45px;
-            border-radius: 12px;
-            border-left: 5px solid var(--gold);
-            margin-bottom: 35px;
-            transition: transform 0.3s;
-        }
-        .quote-card:hover { transform: translateX(10px); }
-        .quote-card p { font-style: italic; font-size: 1.2rem; color: var(--white); margin-bottom: 20px; line-height: 1.7; }
-        .quote-card .author { font-size: 0.95rem; font-weight: 700; color: #9CA3AF; text-transform: uppercase; letter-spacing: 1.5px; }
-
-        /* --- Team Section --- */
-        .team-section { padding: 120px 5%; background: var(--white); }
-        .team-grid {
-            display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 60px;
             max-width: 1100px;
             margin: 0 auto;
         }
-        .team-member {
-            padding: 50px;
-            background: var(--gray-light);
-            border: 1px solid var(--gray-border);
-            border-radius: 12px;
+        .case-study h4 { color: var(--gold); font-size: 1.3rem; margin-bottom: 10px; }
+        .case-study p { font-size: 1rem; }
+        
+        .quote-card {
+            background: rgba(255,255,255,0.06);
+            padding: 35px;
+            border-radius: 10px;
+            border-left: 4px solid var(--gold);
+            margin-bottom: 25px;
         }
-        .team-member h4 { font-size: 1.8rem; margin-bottom: 8px; }
-        .team-member span { color: var(--gold); font-weight: 800; text-transform: uppercase; display: block; margin-bottom: 25px; font-size: 1rem; letter-spacing: 1px;}
-        .team-member p { line-height: 1.8; font-size: 1.05rem; }
+        .quote-card p { font-size: 1.1rem; line-height: 1.6; }
 
-        /* --- Footer --- */
-        footer { background: #0A0A0A; color: #9CA3AF; text-align: center; padding: 100px 5%; border-top: 1px solid rgba(255,255,255,0.05); }
+        .team-section { padding: 80px 5%; background: var(--white); }
+        .team-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .team-member { padding: 40px; background: var(--gray-light); border: 1px solid var(--gray-border); border-radius: 10px; }
+        .team-member h4 { font-size: 1.5rem; }
 
-        /* --- CHATBOT WIDGET --- */
+        footer { background: #0A0A0A; color: #9CA3AF; text-align: center; padding: 60px 5%; border-top: 1px solid rgba(255,255,255,0.05); }
+
+        /* --- CHATBOT WIDGET (Resized to fit screen) --- */
         .chat-widget {
             position: fixed;
-            bottom: 35px;
-            right: 35px;
+            bottom: 25px;
+            right: 25px;
             z-index: 9999;
             display: flex;
             flex-direction: column;
@@ -250,11 +233,11 @@
         }
         .chat-pop {
             background: white;
-            padding: 14px 24px;
-            border-radius: 14px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-            margin-bottom: 18px;
-            font-size: 0.95rem;
+            padding: 10px 18px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 12px;
+            font-size: 0.85rem;
             font-weight: 700;
             color: var(--navy);
             border: 1px solid var(--gray-border);
@@ -264,15 +247,15 @@
         .chat-pop::after {
             content: '';
             position: absolute;
-            bottom: -10px;
-            right: 28px;
-            border-width: 10px 10px 0;
+            bottom: -8px;
+            right: 22px;
+            border-width: 8px 8px 0;
             border-style: solid;
             border-color: white transparent transparent;
         }
         .chat-toggle { 
-            width: 70px;
-            height: 70px;
+            width: 60px;
+            height: 60px;
             background: var(--navy);
             border-radius: 50%;
             display: flex;
@@ -282,40 +265,41 @@
             box-shadow: 0 0 0 0 var(--bot-glow);
             animation: pulse-glow 2.5s infinite;
         }
-        .chat-toggle svg { width: 32px; height: 32px; fill: white; }
+        .chat-toggle svg { width: 28px; height: 28px; fill: white; }
         .chat-window {
             position: absolute;
-            bottom: 95px;
+            bottom: 75px;
             right: 0;
-            width: 380px;
+            width: 330px; /* Reduced width */
             background: white;
-            border-radius: 20px;
+            border-radius: 15px;
             display: none;
             flex-direction: column;
-            box-shadow: 0 25px 70px rgba(0,0,0,0.25);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.2);
             border: 1px solid #ddd;
             overflow: hidden;
         }
         .chat-window.active { display: flex; }
-        .chat-header { background: var(--navy); color: white; padding: 22px; display: flex; justify-content: space-between; align-items: center; }
-        .chat-body { height: 420px; padding: 25px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; background: #FDFDFD; }
-        .chat-msg { padding: 14px 18px; border-radius: 20px; font-size: 0.98rem; max-width: 85%; line-height: 1.55; }
+        .chat-header { background: var(--navy); color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .chat-header h4 { margin: 0; font-size: 0.95rem; color: white; }
+        .chat-body { height: 320px; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; background: #FDFDFD; }
+        .chat-msg { padding: 10px 14px; border-radius: 15px; font-size: 0.9rem; max-width: 85%; line-height: 1.4; }
         .msg-bot { background: #F1F5F9; border: 1px solid #E2E8F0; align-self: flex-start; }
         .msg-user { background: var(--navy); color: white; align-self: flex-end; }
-        .chat-footer { padding: 18px; display: flex; gap: 12px; background: white; border-top: 1px solid #F1F5F9; }
-        .chat-input { flex: 1; border: 1px solid #E2E8F0; padding: 14px 22px; border-radius: 35px; outline: none; }
-        .chat-send { background: var(--navy); color: white; border: none; border-radius: 50%; width: 52px; height: 52px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .chat-footer { padding: 12px; display: flex; gap: 8px; background: white; border-top: 1px solid #F1F5F9; }
+        .chat-input { flex: 1; border: 1px solid #E2E8F0; padding: 10px 15px; border-radius: 25px; outline: none; font-size: 0.9rem; }
+        .chat-send { background: var(--navy); color: white; border: none; border-radius: 50%; width: 35px; height: 35px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
 
-        @keyframes pulse-glow { 0% { box-shadow: 0 0 0 0 var(--bot-glow); } 70% { box-shadow: 0 0 0 20px rgba(0, 34, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(0, 34, 68, 0); } }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        @keyframes pulse-glow { 0% { box-shadow: 0 0 0 0 var(--bot-glow); } 70% { box-shadow: 0 0 0 15px rgba(0, 34, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(0, 34, 68, 0); } }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
 
         @media (max-width: 1024px) {
             .pricing-grid, .stats-grid, .two-col-grid, .client-grid, .team-grid { grid-template-columns: 1fr; }
             .overlap-item, .overlap-item:nth-child(even) { flex-direction: column; }
-            .overlap-image { width: 100%; height: 300px; }
-            .overlap-text { width: 92%; margin: -60px auto 0 auto !important; padding: 40px; }
+            .overlap-image { width: 100%; height: 280px; }
+            .overlap-text { width: 92%; margin: -40px auto 0 auto !important; padding: 30px; }
             nav { display: none; }
-            .hero h2 { font-size: 3rem; }
+            .hero h2 { font-size: 2.8rem; }
         }
     </style>
 </head>
@@ -335,15 +319,15 @@
 
     <section class="hero">
         <h2>A Turnkey Solution<br><span>for School Revenue.</span></h2>
-        <p>Minimize athletic department staff burnout and maximize grassroot revenue potential. We provide full-service consulting, ad sales, and professional contract fulfillment.</p>
+        <p>Minimize athletic department staff burnout and maximize grassroot revenue potential through expert ad sales and fulfillment.</p>
     </section>
 
     <div class="stats-container">
         <div class="stats-grid">
             <div class="stat-item"><div class="stat-num">30+ Years</div><div class="stat-label">Combined Success</div></div>
             <div class="stat-item"><div class="stat-num">80+ Districts</div><div class="stat-label">Properties Partnered</div></div>
-            <div class="stat-item"><div class="stat-num">$420K+</div><div class="stat-label">Fresh Revenue (Denton)</div></div>
-            <div class="stat-item"><div class="stat-num">300%+</div><div class="stat-label">Sponsorship Increase</div></div>
+            <div class="stat-item"><div class="stat-num">$420K+</div><div class="stat-label">Fresh Revenue</div></div>
+            <div class="stat-item"><div class="stat-num">300%+</div><div class="stat-label">Increase</div></div>
         </div>
     </div>
 
@@ -351,10 +335,10 @@
         <div class="two-col-grid">
             <div class="approach-text">
                 <h2>Our Approach</h2>
-                <p>MVP Marketing Group is a growing consulting group here in Texas. We provide full-service sales, marketing solutions, and contract fulfillment offerings that aim to maximize revenues for various organizations and properties.</p>
-                <p>With over 30+ years of success in generating revenue for over 80 school districts and collegiate properties we can provide the expertise needed to help our Clients with their on-site, digital, and multimedia offerings.</p>
+                <p>MVP Marketing Group is a growing Texas consulting firm providing full-service sales and marketing solutions that maximize revenues for organizations and properties.</p>
+                <p>With 30+ years of success in 80+ districts, we provide the expertise needed to manage on-site, digital, and multimedia sponsorship offerings.</p>
             </div>
-            <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Stadium" style="width: 100%; border-radius: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.15);">
+            <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Stadium" style="width: 100%; border-radius: 8px; box-shadow: 0 15px 30px rgba(0,0,0,0.15);">
         </div>
     </section>
 
@@ -366,7 +350,7 @@
                 <div class="overlap-text">
                     <span class="step">Step 01</span>
                     <h3>Asset Valuation</h3>
-                    <p>We conduct deep-dive audits of digital, physical, and multimedia assets to build high-yield packages backed by data-driven pricing strategies.</p>
+                    <p>We conduct deep-dive audits of digital and physical assets to build high-yield packages backed by data-driven pricing strategies.</p>
                 </div>
             </div>
             <div class="overlap-item">
@@ -374,7 +358,7 @@
                 <div class="overlap-text">
                     <span class="step">Step 02</span>
                     <h3>Active Market Sales</h3>
-                    <p>Leveraging proven 1:1 strategies, we act as an extension of your department to pitch, negotiate, and close regional business partnerships.</p>
+                    <p>Leveraging proven 1:1 presentation strategies, we act as an extension of your department to pitch and close regional partnerships.</p>
                 </div>
             </div>
             <div class="overlap-item">
@@ -382,7 +366,7 @@
                 <div class="overlap-text">
                     <span class="step">Step 03</span>
                     <h3>White-Glove Fulfillment</h3>
-                    <p>We manage daily deliverables, ensuring sponsors receive maximum ROI and VIP care for effortless renewals and long-term satisfaction.</p>
+                    <p>We manage day-to-day deliverables, ensuring sponsors receive maximum ROI and VIP care for effortless renewals.</p>
                 </div>
             </div>
         </div>
@@ -390,73 +374,64 @@
 
     <section class="value-prop">
         <h2>Our Value Proposition</h2>
-        <p>Our services will save our Clients time, energy, and minimizing Client department staff burnout costs by providing a full-service MVP Marketing Group experience to maximize long term revenue potential and sponsorship satisfaction. Please schedule a time to visit and let us hear what your needs are and how we can customize a solution for you.</p>
+        <p>Our services save you time and minimize staff burnout costs. We provide a full-service experience to maximize revenue potential and sponsorship satisfaction.</p>
     </section>
 
     <section class="consulting-teaser">
-        <div style="text-align: center; margin-bottom: 60px;">
+        <div style="text-align: center; margin-bottom: 45px;">
             <h2>Consultation Options</h2>
-            <p>Tiered packages to fit your exact needs and internal capacity.</p>
         </div>
         <div class="pricing-grid">
             <div class="price-card">
-                <h3>Bronze</h3><span style="font-style:italic; color:#888; margin-bottom:15px; display:block;">Quick and Easy</span>
-                <ul class="teaser-list"><li>Expert strategy review</li><li>Marketing plan analysis</li><li>1:1 Virtual reporting</li></ul>
+                <h3>Bronze</h3><span style="font-style:italic; color:#888; margin-bottom:12px; display:block; font-size:0.85rem;">Quick Review</span>
+                <ul class="teaser-list" style="list-style:none; padding:0; flex-grow:1;"><li>Strategy review</li><li>Plan analysis</li><li>Virtual reporting</li></ul>
             </div>
             <div class="price-card">
-                <h3>Silver</h3><span style="font-style:italic; color:#888; margin-bottom:15px; display:block;">Need help building it?</span>
-                <ul class="teaser-list"><li>Master marketing planning</li><li>Custom sales literature</li><li>Contract templates</li></ul>
+                <h3>Silver</h3><span style="font-style:italic; color:#888; margin-bottom:12px; display:block; font-size:0.85rem;">Plan Building</span>
+                <ul class="teaser-list" style="list-style:none; padding:0; flex-grow:1;"><li>Master planning</li><li>Sales literature</li><li>Contract templates</li></ul>
             </div>
             <div class="price-card featured">
-                <h3>Gold</h3><span style="font-style:italic; color:#888; margin-bottom:15px; display:block;">Teach me, Show me, Coach me!</span>
-                <ul class="teaser-list"><li>Includes all Silver services</li><li>3 days of onsite training</li><li>Live pitch coaching</li></ul>
+                <h3>Gold</h3><span style="font-style:italic; color:#888; margin-bottom:12px; display:block; font-size:0.85rem;">Onsite Coaching</span>
+                <ul class="teaser-list" style="list-style:none; padding:0; flex-grow:1;"><li>3 days onsite training</li><li>MVP sales pitches</li><li>Pitch coaching</li></ul>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 50px;"><a href="consulting.html" style="background:var(--navy); color:white; padding:16px 40px; border-radius:4px; text-decoration:none; font-weight:700; display:inline-block;">View Full Package Details & Pricing</a></div>
+        <div style="text-align: center; margin-top: 40px;"><a href="consulting.html" style="background:var(--navy); color:white; padding:12px 30px; border-radius:4px; text-decoration:none; font-weight:700; font-size:0.9rem;">View Pricing Details</a></div>
     </section>
 
     <section id="clients" class="bg-navy">
-        <h2>Proven Success in Texas</h2>
+        <h2>Proven Success</h2>
         <div class="client-grid">
             <div class="case-studies-col">
                 <div class="case-study">
-                    <h4>Denton Public School Foundation</h4>
-                    <p>Faced with limited sales capacity, they turned to MVP. Within months, we successfully generated over **$420K in fresh revenue** for scholarships.</p>
-                </div>
-                <div class="case-study">
-                    <h4>Crowley ISD ($30M Sports Complex)</h4>
-                    <p>Inaugurating a flagship facility introduced complex deadlines. MVP was initiated to foster enhanced community exposure and custom sponsorship packages.</p>
+                    <h4>Denton ISD</h4>
+                    <p>Within months, MVP generated over **$420K in fresh revenue** for scholarships and district potential.</p>
                 </div>
                 <div class="case-study">
                     <h4>Mesquite & Burleson ISD</h4>
-                    <p>Increased local sponsorship by over 300% for Mesquite. For Burleson, MVP prioritized contract fulfillment during internal staff changes to secure renewals.</p>
+                    <p>Increased local sponsorship by over 300% for Mesquite. Secured renewals for Burleson during staff changes.</p>
                 </div>
             </div>
             <div class="quotes-col">
-                <div class="quote-card"><p>"MVP marketing and Mike Vogelaar are first class, innovative and professional. We feel fortunate to partner with them."</p><div class="author">— Joey Florence, Denton ISD AD</div></div>
-                <div class="quote-card"><p>"In our campaign, not a single piece was ever missed. MVP was 100% on top of their game."</p><div class="author">— Jake Laughlin, NCTC</div></div>
-                <div class="quote-card"><p>"MVP helped us with a professional campaign at the grassroots level. They made it easy and successful."</p><div class="author">— Stacey Kunz</div></div>
+                <div class="quote-card"><p>"MVP is first class, innovative and professional."</p><div class="author">— Joey Florence, Denton ISD AD</div></div>
+                <div class="quote-card"><p>"Every detail was handled. MVP was 100% on top of their game."</p><div class="author">— Jake Laughlin, NCTC</div></div>
             </div>
         </div>
     </section>
 
     <section id="team" class="team-section">
-        <h2 style="text-align: center; margin-bottom: 60px;">Meet the Leadership</h2>
         <div class="team-grid">
             <div class="team-member">
                 <h4>Michael Vogelaar</h4><span>CEO / Co-Founder</span>
-                <p>After a decade selling sponsorships with a scoreboard company, Michael founded MVP. He has generated tens of millions in sponsorships and secured multimillion-dollar naming rights.</p>
+                <p>Decades of experience selling multimillion-dollar naming rights and tens of millions in sponsorships.</p>
             </div>
             <div class="team-member">
                 <h4>Drew Mitchell</h4><span>Co-Founder</span>
-                <p>Drew works alongside Mike to deliver turnkey solutions that maximize revenue and sponsorship satisfaction for organizations and properties across Texas.</p>
+                <p>Expert in strategic planning and grassroots sports marketing for organizations across Texas.</p>
             </div>
         </div>
     </section>
 
     <footer id="contact">
-        <h3 style="color: white; margin-bottom: 20px; font-size: 2rem;">Ready to maximize your revenue?</h3>
-        <p style="margin-bottom: 30px; color: #9CA3AF;">Contact the MVP team to schedule your virtual or in-person consultation.</p>
         <p>&copy; 2026 MVP Marketing Group. All rights reserved.</p>
     </footer>
 
@@ -466,10 +441,10 @@
             <svg viewBox="0 0 24 24"><path d="M20,2H4C2.9,2,2,2.9,2,4v18l4-4h14c1.1,0,2-0.9,2-2V4C22,2.9,21.1,2,20,2z"/></svg>
         </div>
         <div class="chat-window" id="chat-window">
-            <div class="chat-header"><h4>MVP Advisor</h4><div onclick="toggleChat()" style="cursor:pointer; font-weight:800;">✖</div></div>
+            <div class="chat-header"><h4>MVP Advisor</h4><div onclick="toggleChat()" style="cursor:pointer;">✖</div></div>
             <div class="chat-body" id="chat-body">
-                <div class="chat-msg msg-bot">Welcome. I'm the MVP Advisor with live web search. How can I help you today?</div>
-                <div id="typing-indicator" style="display:none; font-size: 0.8rem; color: #888; padding: 10px; font-style: italic;">Advisor is searching...</div>
+                <div class="chat-msg msg-bot">Hello! I'm the MVP Advisor. How can I help you today?</div>
+                <div id="typing-indicator" style="display:none; font-size: 0.75rem; color: #888; padding: 10px;">Searching...</div>
             </div>
             <div class="chat-footer">
                 <input type="text" id="chat-input" class="chat-input" placeholder="Ask Gemini..." onkeypress="if(event.key==='Enter') sendMessage()">
@@ -502,7 +477,7 @@
                 appendMessage(data.reply, 'bot');
             } catch (err) {
                 indicator.style.display = 'none';
-                appendMessage("Offline. Check your Vercel MVP_Marketing_API key.", 'bot');
+                appendMessage("Offline. Check your MVP_Marketing_API key.", 'bot');
             }
         }
         function appendMessage(text, side) {
@@ -510,7 +485,7 @@
             msg.className = `chat-msg msg-${side}`;
             msg.innerText = text;
             const body = document.getElementById('chat-body');
-            body.insertBefore(msg, indicator);
+            body.insertBefore(msg, document.getElementById('typing-indicator'));
             body.scrollTop = body.scrollHeight;
         }
     </script>
