@@ -7,99 +7,199 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --navy: #002244; --gold: #F2A900; --slate: #1E293B; --dark: #0f172a; 
-            --gray-light: #f8fafc; --gray-border: #e2e8f0; --text-main: #334155;
-            --white: #FFFFFF; --bot-glow: rgba(242, 169, 0, 0.4);
+            --navy: #002244; 
+            --gold: #F2A900; 
+            --slate: #1E293B; 
+            --dark: #111827; 
+            --gray-light: #F9FAFB;
+            --gray-border: #E5E7EB;
+            --text-main: #374151;
+            --white: #FFFFFF;
+            --bot-glow: rgba(0, 34, 68, 0.4);
         }
         
-        body, html { margin: 0; padding: 0; font-family: 'Inter', sans-serif; color: var(--text-main); background-color: var(--white); scroll-behavior: smooth; font-size: 15px; overflow-x: hidden; }
-        h1, h2, h3, h4 { margin-top: 0; line-height: 1.1; color: var(--navy); font-weight: 800; }
-        p { margin-top: 0; line-height: 1.8; color: var(--text-main); margin-bottom: 1.5rem; font-weight: 400; }
+        body, html {
+            margin: 0; padding: 0;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background-color: var(--white);
+            scroll-behavior: smooth;
+            font-size: 15px;
+            overflow-x: hidden;
+        }
 
-        /* --- Distinct Navigation --- */
-        header { background-color: var(--navy); padding: 0.8rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.15); }
-        .logo img { height: 42px; width: auto; }
+        h1, h2, h3, h4 { margin-top: 0; line-height: 1.2; color: var(--navy); font-weight: 800; }
+        p { margin-top: 0; line-height: 1.7; color: var(--text-main); margin-bottom: 1.2rem; }
+
+        /* --- Navigation --- */
+        header {
+            background-color: var(--navy);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo img { height: 45px; width: auto; }
         nav { display: flex; gap: 30px; align-items: center; }
-        nav a { color: var(--white); text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: 0.3s; opacity: 0.8; }
-        nav a:hover { color: var(--gold); opacity: 1; }
-        .nav-cta { padding: 8px 20px; border-radius: 2px; font-weight: 700; border: 1px solid var(--white); font-size: 0.8rem; color: white !important; text-decoration: none; }
-
-        /* --- Narrative Hero --- */
-        .approach-hero { 
-            background: linear-gradient(rgba(0,34,68,0.85), rgba(5,5,5,0.95)), url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=2070&auto=format&fit=crop') center/cover; 
-            min-height: 50vh; color: white; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 5%;
+        nav a { color: var(--white); text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: color 0.2s; }
+        nav a:hover { color: var(--gold); }
+        .nav-cta {
+            padding: 8px 18px;
+            border-radius: 4px;
+            font-weight: 700;
+            border: 2px solid var(--white);
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
         }
-        .hero-content { padding: 50px 0; position: relative; }
-        .hero-content h1 { color: white; font-size: 3.5rem; letter-spacing: -2px; margin-bottom: 20px; }
-        .hero-content p { color: #94a3b8; font-size: 1.2rem; }
-        .ghost-text { position: absolute; top: -20px; left: 50%; transform: translateX(-50%); font-size: 10rem; font-weight: 900; color: rgba(255,255,255,0.02); z-index: 0; pointer-events: none; text-transform: uppercase; letter-spacing: 20px; }
+        .nav-cta:hover { background-color: var(--white); color: var(--navy) !important; text-shadow: none; }
 
-        /* --- The Split Methodology --- */
-        .split-section { display: flex; border-bottom: 1px solid var(--gray-border); }
-        .split-box { flex: 1; padding: 100px 8%; position: relative;}
-        .split-box.dark { background: var(--navy); color: white; }
-        .split-box.dark h2 { color: white; }
-        .split-box.dark p { color: #cbd5e1; }
-        .split-box h2 { font-size: 2.4rem; margin-bottom: 30px; letter-spacing: -1px; }
+        /* --- SUBPAGE HERO (Premium Layout) --- */
+        .approach-hero {
+            background: linear-gradient(rgba(0,34,68,0.9), rgba(0,15,30,0.95)), url('https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover;
+            color: var(--white);
+            padding: 120px 5% 90px;
+            text-align: center;
+            position: relative;
+        }
+        .approach-hero h1 { color: var(--white); font-size: 3.2rem; margin-bottom: 20px; letter-spacing: -2px; z-index: 1; position: relative; }
+        .approach-hero h1 span { color: var(--gold); }
+        .approach-hero p { font-size: 1.15rem; max-width: 750px; margin: 0 auto; color: #E5E7EB; line-height: 1.6; z-index: 1; position: relative; }
+        .hero-gold { position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 10px; background: var(--gold); border-radius: 5px; }
         
-        .stat-capsule { display: inline-block; padding: 6px 14px; background: rgba(242,169,0,0.1); color: var(--gold); font-weight: 800; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; border-radius: 4px; margin-bottom: 20px; }
+        /* GHOST TEXT OVERLAY */
+        .ghost-text {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12rem;
+            font-weight: 900;
+            color: rgba(255,255,255,0.03);
+            z-index: 0;
+            text-transform: uppercase;
+            pointer-events: none;
+            letter-spacing: 20px;
+        }
 
-        /* --- Commercial Blueprint Grid --- */
-        .blueprint-bg { padding: 100px 5%; background: var(--gray-light); }
-        .blueprint-header { text-align: center; max-width: 800px; margin: 0 auto 80px; }
-        .blueprint-header h2 { font-size: 2.8rem; letter-spacing: -1px; }
-        .blueprint-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--gray-border); border: 1px solid var(--gray-border); max-width: 1200px; margin: 0 auto; }
-        .blueprint-item { background: var(--white); padding: 60px 40px; transition: 0.4s; position: relative; }
-        .blueprint-item:hover { background: var(--navy); transform: scale(1.02); z-index: 10; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
-        .blueprint-item:hover h3, .blueprint-item:hover p, .blueprint-item:hover .icon-box { color: white; }
-        .blueprint-item h3 { font-size: 1.35rem; margin-bottom: 20px; color: var(--navy); transition: 0.3s; }
-        .blueprint-item p { font-size: 0.95rem; color: #64748b; margin: 0; transition: 0.3s; }
-        .icon-box { color: var(--gold); font-size: 2rem; margin-bottom: 25px; font-weight: 800; opacity: 0.8; transition: 0.3s; }
+        /* --- Strategy Overview --- */
+        .overview-section { padding: 90px 5%; background: var(--gray-light); border-bottom: 1px solid var(--gray-border); }
+        .overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1100px; margin: 0 auto; align-items: center; }
+        .overview-text h2 { font-size: 2.5rem; margin-bottom: 25px; letter-spacing: -1px; }
 
-        /* --- Stewardship Section --- */
-        .stewardship { padding: 100px 5%; background: var(--white); }
-        .steward-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; max-width: 1200px; margin: 0 auto; align-items: center; }
-        .steward-image img { width: 100%; border-radius: 4px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .steward-text h2 { font-size: 2.6rem; margin-bottom: 30px; letter-spacing: -1px; }
-        
-        .check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; text-align: left; margin-top: 40px; }
-        .check-item { display: flex; align-items: center; gap: 12px; font-weight: 600; color: var(--navy); padding: 12px; background: var(--gray-light); border-radius: 4px; font-size: 0.9rem;}
-        .check-item::before { content: '✓'; color: var(--gold); font-weight: 900; }
+        /* --- The Roadmap (Visual Timeline) --- */
+        .roadmap { padding: 90px 5%; background: var(--white); }
+        .roadmap-header { text-align: center; margin-bottom: 70px; }
+        .roadmap-line-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        /* Horizontal Line */
+        .roadmap-line-container::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 5%;
+            width: 90%;
+            height: 4px;
+            background: var(--gold);
+            z-index: 0;
+        }
+        .roadmap-step {
+            width: 20%;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .step-bubble {
+            width: 80px; height: 80px;
+            background: var(--navy);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center; justify-content: center;
+            margin: 0 auto 30px;
+            border: 8px solid var(--white);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .step-bubble svg { width: 35px; height: 35px; fill: var(--gold); }
+        .roadmap-step h4 { font-size: 1.1rem; margin-bottom: 10px; }
+        .roadmap-step p { font-size: 0.9rem; line-height: 1.6; color: var(--text-main); }
 
-        /* --- Modern Footer --- */
-        .footer-deep { background: #020617; padding: 100px 5% 50px; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 80px; max-width: 1200px; margin: 0 auto 80px; }
-        .footer-col h4 { color: white; font-size: 0.9rem; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 2px; }
-        .footer-col p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; }
+        /* --- Commercial Channels --- */
+        .channels { padding: 90px 5%; background: var(--slate); color: var(--white); }
+        .channels h2 { color: var(--white); text-align: center; font-size: 2.6rem; margin-bottom: 60px; }
+        .channel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1100px; margin: 0 auto; }
+        .channel-card { background: rgba(255,255,255,0.05); padding: 40px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; transition: transform 0.3s; }
+        .channel-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.08); }
+        .channel-card h3 { color: var(--gold); font-size: 1.4rem; margin-bottom: 20px; }
+        .channel-list { list-style: none; padding: 0; margin: 0; }
+        .channel-list li { margin-bottom: 12px; font-size: 0.95rem; color: #E5E7EB; padding-left: 20px; position: relative; }
+        .channel-list li::before { content: '→'; color: var(--gold); position: absolute; left: 0; font-weight: bold; }
+
+        /* --- Relief Section --- */
+        .relief-section { padding: 90px 5%; background: var(--gray-light); }
+        .relief-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 70px; max-width: 1100px; margin: 0 auto; align-items: center; }
+        .relief-image { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid var(--gray-border); }
+        .relief-image img { width: 100%; border-radius: 4px; display: block;}
+
+        /* --- Core Values --- */
+        .values-section { padding: 90px 5%; background: var(--white); }
+        .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; max-width: 1100px; margin: 0 auto; }
+        .value-card { text-align: center; padding: 30px; }
+        .value-icon { width: 70px; height: 70px; background: var(--navy); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; box-shadow: 0 5px 15px rgba(0,34,68,0.1); }
+        .value-icon svg { width: 32px; height: 32px; fill: var(--gold); }
+        .value-card h4 { font-size: 1.2rem; margin-bottom: 12px; }
+        .value-card p { font-size: 0.9rem; line-height: 1.6; }
+
+        /* --- Deep Footer --- */
+        .footer-deep { background: #0A0A0A; padding: 80px 5% 40px; border-top: 1px solid rgba(255,255,255,0.05); }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1.5fr; gap: 60px; max-width: 1200px; margin: 0 auto 60px; text-align: left; }
+        .footer-col h4 { color: white; font-size: 1.1rem; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-col p { color: #9CA3AF; font-size: 0.95rem; line-height: 1.6; }
         .footer-links { list-style: none; padding: 0; margin: 0; }
-        .footer-links li { margin-bottom: 15px; }
-        .footer-links a { color: #94a3b8; text-decoration: none; transition: 0.3s; font-size: 0.95rem; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: #9CA3AF; text-decoration: none; font-size: 0.95rem; transition: color 0.3s; }
         .footer-links a:hover { color: var(--gold); }
-        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 50px; display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; color: #475569; font-size: 0.85rem; }
-        .footer-brand { color: white; font-weight: 800; text-decoration: none; font-size: 1.2rem; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 40px; display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+        .footer-bottom p { color: #6B7280; font-size: 0.85rem; margin: 0; }
+        .footer-brand { color: white; font-weight: 800; font-size: 1.1rem; text-decoration: none; }
 
-        /* --- Chatbot --- */
+        /* --- Chatbot Widget --- */
         .chat-widget { position: fixed; bottom: 30px; right: 30px; z-index: 9999; display: flex; flex-direction: column; align-items: flex-end; }
-        .chat-pop { background: white; padding: 12px 20px; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-bottom: 15px; font-size: 0.9rem; font-weight: 700; border: 1px solid var(--gray-border); }
-        .chat-toggle { width: 60px; height: 60px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; animation: pulse-glow 2.5s infinite; transition: 0.3s; }
-        .chat-toggle svg { width: 28px; height: 28px; fill: var(--navy); }
-        .chat-window { position: absolute; bottom: 85px; right: 0; width: 340px; background: white; border-radius: 4px; display: none; flex-direction: column; box-shadow: 0 30px 60px rgba(0,0,0,0.3); border: 1px solid #ddd; overflow: hidden; animation: slideIn 0.3s ease-out; }
+        .chat-pop { background: white; padding: 12px 20px; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); margin-bottom: 15px; font-size: 0.9rem; font-weight: 700; color: var(--navy); border: 1px solid var(--gray-border); position: relative; animation: float 3.5s ease-in-out infinite; }
+        .chat-pop::after { content: ''; position: absolute; bottom: -10px; right: 22px; border-width: 10px 10px 0; border-style: solid; border-color: white transparent transparent; }
+        .chat-toggle { width: 65px; height: 65px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 0 0 0 var(--bot-glow); animation: pulse-glow 2.5s infinite; transition: 0.3s; }
+        .chat-toggle svg { width: 30px; height: 30px; fill: white; }
+        .chat-window { position: absolute; bottom: 85px; right: 0; width: 340px; background: white; border-radius: 15px; display: none; flex-direction: column; box-shadow: 0 20px 60px rgba(0,0,0,0.25); border: 1px solid #ddd; overflow: hidden; animation: slideIn 0.3s ease-out; }
         .chat-window.active { display: flex; }
-        .chat-header { background: var(--navy); color: white; padding: 20px; display: flex; justify-content: space-between; font-weight: 700; }
-        .chat-body { height: 350px; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; background: #fff; }
-        .chat-msg { padding: 12px 16px; border-radius: 2px; font-size: 0.9rem; max-width: 85%; border: 1px solid #eee; }
-        .msg-bot { background: #f8fafc; align-self: flex-start; }
+        .chat-header { background: var(--navy); color: white; padding: 18px; display: flex; justify-content: space-between; font-weight: 700; }
+        .chat-body { height: 330px; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; background: #fdfdfd; }
+        .chat-msg { padding: 12px 16px; border-radius: 18px; font-size: 0.95rem; max-width: 85%; line-height: 1.5; }
+        .msg-bot { background: #f1f5f9; border: 1px solid #e2e8f0; align-self: flex-start; color: var(--text-main); }
         .msg-user { background: var(--navy); color: white; align-self: flex-end; }
-        .chat-footer { padding: 15px; display: flex; gap: 10px; background: white; border-top: 1px solid #eee; }
-        .chat-input { flex: 1; border: 1px solid #ddd; padding: 10px; outline: none; }
-        .chat-send { background: var(--gold); color: var(--navy); border: none; width: 45px; font-weight: 800; cursor: pointer; }
+        .chat-footer { padding: 15px; display: flex; gap: 8px; background: white; border-top: 1px solid #eee; }
+        .chat-input { flex: 1; border: 1px solid #ddd; padding: 10px 18px; border-radius: 30px; outline: none; font-size: 0.95rem; }
+        .chat-send { background: var(--navy); color: white; border: none; border-radius: 50%; width: 42px; height: 42px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
 
-        @keyframes pulse-glow { 0% { box-shadow: 0 0 0 0 var(--bot-glow); } 70% { box-shadow: 0 0 0 15px rgba(242, 169, 0, 0); } 100% { box-shadow: 0 0 0 0 rgba(242, 169, 0, 0); } }
+        @keyframes pulse-glow { 0% { box-shadow: 0 0 0 0 var(--bot-glow); } 70% { box-shadow: 0 0 0 18px rgba(0, 34, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(0, 34, 68, 0); } }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        @keyframes slideIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
         @media (max-width: 1024px) {
-            .approach-hero h1 { font-size: 2.8rem; }
-            .split-section, .blueprint-grid, .footer-grid, .check-grid, .steward-grid { grid-template-columns: 1fr; }
+            .roadmap-grid, .channel-grid, .values-grid, .footer-grid, .overview-grid, .relief-grid { grid-template-columns: 1fr; }
+            .roadmap-line-container { flex-direction: column; align-items: center; gap: 50px; }
+            .roadmap-line-container::after { display: none; }
+            .roadmap-step { width: 100%; max-width: 400px; }
             nav { display: none; }
+            .approach-hero h1 { font-size: 2.8rem; }
+            .ghost-text { font-size: 8rem; }
         }
     </style>
 </head>
@@ -109,105 +209,188 @@
         <a href="index.html" class="logo"><img src="logo.png" alt="MVP Logo"></a>
         <nav>
             <a href="index.html">Home</a>
-            <a href="approach.html" style="color: var(--gold); opacity: 1;">Our Approach</a>
-            <a href="consulting.html">Consulting Packages</a>
-            <a href="index.html#clients">Success Stories</a>
-            <a href="index.html#team">Leadership</a>
-            <a href="#contact" class="nav-cta">Contact Us</a>
+            <a href="approach.html" style="color: var(--gold); opacity: 1;">The Approach</a>
+            <a href="blueprint.html">The Playbook</a>
+            <a href="consulting.html">Consulting Options</a>
+            <a href="clients.html">Success Stories</a>
+            <a href="team.html">Leadership</a>
+            <a href="contact.html" class="nav-cta">Contact Us</a>
         </nav>
     </header>
 
     <div class="approach-hero">
-        <div class="hero-content">
-            <div class="ghost-text">Strategy</div>
-            <h1>The Revenue Architecture</h1>
-            <p>Moving school districts beyond static ad sales and into sophisticated commercial rights management.</p>
-        </div>
+        <div class="ghost-text">Strategy</div>
+        <p>commercial Rights management</p>
+        <h1>The Revenue Architecture</h1>
+        <div class="hero-gold"></div>
     </div>
 
-    <section class="split-section">
-        <div class="split-box">
-            <span class="stat-capsule">The Challenge</span>
-            <h2>Bridging the Resource Gap</h2>
-            <p>Texas high school athletic departments possess some of the most visible brands in their communities. However, the operational heavy lift of managing multimedia assets, digital rights, and regional sales often falls on over-extended staff already at capacity.</p>
-            <p>Our methodology is designed to eliminate this friction. We act as a professional, autonomous extension of your district, transforming passive commercial inventory into active, high-yield revenue streams.</p>
-        </div>
-        <div class="split-box dark">
-            <span class="stat-capsule" style="background: rgba(255,255,255,0.1);">Our Evolution</span>
-            <h2>From Scoreboards to Strategy</h2>
-            <p>MVP Marketing Group was founded by Michael Vogelaar after a decade inscoreboard equipment sales. He realized that districts weren't just looking for hardware—they were looking for sustainable strategies to maximize the long-term commercial value of those physical assets.</p>
-            <p>We transitioned from equipment providers to strategic advisors. Today, we manage the complete commercial lifecycle: from professional asset audit and 1:1 executive pitches to contract management, term stewardship, and high-satisfaction renewals.</p>
+    <section class="overview-section">
+        <div class="overview-grid">
+            <div class="overview-text">
+                <h2>The Approach</h2>
+                <p>MVP Marketing Group is a leading Texas consulting firm specializing in full-service sales, strategic marketing solutions, and professional contract fulfillment for school athletic departments and collegiate properties.</p>
+                <p>With over 30 years of combined experience generating revenue for 80+ districts, we offer the expert leadership needed to transform physical and digital assets into high-performance commercial revenue engines.</p>
+                <p>We are not " scoreboard salespeople." We are comprehensive rights managers, leveraging data and 1:1 negotiation to secure professional-grade partnerships at the grassroot level.</p>
+            </div>
+            <img src="https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Executive Meeting" style="width: 100%; border-radius: 8px; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
         </div>
     </section>
 
-    <section class="blueprint-bg">
-        <div class="blueprint-header">
-            <span class="stat-capsule">Strategic Channels</span>
-            <h2>Three Commercial Pillars</h2>
-            <p>We maximize district revenue density by professionally auditing and activating three primary pillars of modern fan engagement.</p>
+    <section class="roadmap">
+        <div class="roadmap-header">
+            <h2>The Roadmap to Optimization</h2>
+            <p style="color: #64748b; max-width: 600px; margin: 0 auto;">Our lifecycle approach for identifying, valuing, and monetizing your district's commercial rights.</p>
         </div>
-        <div class="blueprint-grid">
-            <div class="blueprint-item">
-                <div class="icon-box">01</div>
-                <h3>On-Site Dominance</h3>
-                <p>Strategic naming rights, static signage sightline optimization, and high-impact digital scoreboard takeovers at major athletic complexes.</p>
-            </div>
-            <div class="blueprint-item">
-                <div class="icon-box">02</div>
-                <h3>Digital Ecosystem</h3>
-                <p>Leveraging the district’s modern footprint through social media storytelling, website brand takeovers, and live-stream ad integrations.</p>
-            </div>
-            <div class="blueprint-item">
-                <div class="icon-box">03</div>
-                <h3>Multimedia Integration</h3>
-                <p>Audio-visual synergy via public address announcements, video board featurettes, and custom halftime activations engaging the local community.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="stewardship">
-        <div class="steward-grid">
-            <div class="steward-image">
-                <img src="https://images.unsplash.com/photo-1551836022-d5d8b3c824d8?q=80&w=2070&auto=format&fit=crop" alt="Strategy Session">
-            </div>
-            <div class="steward-text">
-                <h2>Operational Stewardship</h2>
-                <p>The "MVP Experience" is defined by what happens *after* the contract is signed. We provide white-glove fulfillment that protects the district’s brand and ensures the sponsor's ROI.</p>
-                <div class="check-grid">
-                    <div class="check-item">Data-Driven Asset Pricing</div>
-                    <div class="check-item">Zero-Staff Oversight</div>
-                    <div class="check-item">Logo Proof & Sightline Approval</div>
-                    <div class="check-item">Renewal Strategy & Execution</div>
+        
+        <div class="roadmap-line-container">
+            <div class="roadmap-step">
+                <div class="step-bubble">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
                 </div>
+                <h4>Phase 1</h4>
+                <h3>Asset Audit</h3>
+                <p>Ground-up validation of digital, physical, and media touchpoints.</p>
+            </div>
+            
+            <div class="roadmap-step">
+                <div class="step-bubble">
+                    <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14h-2v-4H8v-2h4V7h2v10z"/></svg>
+                </div>
+                <h4>Phase 2</h4>
+                <h3>Market Pricing</h3>
+                <p>Data-driven pricing models backed by professional market analytics.</p>
+            </div>
+            
+            <div class="roadmap-step">
+                <div class="step-bubble">
+                    <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                </div>
+                <h4>Phase 3</h4>
+                <h3>Executive Sales</h3>
+                <p>Professional 1:1 presentation strategies to local and regional decision-makers.</p>
+            </div>
+            
+            <div class="roadmap-step">
+                <div class="step-bubble">
+                    <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                </div>
+                <h4>Phase 4</h4>
+                <h3>Stewardship</h3>
+                <p>White-glove contract fulfillment ensuring sponsor satisfaction and annual renewals.</p>
             </div>
         </div>
     </section>
 
-    <footer class="footer-deep" id="contact">
+    <section id="blueprint" class="channels">
+        <h2>Pillars of Commercial Engagement</h2>
+        <div class="channel-grid">
+            <div class="channel-card">
+                <h3>On-Site Dominance</h3>
+                <ul class="channel-list">
+                    <li>Stadium Naming Rights</li>
+                    <li>Static Perimeter Signage</li>
+                    <li>Digital Scoreboard takeovers</li>
+                    <li>Gymnasium Naming Rights</li>
+                    <li>Complex Brand Pillars</li>
+                </ul>
+            </div>
+            <div class="channel-card">
+                <h3>Digital Dominance</h3>
+                <ul class="channel-list">
+                    <li>Social Media Narrative Management</li>
+                    <li>District Website Brand Takeovers</li>
+                    <li>Digital Broadcast Ad Integration</li>
+                    <li>Live-Stream Commercial Placements</li>
+                    <li>Mobile Ticketing App Presence</li>
+                </ul>
+            </div>
+            <div class="channel-card">
+                <h3>Multimedia synergy</h3>
+                <ul class="channel-list">
+                    <li>Public Address Audio Branding</li>
+                    <li>Halftime Sponsor Featurettes</li>
+                    <li>In-Game PA Announcements</li>
+                    <li>Video Board Feature Activations</li>
+                    <li>Radio Broadcast Sponsorship</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="relief-section">
+        <div class="relief-grid">
+            <div class="relief-text">
+                <h2>The Operational Relief</h2>
+                <p>Athletic Directors and district staff are over-extended. The heavy lift of managing multimedia assets, social media branding, and regional business sales should not fall on them.</p>
+                <p>Our methodology is built as a complete extension of your office. By letting the MVP team handle the entire commercial lifecycle—from valuation to final renewal—you eliminate staff burnout and professionalize your district's commercial ecosystem without increasing daily operational stress.</p>
+            </div>
+            <div class="relief-image">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Hand holding phone with analytics">
+            </div>
+        </div>
+    </section>
+
+    <section class="values-section">
+        <h2 style="text-align: center; margin-bottom: 70px;">Our Core Values</h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                </div>
+                <h4>Integrity</h4>
+                <p>Building trusted partnerships with districts that protect their long-term interests.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">
+                    <svg viewBox="0 0 24 24"><path d="M19 14h-2v4h2v-4zM7 14H5v4h2v-4zm6 0h-2v4h2v-4zm5-6V3c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v5H2v14h20V8h-4zm-2 0H9V3h6v5zm-2 12H9v-2h4v2zm4 0h-2v-2h2v2zm2 0h-2v-2h2v2z"/></svg>
+                </div>
+                <h4>Results</h4>
+                <p>A data-driven commitment to maximizing new, freshwater district revenue potential.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">
+                    <svg viewBox="0 0 24 24"><path d="M21 18v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2a1 1 0 00-1-1v-1.5c.34 0 .66.07.97.18L3 13.11c-.5-.14-1-.18-1-.11v-1.5a1 1 0 001-1V5a3 3 0 013-3h12a3 3 0 013 3v4a1 1 0 001 1v1.5a4.01 4.01 0 00-1 .11v1.36l.97 3.32c.31-.11.63-.18.97-.18V17a1 1 0 00-1 1zM11.5 6a1.5 1.5 0 100 3 1.5 1.5 0 000-3zm6 0a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/></svg>
+                </div>
+                <h4>Stewardship</h4>
+                <p>High-touch service ensuring all sponsor terms are fulfilled with white-glove care.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">
+                    <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5s-3 1.34-3 3 1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05.02.05.03.1.04.15 1.16.84 1.93 2.03 1.93 3.3V19h7v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                </div>
+                <h4>Collaboration</h4>
+                <p>Operating as a seamless, integrated extension of athletic and foundation staff.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-deep">
         <div class="footer-grid">
             <div class="footer-col">
-                <h4 style="color: white; font-weight: 800;">MVP Marketing Group</h4>
-                <p>A leading Texas-based consulting firm specializing in full-service sales, marketing solutions, and contract fulfillment for high school and collegiate properties.</p>
+                <h4>The Mission</h4>
+                <p>MVP Marketing Group is dedicated to maximizing revenue for Texas high schools and collegiate properties. We bridge the gap between untapped potential and limited district resources through elite sponsorship management.</p>
             </div>
             <div class="footer-col">
-                <h4>Navigation</h4>
+                <h4>Sitemap</h4>
                 <ul class="footer-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="approach.html">Our Approach</a></li>
-                    <li><a href="consulting.html">Consulting Packages</a></li>
-                    <li><a href="index.html#clients">Success Stories</a></li>
+                    <li><a href="consulting.html">Consulting Options</a></li>
+                    <li><a href="clients.html">Success Stories</a></li>
+                    <li><a href="team.html">Leadership</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>Inquiries</h4>
+                <h4>Inquiry</h4>
                 <ul class="footer-links">
                     <li><a href="mailto:contact@mvpmarketinggroup.org">contact@mvpmarketinggroup.org</a></li>
-                    <li><a href="index.html#contact">Online Contact Form →</a></li>
+                    <li><a href="index.html#contact">Online contact Form →</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>Confidential Strategy Proposal • Spring 2026</p>
+            <p>Confidential Partnership Proposal • Spring 2026</p>
             <p>&copy; 2026 MVP Marketing Group. All rights reserved.</p>
         </div>
     </footer>
@@ -220,12 +403,12 @@
         <div class="chat-window" id="chat-window">
             <div class="chat-header"><h4>MVP Strategic Advisor</h4><div onclick="toggleChat()" style="cursor:pointer;">✖</div></div>
             <div class="chat-body" id="chat-body">
-                <div class="chat-msg msg-bot">I'm the MVP Strategic Advisor. How can I clarify our methodology or commercial pillars for you today?</div>
-                <div id="typing-indicator" style="display:none; font-size: 0.7rem; color: #888; padding: 10px;">Advisor is searching...</div>
+                <div class="chat-msg msg-bot">Hello! I'm the MVP Strategic Advisor. How can I clarify our Revenue Architecture methodology or Core Values for you today?</div>
+                <div id="typing-indicator" style="display:none; font-size: 0.75rem; color: #888; padding: 10px;">Advisor is searching...</div>
             </div>
             <div class="chat-footer">
-                <input type="text" id="chat-input" class="chat-input" placeholder="Ask a question..." onkeypress="if(event.key==='Enter') sendMessage()">
-                <button class="chat-send" onclick="sendMessage()">GO</button>
+                <input type="text" id="chat-input" class="chat-input" placeholder="Ask about MVP strategy..." onkeypress="if(event.key==='Enter') sendMessage()">
+                <button class="chat-send" onclick="sendMessage()">➤</button>
             </div>
         </div>
     </div>
@@ -253,7 +436,7 @@
                 appendMessage(data.reply, 'bot');
             } catch (err) {
                 document.getElementById('typing-indicator').style.display = 'none';
-                appendMessage("System optimizes daily. Contact the MVP team directly.", 'bot');
+                appendMessage("Advisor offline. Please check connection.", 'bot');
             }
         }
         function appendMessage(text, side) {
