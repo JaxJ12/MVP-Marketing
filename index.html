@@ -29,7 +29,6 @@
             overflow-x: hidden;
         }
 
-        /* GLOBAL H4 RULE - This was causing the conflict */
         h1, h2, h3, h4 { margin-top: 0; line-height: 1.2; color: var(--navy); font-weight: 800; }
         p { margin-top: 0; line-height: 1.7; color: var(--text-main); margin-bottom: 1.2rem; }
 
@@ -156,20 +155,19 @@
         .chat-window { position: absolute; bottom: 85px; right: 0; width: 340px; background: white; border-radius: 15px; display: none; flex-direction: column; box-shadow: 0 20px 60px rgba(0,0,0,0.25); border: 1px solid #ddd; overflow: hidden; animation: slideIn 0.3s ease-out; }
         .chat-window.active { display: flex; }
         
-        /* CHAT HEADER REPAIR */
         .chat-header { background: var(--navy); color: var(--white) !important; padding: 18px; display: flex; justify-content: space-between; align-items: center; }
-        /* Adjusted h4 to align items centrally for the logo */
-        .chat-header h4 { color: var(--white) !important; margin: 0; font-size: 1rem; display: flex; align-items: center; }
+        .chat-header h4 { color: var(--white) !important; margin: 0; font-size: 0.95rem; display: flex; align-items: center; }
+        .chat-header h4 img { height: 24px; width: auto; margin-right: 12px; }
         .chat-header div { color: var(--white) !important; }
-        /* Added CSS for the logo inside the header h4 */
-        .chat-header h4 img { height: 24px; width: auto; margin-right: 10px; vertical-align: middle; }
 
-        .chat-body { height: 330px; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; background: #fdfdfd; }
+        .chat-body { height: 280px; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; background: #fdfdfd; }
         .chat-msg { padding: 12px 16px; border-radius: 18px; font-size: 0.95rem; max-width: 85%; line-height: 1.5; }
         .msg-bot { background: #f1f5f9; border: 1px solid #e2e8f0; align-self: flex-start; color: var(--text-main); }
-        
-        /* USER MSG COLOR REPAIR */
         .msg-user { background: var(--navy); color: var(--white) !important; align-self: flex-end; }
+
+        .chat-suggestions { padding: 10px 15px; background: #fff; display: flex; flex-wrap: wrap; gap: 8px; border-top: 1px solid #eee; }
+        .suggestion-btn { background: #f8fafc; border: 1px solid var(--gray-border); padding: 6px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; color: var(--navy); cursor: pointer; transition: 0.2s; }
+        .suggestion-btn:hover { background: var(--navy); color: white; border-color: var(--navy); }
 
         .chat-footer { padding: 15px; display: flex; gap: 8px; background: white; border-top: 1px solid #eee; }
         .chat-input { flex: 1; border: 1px solid #ddd; padding: 10px 18px; border-radius: 30px; outline: none; font-size: 0.95rem; }
@@ -185,8 +183,6 @@
             .overlap-image { width: 100%; height: 280px; }
             .overlap-text { width: 92%; margin: -50px auto 0 auto !important; padding: 35px; }
             nav { display: none; }
-            .footer-grid { gap: 40px; text-align: center; }
-            .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
         }
     </style>
 </head>
@@ -238,7 +234,7 @@
                 <div class="overlap-text">
                     <span class="step">Step 01</span>
                     <h3>Asset Valuation</h3>
-                    <p>We conduct deep-dive audits of digital, physical, and multimedia assets to build high-yield, custom sponsorship packages backed by data-driven pricing strategies.</p>
+                    <p>We conduct deep-dive audits of digital, physical, and multimedia assets to build high-yield sponsorship packages backed by data-driven pricing strategies.</p>
                 </div>
             </div>
             <div class="overlap-item">
@@ -254,7 +250,7 @@
                 <div class="overlap-text">
                     <span class="step">Step 03</span>
                     <h3>White-Glove Fulfillment</h3>
-                    <p>We manage the day-to-day deliverables, ensuring your sponsors receive maximum ROI. Our focus makes year-over-year renewals absolutely effortless.</p>
+                    <p>We manage deliverables ensuring ROI and satisfaction. Our focus makes year-over-year renewals absolutely effortless for your staff.</p>
                 </div>
             </div>
         </div>
@@ -262,13 +258,13 @@
 
     <section class="value-prop">
         <h2>Our Value Proposition</h2>
-        <p>Our services save our Clients time and energy by providing a full-service experience to maximize revenue potential and sponsorship satisfaction.</p>
+        <p>Our services save our Clients time and minimize staff burnout by providing a full-service experience to maximize long-term revenue potential.</p>
     </section>
 
     <section class="consulting-teaser">
         <div style="text-align: center; margin-bottom: 50px;">
             <h2>Consultation Options</h2>
-            <p>Schedule the intensity of assistance you need.</p>
+            <p>Schedule the exact intensity of assistance you need.</p>
         </div>
         <div class="pricing-grid">
             <div class="price-card">
@@ -293,11 +289,11 @@
             <div class="case-studies-col">
                 <div class="case-study">
                     <h4>Denton Public School Foundation</h4>
-                    <p>Within months, we generated over **$420K in fresh revenue** for student scholarships and untapped district potential.</p>
+                    <p>Generated over **$420K in fresh revenue** for student scholarships and untapped district potential within months.</p>
                 </div>
                 <div class="case-study">
                     <h4>Crowley ISD</h4>
-                    <p>MVP was initiated to foster enhanced community exposure for their state-of-the-art $30M sports complex.</p>
+                    <p>MVP fostered enhanced community exposure for their state-of-the-art $30M sports complex through custom sponsorship packages.</p>
                 </div>
             </div>
             <div class="quotes-col">
@@ -318,11 +314,11 @@
         <div class="team-grid">
             <div class="team-member">
                 <h4>Michael Vogelaar</h4><span>CEO / Co-Founder</span>
-                <p>Michael has generated tens of millions in sponsorships across Texas, identified untapped value, and built trust with local stakeholders.</p>
+                <p>Michael has generated tens of millions in sponsorships across Texas and secured multimillion-dollar naming rights for major school districts.</p>
             </div>
             <div class="team-member">
                 <h4>Drew Mitchell</h4><span>Co-Founder</span>
-                <p>Drew delivers turnkey solutions that maximize revenue and sponsorship satisfaction through operational excellence.</p>
+                <p>Drew delivers turnkey solutions that maximize revenue through extensive experience in strategic grassroots sports marketing.</p>
             </div>
         </div>
     </section>
@@ -362,13 +358,20 @@
         </div>
         <div class="chat-window" id="chat-window">
             <div class="chat-header">
-                <h4><img src="logo.png" alt="MVP Logo">MVP Advisor</h4>
+                <h4><img src="logo.png" alt="MVP Logo"> MVP Advisor</h4>
                 <div onclick="toggleChat()" style="cursor:pointer; font-weight:800;">✖</div>
             </div>
             <div class="chat-body" id="chat-body">
                 <div class="chat-msg msg-bot">Hello! I'm the MVP Advisor. How can I help you maximize your athletic revenue today?</div>
                 <div id="typing-indicator" style="display:none; font-size: 0.75rem; color: #888; padding: 10px;">Advisor is searching...</div>
             </div>
+            
+            <div class="chat-suggestions">
+                <button class="suggestion-btn" onclick="sendSuggestion('How does the Revenue Architecture work?')">Strategy Architecture</button>
+                <button class="suggestion-btn" onclick="sendSuggestion('What are the consulting options?')">Consulting Packages</button>
+                <button class="suggestion-btn" onclick="sendSuggestion('Tell me about your success stories.')">Success Stories</button>
+            </div>
+
             <div class="chat-footer">
                 <input type="text" id="chat-input" class="chat-input" placeholder="Ask about MVP..." onkeypress="if(event.key==='Enter') sendMessage()">
                 <button class="chat-send" onclick="sendMessage()">➤</button>
@@ -381,6 +384,12 @@
             document.getElementById('chat-window').classList.toggle('active');
             document.getElementById('chat-pop').style.display = 'none';
         }
+
+        async function sendSuggestion(text) {
+            document.getElementById('chat-input').value = text;
+            sendMessage();
+        }
+
         async function sendMessage() {
             const input = document.getElementById('chat-input');
             const text = input.value.trim();
@@ -403,6 +412,7 @@
                 appendMessage("The advisor is offline. Check your API connection.", 'bot');
             }
         }
+
         function appendMessage(text, side) {
             const msg = document.createElement('div');
             msg.className = `chat-msg msg-${side}`;
