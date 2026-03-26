@@ -34,13 +34,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: absolute; /* Sits on top of the hero */
+            position: absolute;
             width: 90%;
             top: 0;
             z-index: 1000;
         }
         .logo img {
-            height: 60px; /* Adjusts logo size */
+            height: 60px; 
             width: auto;
         }
         nav { display: flex; gap: 30px; align-items: center; }
@@ -50,7 +50,7 @@
             font-weight: 500;
             font-size: 0.95rem;
             transition: color 0.2s;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.5); /* Helps text pop on dark background */
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
         }
         nav a:hover { color: var(--gold); }
         .nav-cta {
@@ -62,13 +62,13 @@
             border: 2px solid var(--white);
             transition: all 0.3s ease;
         }
-        .nav-cta:hover { background-color: var(--white); color: var(--navy) !important; }
+        .nav-cta:hover { background-color: var(--white); color: var(--navy) !important; text-shadow: none; }
 
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(0,34,68,0.85), rgba(0,15,30,0.95)), url('https://images.unsplash.com/photo-1504450758481-7338eba7524a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover;
             color: var(--white);
-            padding: 220px 5% 180px; /* Extra bottom padding for floating stats */
+            padding: 220px 5% 180px; 
             text-align: center;
         }
         .hero h2 {
@@ -85,10 +85,10 @@
             color: #E5E7EB;
         }
 
-        /* Floating Stats Block - Premium Look */
+        /* Floating Stats Block */
         .stats-container {
             max-width: 1200px;
-            margin: -90px auto 60px auto; /* Pulls the block up over the hero edge */
+            margin: -90px auto 60px auto;
             position: relative;
             z-index: 10;
             padding: 0 5%;
@@ -163,7 +163,7 @@
         .service-card ul { padding-left: 18px; margin: 0; }
         .service-card ul li { margin-bottom: 12px; font-size: 1rem; color: #4B5563; }
 
-        /* Consulting Pricing */
+        /* Consulting Teaser Grid */
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -178,6 +178,8 @@
             border: 1px solid var(--gray-border);
             box-shadow: 0 4px 6px rgba(0,0,0,0.02);
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
         .price-card.featured {
             border: 2px solid var(--navy);
@@ -186,11 +188,34 @@
         }
         .price-card h3 { font-size: 1.5rem; margin-bottom: 5px; }
         .price-card .subtitle { color: #6B7280; font-size: 0.95rem; margin-bottom: 20px; display: block; font-style: italic;}
-        .price-card .amount { font-size: 2.5rem; font-weight: 800; color: var(--navy); margin-bottom: 25px; border-bottom: 1px solid var(--gray-border); padding-bottom: 15px;}
-        .price-card .amount span { font-size: 1rem; color: #6B7280; font-weight: 500; }
-        .price-card ul { list-style: none; padding: 0; margin: 0; }
-        .price-card ul li { padding: 12px 0; border-bottom: 1px solid var(--gray-border); color: #4B5563; font-size: 0.95rem; }
-        .price-card ul li:last-child { border-bottom: none; }
+        .price-card p.desc { color: #4B5563; line-height: 1.6; margin-bottom: 30px; flex-grow: 1; }
+        
+        .cta-btn-outline {
+            display: block;
+            text-align: center;
+            border: 2px solid var(--navy);
+            color: var(--navy);
+            padding: 12px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .cta-btn-outline:hover { background-color: var(--navy); color: var(--white); }
+
+        .cta-btn-solid {
+            display: block;
+            text-align: center;
+            background-color: var(--navy);
+            border: 2px solid var(--navy);
+            color: var(--white);
+            padding: 12px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .cta-btn-solid:hover { background-color: var(--gold); border-color: var(--gold); color: var(--navy); }
 
         /* Success Stories */
         .bg-navy { background-color: var(--navy); color: var(--white); }
@@ -244,20 +269,21 @@
         }
         @media (max-width: 600px) {
             .stats-grid { grid-template-columns: 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="#" class="logo">
+        <a href="index.html" class="logo">
             <img src="logo.png" alt="MVP Marketing Group Logo">
         </a>
         <nav>
-            <a href="#approach">The Approach</a>
-            <a href="#consulting">Consulting Options</a>
-            <a href="#clients">Success Stories</a>
-            <a href="#team">Leadership</a>
+            <a href="index.html#approach">The Approach</a>
+            <a href="consulting.html">Consulting Options</a>
+            <a href="index.html#clients">Success Stories</a>
+            <a href="index.html#team">Leadership</a>
             <a href="#contact" class="nav-cta">Contact Us</a>
         </nav>
     </header>
@@ -340,44 +366,29 @@
     <section id="consulting" class="section-pad bg-gray">
         <div class="section-header">
             <h2>Consultation Options</h2>
-            <p>Expert perspective and assistance customized for your booster club, department, or foundation.</p>
+            <p>Expert perspective and assistance customized for your booster club, department, or foundation. We offer tiered packages to fit your exact needs and capacity.</p>
         </div>
         <div class="pricing-grid">
             
             <div class="price-card">
                 <h3>Bronze Package</h3>
                 <span class="subtitle">Quick and Easy</span>
-                <div class="amount">$250<span>/HR</span></div>
-                <ul>
-                    <li>Expert perspective on your strategy</li>
-                    <li>Review of current marketing plan</li>
-                    <li>Insights for areas of improvement</li>
-                    <li>1:1 virtual reporting appointment</li>
-                </ul>
+                <p class="desc">Perfect for organizations needing an expert review of their current marketing plan and strategic insights for long-term improvement.</p>
+                <a href="consulting.html" class="cta-btn-outline">View Details & Pricing</a>
             </div>
 
             <div class="price-card featured">
                 <h3>Gold Package</h3>
                 <span class="subtitle">Teach me, Show me, Coach me!</span>
-                <div class="amount">$20,000</div>
-                <ul>
-                    <li><strong>Includes all Silver Package services</strong></li>
-                    <li><strong>3 days of onsite training / presentations</strong></li>
-                    <li>We handle sales presentations while you observe</li>
-                    <li>Training on phrasing and best practices</li>
-                </ul>
+                <p class="desc">Our premier package. We come to your community for 3 days of onsite training, handling live sales presentations while you observe our best practices.</p>
+                <a href="consulting.html" class="cta-btn-solid">View Details & Pricing</a>
             </div>
 
             <div class="price-card">
                 <h3>Silver Package</h3>
                 <span class="subtitle">Need help building it?</span>
-                <div class="amount">$5,000</div>
-                <ul>
-                    <li>Asset analysis and master planning</li>
-                    <li>Sales literature creation</li>
-                    <li>Contract templates provided</li>
-                    <li>Contract fulfillment best practices delivered virtually</li>
-                </ul>
+                <p class="desc">For teams capable of selling but lacking a professional plan. We provide master planning, sales literature, and contract templates.</p>
+                <a href="consulting.html" class="cta-btn-outline">View Details & Pricing</a>
             </div>
 
         </div>
