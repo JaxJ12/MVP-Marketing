@@ -31,7 +31,7 @@
     .nav-links a:hover, .nav-links a.active { color: var(--gold); }
     .nav-cta { background: var(--gold) !important; color: var(--navy) !important; border-radius: 4px !important; padding: 8px 18px !important; font-weight: 700 !important; border: none; }
 
-    /* NEW HERO SECTION */
+    /* --- HERO SECTION (Blue Pattern) --- */
     .page-hero { background: var(--navy); padding: 9rem 2.5rem 5rem; position: relative; overflow: hidden; }
     .hero-pattern { position: absolute; inset: 0; opacity: 0.04; background-image: repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 50%); background-size: 20px 20px; }
     .hero-bar { position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--gold); }
@@ -47,36 +47,46 @@
     .overview-text p { color: var(--muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem; }
     .overview-img { width: 100%; border-radius: 12px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
 
-    /* --- The Roadmap (Visual Timeline) --- */
-    .roadmap { padding: 100px 5%; background: var(--cream); }
+    /* --- REDESIGNED: Vertical Roadmap --- */
+    .roadmap-section { padding: 100px 5%; background: var(--cream); }
     .roadmap-header { text-align: center; margin-bottom: 80px; }
     .roadmap-header h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--navy); }
     .roadmap-header p { color: var(--muted); max-width: 600px; margin: 15px auto 0; font-size: 1.05rem; }
-    .roadmap-line-container {
-        max-width: 1100px; margin: 0 auto; position: relative; display: flex; justify-content: space-between; align-items: flex-start;
+    
+    .v-timeline { max-width: 800px; margin: 0 auto; position: relative; padding-left: 50px; }
+    .v-timeline::before { content: ''; position: absolute; left: 18px; top: 0; bottom: 0; width: 3px; background: #e2e8f0; }
+    .v-step { position: relative; margin-bottom: 50px; }
+    .v-step:last-child { margin-bottom: 0; }
+    .v-step-icon { 
+        position: absolute; left: -50px; top: 0; width: 40px; height: 40px; 
+        background: var(--navy); color: var(--gold); border-radius: 50%; 
+        display: flex; align-items: center; justify-content: center; 
+        font-weight: 800; font-size: 1.1rem; border: 4px solid var(--cream); 
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1); z-index: 2;
     }
-    .roadmap-line-container::after {
-        content: ''; position: absolute; top: 40px; left: 5%; width: 90%; height: 4px; background: var(--gold); z-index: 0;
+    .v-step-content { 
+        background: #fff; padding: 35px 40px; border-radius: 12px; 
+        border: 1px solid var(--gray-border); box-shadow: 0 10px 30px rgba(0,0,0,0.03); 
+        transition: transform 0.3s; 
     }
-    .roadmap-step { width: 22%; text-align: center; position: relative; z-index: 1; }
-    .step-bubble {
-        width: 80px; height: 80px; background: var(--navy); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 30px; border: 8px solid var(--cream); box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-    .step-bubble svg { width: 35px; height: 35px; fill: var(--gold); }
-    .roadmap-step h4 { font-size: 1rem; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-weight: 700; }
-    .roadmap-step h3 { font-size: 1.2rem; margin-bottom: 15px; color: var(--navy); }
-    .roadmap-step p { font-size: 0.9rem; line-height: 1.6; color: var(--muted); }
+    .v-step-content:hover { transform: translateX(10px); border-color: var(--gold); }
+    .v-step-content h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--navy); margin-bottom: 10px; }
+    .v-step-content p { font-size: 1rem; color: var(--muted); line-height: 1.6; margin: 0; }
 
-    /* --- Commercial Channels --- */
-    .channels { padding: 100px 5%; background: var(--navy); color: var(--white); }
-    .channels h2 { font-family: 'Playfair Display', serif; color: var(--white); text-align: center; font-size: 2.8rem; margin-bottom: 70px; letter-spacing: -1px; }
-    .channel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; }
-    .channel-card { background: rgba(255,255,255,0.05); padding: 45px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s ease; }
-    .channel-card:hover { transform: translateY(-10px); background: rgba(255,255,255,0.08); border-color: var(--gold); }
-    .channel-card h3 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.5rem; margin-bottom: 25px; border-bottom: 1px solid rgba(242, 169, 0, 0.3); padding-bottom: 15px; }
-    .channel-list { list-style: none; padding: 0; margin: 0; }
-    .channel-list li { margin-bottom: 15px; font-size: 1rem; color: #cbd5e1; padding-left: 25px; position: relative; line-height: 1.4; }
-    .channel-list li::before { content: '→'; color: var(--gold); position: absolute; left: 0; font-weight: bold; }
+    /* --- REDESIGNED: Alternating Commercial Channels --- */
+    .channels-section { padding: 100px 5%; background: var(--navy); color: var(--white); }
+    .channels-header { text-align: center; margin-bottom: 80px; }
+    .channels-header h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--white); }
+    
+    .channel-alt { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 100px; max-width: 1200px; margin-left: auto; margin-right: auto; }
+    .channel-alt:last-child { margin-bottom: 0; }
+    .channel-alt:nth-child(even) .ch-img-col { order: 2; }
+    .ch-img-col img { width: 100%; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); display: block; }
+    .ch-content h3 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--gold); margin-bottom: 20px; }
+    .ch-content p { color: rgba(255,255,255,0.7); font-size: 1.05rem; line-height: 1.7; margin-bottom: 25px; }
+    .ch-list { list-style: none; padding: 0; }
+    .ch-list li { margin-bottom: 12px; font-size: 1rem; color: #fff; padding-left: 24px; position: relative; }
+    .ch-list li::before { content: '→'; color: var(--gold); position: absolute; left: 0; font-weight: 800; }
 
     /* --- Core Values --- */
     .values-section { padding: 100px 5%; background: var(--white); }
@@ -149,11 +159,12 @@
     
     .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
     .fade-up.in { opacity: 1; transform: translateY(0); }
+    .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
 
     @media(max-width:1024px) {
-        .overview-grid, .roadmap-grid, .channel-grid, .values-grid { grid-template-columns: 1fr; }
-        .roadmap-line-container::after { display: none; }
-        .roadmap-step { width: 100%; max-width: 450px; margin: 0 auto 40px; }
+        .overview-grid, .values-grid { grid-template-columns: 1fr; }
+        .channel-alt { grid-template-columns: 1fr; gap: 40px; margin-bottom: 80px; }
+        .channel-alt:nth-child(even) .ch-img-col { order: -1; } /* Keep images on top on mobile */
         nav { display: none; }
         .nav-hamburger { display: flex; }
         .page-title { font-size: 3rem; }
@@ -169,7 +180,7 @@
       <li><a href="blueprint.html">The Playbook</a></li>
       <li><a href="consulting.html">Consulting</a></li>
       <li><a href="clients.html">Success Stories</a></li>
-      <li><a href="contact.html" class="nav-cta">Start Audit</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -181,7 +192,7 @@
     <a href="blueprint.html">The Playbook</a>
     <a href="consulting.html">Consulting Options</a>
     <a href="clients.html">Success Stories</a>
-    <a href="contact.html" style="color: var(--gold);">Start Audit</a>
+    <a href="contact.html" style="color: var(--gold);">Contact</a>
   </div>
 
   <div class="page-hero">
@@ -208,68 +219,74 @@
       </div>
   </section>
 
-  <section class="roadmap">
+  <section class="roadmap-section">
       <div class="roadmap-header fade-up">
           <h2>The Roadmap to Optimization</h2>
           <p>Our lifecycle approach for identifying, valuing, and monetizing your district's commercial rights.</p>
       </div>
       
-      <div class="roadmap-line-container">
-          <div class="roadmap-step fade-up d1">
-              <div class="step-bubble">
-                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+      <div class="v-timeline">
+          <div class="v-step fade-up d1">
+              <div class="v-step-icon">1</div>
+              <div class="v-step-content">
+                  <h3>Asset Audit</h3>
+                  <p>Ground-up validation of digital, physical, and media touchpoints across your entire athletic infrastructure to build a complete inventory of sellable inventory.</p>
               </div>
-              <h4>Phase 1</h4>
-              <h3>Asset Audit</h3>
-              <p>Ground-up validation of digital, physical, and media touchpoints.</p>
           </div>
-          
-          <div class="roadmap-step fade-up d2">
-              <div class="step-bubble">
-                  <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14h-2v-4H8v-2h4V7h2v10z"/></svg>
+          <div class="v-step fade-up d2">
+              <div class="v-step-icon">2</div>
+              <div class="v-step-content">
+                  <h3>Market Pricing</h3>
+                  <p>We apply data-driven pricing models backed by professional market analytics, ensuring your district never leaves money on the table when structuring packages.</p>
               </div>
-              <h4>Phase 2</h4>
-              <h3>Market Pricing</h3>
-              <p>Data-driven pricing models backed by professional market analytics.</p>
           </div>
-          
-          <div class="roadmap-step fade-up d3">
-              <div class="step-bubble">
-                  <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          <div class="v-step fade-up d3">
+              <div class="v-step-icon">3</div>
+              <div class="v-step-content">
+                  <h3>Executive Sales</h3>
+                  <p>Professional 1:1 presentation strategies to local and regional decision-makers. We bypass the gatekeepers and speak directly to business owners and executives.</p>
               </div>
-              <h4>Phase 3</h4>
-              <h3>Executive Sales</h3>
-              <p>Professional 1:1 presentation strategies to local and regional decision-makers.</p>
           </div>
-          
-          <div class="roadmap-step fade-up d4">
-              <div class="step-bubble">
-                  <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+          <div class="v-step fade-up d4">
+              <div class="v-step-icon">4</div>
+              <div class="v-step-content">
+                  <h3>Stewardship</h3>
+                  <p>White-glove contract fulfillment ensuring sponsor satisfaction. We manage the proofing, installation, and reporting to make annual renewals absolutely effortless.</p>
               </div>
-              <h4>Phase 4</h4>
-              <h3>Stewardship</h3>
-              <p>White-glove contract fulfillment ensuring sponsor satisfaction and annual renewals.</p>
           </div>
       </div>
   </section>
 
-  <section class="channels">
-      <h2 class="fade-up">Pillars of Commercial Engagement</h2>
-      <div class="channel-grid">
-          <div class="channel-card fade-up d1">
+  <section class="channels-section">
+      <div class="channels-header fade-up">
+          <h2>Pillars of Commercial Engagement</h2>
+      </div>
+      
+      <div class="channel-alt">
+          <div class="ch-content fade-up d1">
               <h3>On-Site Dominance</h3>
-              <ul class="channel-list">
-                  <li>Stadium Naming Rights</li>
+              <p>Turn your physical facilities into premium advertising real estate without cluttering the fan experience. We focus on high-impact, television-visible placements.</p>
+              <ul class="ch-list">
+                  <li>Stadium & Facility Naming Rights</li>
                   <li>Static Perimeter Signage</li>
                   <li>Digital Scoreboard Takeovers</li>
-                  <li>Gymnasium Naming Rights</li>
                   <li>Complex Brand Pillars</li>
-                  <li>Field/Court Branding</li>
+                  <li>Field and Court Branding</li>
               </ul>
           </div>
-          <div class="channel-card fade-up d2">
-              <h3>Digital Dominance</h3>
-              <ul class="channel-list">
+          <div class="ch-img-col fade-up d2">
+              <img src="https://images.unsplash.com/photo-1577223625816-7546f13df25d?auto=format&fit=crop&w=1000&q=80" alt="Football Stadium Lights">
+          </div>
+      </div>
+
+      <div class="channel-alt">
+          <div class="ch-img-col fade-up d1">
+              <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1000&q=80" alt="Digital Media on Smartphone">
+          </div>
+          <div class="ch-content fade-up d2">
+              <h3>Digital Ecosystem</h3>
+              <p>Modernize your sponsorship offerings by monetizing the platforms where students, parents, and alumni spend the majority of their time off the field.</p>
+              <ul class="ch-list">
                   <li>Social Media Narrative Management</li>
                   <li>District Website Brand Takeovers</li>
                   <li>Digital Broadcast Ad Integration</li>
@@ -277,9 +294,13 @@
                   <li>Mobile Ticketing App Presence</li>
               </ul>
           </div>
-          <div class="channel-card fade-up d3">
+      </div>
+
+      <div class="channel-alt">
+          <div class="ch-content fade-up d1">
               <h3>Multimedia Synergy</h3>
-              <ul class="channel-list">
+              <p>Capture the attention of your live audience with targeted, high-energy audio and visual integrations that enhance the gameday atmosphere.</p>
+              <ul class="ch-list">
                   <li>Public Address Audio Branding</li>
                   <li>Halftime Sponsor Featurettes</li>
                   <li>In-Game PA Announcements</li>
@@ -287,7 +308,11 @@
                   <li>Radio Broadcast Sponsorship</li>
               </ul>
           </div>
+          <div class="ch-img-col fade-up d2">
+              <img src="https://images.unsplash.com/photo-1598007551069-b5029302cb34?auto=format&fit=crop&w=1000&q=80" alt="Sports Broadcasting">
+          </div>
       </div>
+
   </section>
 
   <section class="values-section">
