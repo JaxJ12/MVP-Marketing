@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MVP Marketing Group | High School Sponsorship Sales</title>
     <style>
-        /* Professional B2B Consulting Styles - Densely Packed */
+        /* Refined Premium B2B Styles */
         :root {
-            --navy: #002D62; 
-            --gold: #FFB81C; 
+            --navy: #002244; 
+            --gold: #F2A900; 
             --dark: #111827;
             --gray-light: #F9FAFB;
             --gray-border: #E5E7EB;
             --text-main: #374151;
-            --text-muted: #6B7280;
             --white: #FFFFFF;
         }
         
@@ -22,119 +21,111 @@
             padding: 0;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             color: var(--text-main);
-            background-color: var(--white);
+            background-color: var(--gray-light);
             scroll-behavior: smooth;
         }
-        h1, h2, h3, h4 { margin-top: 0; line-height: 1.25; color: var(--navy); font-weight: 800; }
+        h1, h2, h3, h4 { margin-top: 0; line-height: 1.2; color: var(--navy); font-weight: 800; }
         p { margin-top: 0; line-height: 1.6; color: var(--text-main); }
-        ul li { line-height: 1.6; }
 
-        /* Navigation */
+        /* Transparent, Blended Navigation */
         header {
-            background-color: var(--white);
-            box-shadow: 0 1px 10px rgba(0,0,0,0.05);
-            padding: 1rem 5%;
+            background-color: transparent;
+            padding: 1.5rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: fixed;
+            position: absolute; /* Sits on top of the hero */
             width: 90%;
             top: 0;
             z-index: 1000;
         }
-        header h1 {
-            font-size: 1.5rem;
-            margin: 0;
-            letter-spacing: -0.5px;
+        .logo img {
+            height: 60px; /* Adjusts logo size */
+            width: auto;
         }
         nav { display: flex; gap: 30px; align-items: center; }
         nav a {
-            color: var(--text-main);
+            color: var(--white);
             text-decoration: none;
             font-weight: 500;
             font-size: 0.95rem;
             transition: color 0.2s;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5); /* Helps text pop on dark background */
         }
         nav a:hover { color: var(--gold); }
         .nav-cta {
-            background-color: var(--navy);
+            background-color: transparent;
             color: var(--white) !important;
             padding: 10px 24px;
             border-radius: 4px;
             font-weight: 600;
+            border: 2px solid var(--white);
+            transition: all 0.3s ease;
         }
-        .nav-cta:hover { background-color: var(--gold); color: var(--navy) !important; }
+        .nav-cta:hover { background-color: var(--white); color: var(--navy) !important; }
 
-        /* Hero Section - Deepened */
+        /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,45,98,0.92), rgba(0,25,55,0.97)), url('https://images.unsplash.com/photo-1504450758481-7338eba7524a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover;
+            background: linear-gradient(rgba(0,34,68,0.85), rgba(0,15,30,0.95)), url('https://images.unsplash.com/photo-1504450758481-7338eba7524a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover;
             color: var(--white);
-            padding: 200px 5% 150px;
+            padding: 220px 5% 180px; /* Extra bottom padding for floating stats */
             text-align: center;
         }
         .hero h2 {
-            font-size: 4.5rem;
+            font-size: 4.2rem;
             margin-bottom: 20px;
             color: var(--white);
-            letter-spacing: -1.5px;
+            letter-spacing: -1px;
         }
         .hero h2 span { color: var(--gold); }
         .hero p {
-            font-size: 1.35rem;
-            max-width: 850px;
-            margin: 0 auto 50px;
-            color: #D1D5DB;
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: #E5E7EB;
         }
-        .hero-btn {
-            background-color: var(--gold);
-            color: var(--navy);
-            padding: 16px 40px;
-            text-decoration: none;
-            font-weight: 700;
-            border-radius: 4px;
-            font-size: 1.1rem;
-            transition: transform 0.2s;
-            display: inline-block;
-        }
-        .hero-btn:hover { transform: translateY(-2px); }
 
-        /* Subdued Stats Bar */
-        .stats {
-            display: flex;
-            justify-content: center;
-            background-color: var(--white);
-            border-bottom: 1px solid var(--gray-border);
-            max-width: 1300px;
-            margin: 0 auto;
-            flex-wrap: wrap;
+        /* Floating Stats Block - Premium Look */
+        .stats-container {
+            max-width: 1200px;
+            margin: -90px auto 60px auto; /* Pulls the block up over the hero edge */
+            position: relative;
+            z-index: 10;
+            padding: 0 5%;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border: 1px solid var(--gray-border);
         }
         .stat-item {
-            flex: 1;
-            min-width: 300px;
             text-align: center;
-            padding: 35px;
             border-right: 1px solid var(--gray-border);
+            padding: 10px;
         }
         .stat-item:last-child { border-right: none; }
         .stat-num {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 800;
-            color: #4B5563;
+            color: var(--navy);
             margin-bottom: 5px;
             letter-spacing: -0.5px;
         }
         .stat-label {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--text-muted);
-            letter-spacing: 0.3px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        /* NEW Context Section: The Staffing Gap */
-        .problem {
-            padding: 100px 5%;
-            background-color: var(--gray-light);
-        }
+        /* The Gap Section */
+        .problem { padding: 60px 5% 100px; background-color: var(--gray-light); }
         .two-col-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -143,58 +134,34 @@
             margin: 0 auto;
             align-items: center;
         }
-        .problem-text h2 { font-size: 2.8rem; letter-spacing: -1px; margin-bottom: 20px;}
+        .problem-text h2 { font-size: 2.5rem; letter-spacing: -1px; margin-bottom: 20px;}
         .problem-text p { font-size: 1.1rem; color: #4B5563; margin-bottom: 20px;}
 
-        /* Section Formatting */
-        .section-pad { padding: 80px 5%; }
+        /* Section Layouts */
+        .section-pad { padding: 100px 5%; background-color: var(--white); }
+        .bg-gray { background-color: var(--gray-light); border-top: 1px solid var(--gray-border); }
         .section-header { text-align: center; margin-bottom: 60px; }
-        .section-header h2 { font-size: 2.8rem; margin-bottom: 15px; letter-spacing: -1px; }
-        .section-header p { font-size: 1.15rem; color: #4B5563; max-width: 750px; margin: 0 auto; }
+        .section-header h2 { font-size: 2.6rem; margin-bottom: 15px; letter-spacing: -1px; }
+        .section-header p { font-size: 1.1rem; color: #4B5563; max-width: 700px; margin: 0 auto; }
 
-        /* Turnkey APPROACH Grid - Expanded */
+        /* Turnkey Approach */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
             max-width: 1200px;
             margin: 0 auto;
         }
         .service-card {
-            padding: 50px;
-            border-radius: 6px;
+            padding: 40px;
+            border-radius: 8px;
             background: var(--white);
             border: 1px solid var(--gray-border);
-            transition: box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
         }
-        .service-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .service-card h3 { font-size: 1.6rem; margin-bottom: 20px; color: var(--navy); border-bottom: 2px solid var(--gold); padding-bottom: 12px; display: inline-block;}
-        .service-card ul { padding-left: 18px; color: var(--text-main); margin: 0; }
-        .service-card ul li { margin-bottom: 12px; font-size: 1rem; }
-
-        /* NEW Section: Process Timeline */
-        .process {
-            background-color: var(--navy);
-            color: var(--white);
-            padding: 100px 5%;
-        }
-        .process h2 { color: var(--white); text-align: center; font-size: 2.8rem; margin-bottom: 60px;}
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .process-item { text-align: center; }
-        .process-icon {
-            font-size: 2.5rem;
-            color: var(--gold);
-            font-weight: 800;
-            margin-bottom: 15px;
-        }
-        .process-item h4 { color: var(--white); font-size: 1.3rem; margin-bottom: 10px;}
-        .process-item p { color: #D1D5DB; font-size: 0.95rem; line-height: 1.6; }
+        .service-card h3 { font-size: 1.4rem; margin-bottom: 20px; color: var(--navy); border-bottom: 2px solid var(--gold); padding-bottom: 10px; display: inline-block;}
+        .service-card ul { padding-left: 18px; margin: 0; }
+        .service-card ul li { margin-bottom: 12px; font-size: 1rem; color: #4B5563; }
 
         /* Consulting Pricing */
         .pricing-grid {
@@ -206,40 +173,29 @@
         }
         .price-card {
             background: var(--white);
-            padding: 60px 50px;
-            border-radius: 6px;
+            padding: 50px 40px;
+            border-radius: 8px;
             border: 1px solid var(--gray-border);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            position: relative;
         }
         .price-card.featured {
             border: 2px solid var(--navy);
-            box-shadow: 0 10px 25px rgba(0,45,98,0.1);
+            box-shadow: 0 15px 30px rgba(0,34,68,0.08);
+            transform: scale(1.02);
         }
-        .price-card h3 { font-size: 1.6rem; margin-bottom: 5px; }
+        .price-card h3 { font-size: 1.5rem; margin-bottom: 5px; }
         .price-card .subtitle { color: #6B7280; font-size: 0.95rem; margin-bottom: 20px; display: block; font-style: italic;}
-        .price-card .amount { font-size: 2.8rem; font-weight: 800; color: var(--navy); margin-bottom: 25px; border-bottom: 1px solid var(--gray-border); padding-bottom: 15px;}
+        .price-card .amount { font-size: 2.5rem; font-weight: 800; color: var(--navy); margin-bottom: 25px; border-bottom: 1px solid var(--gray-border); padding-bottom: 15px;}
         .price-card .amount span { font-size: 1rem; color: #6B7280; font-weight: 500; }
-        .price-card ul { list-style: none; padding: 0; margin: 0 0 30px 0; }
+        .price-card ul { list-style: none; padding: 0; margin: 0; }
         .price-card ul li { padding: 12px 0; border-bottom: 1px solid var(--gray-border); color: #4B5563; font-size: 0.95rem; }
         .price-card ul li:last-child { border-bottom: none; }
-        .price-btn {
-            background-color: var(--navy);
-            color: var(--white);
-            text-align: center;
-            padding: 14px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .price-btn:hover { background-color: var(--dark); }
 
-        /* Case Studies & Quotes - Density Focus */
-        .bg-navy { background-color: #002244; color: var(--white); }
+        /* Success Stories */
+        .bg-navy { background-color: var(--navy); color: var(--white); }
         .bg-navy h2 { color: var(--white); }
         .bg-navy p { color: #D1D5DB; }
-        
         .client-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -247,20 +203,20 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-        .case-study h4 { color: var(--gold); font-size: 1.3rem; margin-bottom: 10px; text-transform: uppercase;}
-        .case-study p { color: #E5E7EB; line-height: 1.7; margin-bottom: 30px;}
+        .case-study h4 { color: var(--gold); font-size: 1.2rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px;}
+        .case-study p { color: #E5E7EB; line-height: 1.6; margin-bottom: 30px;}
         
         .quote-card {
-            background: rgba(255,255,255,0.03);
-            padding: 40px;
-            border-radius: 6px;
+            background: rgba(255,255,255,0.05);
+            padding: 35px;
+            border-radius: 8px;
             border-left: 4px solid var(--gold);
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
-        .quote-card p { font-style: italic; font-size: 1.15rem; color: var(--white); margin-bottom: 15px; line-height: 1.6;}
-        .quote-card .author { font-size: 0.9rem; font-weight: 600; color: #9CA3AF; text-transform: uppercase; letter-spacing: 1px;}
+        .quote-card p { font-style: italic; font-size: 1.1rem; color: var(--white); margin-bottom: 15px;}
+        .quote-card .author { font-size: 0.85rem; font-weight: 700; color: #9CA3AF; text-transform: uppercase; }
 
-        /* Team - Dense 3-Column */
+        /* Team */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -268,28 +224,35 @@
             max-width: 1000px;
             margin: 0 auto;
         }
-        .team-member { padding: 50px; background: var(--gray-light); border: 1px solid var(--gray-border); border-radius: 6px; }
-        .team-member h4 { font-size: 1.6rem; margin-bottom: 5px; }
-        .team-member span { color: var(--gold); font-weight: 800; font-size: 0.95rem; text-transform: uppercase; display: block; margin-bottom: 20px; letter-spacing: 1px;}
-        .team-member p { font-size: 1rem; line-height: 1.7; color: var(--text-main); }
+        .team-member { padding: 40px; background: var(--white); border: 1px solid var(--gray-border); border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .team-member h4 { font-size: 1.5rem; margin-bottom: 5px; }
+        .team-member span { color: var(--gold); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; display: block; margin-bottom: 15px;}
+        .team-member p { font-size: 0.95rem; color: #4B5563; }
 
         /* Footer */
-        footer { background: var(--dark); color: #9CA3AF; text-align: center; padding: 60px 5%; font-size: 0.95rem; border-top: 1px solid #2d3748;}
+        footer { background: var(--dark); color: #9CA3AF; text-align: center; padding: 60px 5%; font-size: 0.9rem; }
 
         @media (max-width: 1024px) {
-            .pricing-grid, .process-grid { grid-template-columns: 1fr; }
-            .hero h2 { font-size: 3rem; }
+            .pricing-grid, .stats-grid { grid-template-columns: 1fr 1fr; }
+            .hero h2 { font-size: 3.5rem; }
             .two-col-grid, .client-grid, .team-grid { grid-template-columns: 1fr; gap: 40px;}
             .stat-item { border-right: none; border-bottom: 1px solid var(--gray-border); }
-            header { width: 90%; }
+            .stat-item:nth-child(even) { border-right: none; }
+            header { position: relative; background-color: var(--navy); }
+            .stats-container { margin-top: -40px; }
             nav { display: none; }
+        }
+        @media (max-width: 600px) {
+            .stats-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>MVP Marketing Group</h1>
+        <a href="#" class="logo">
+            <img src="logo.png" alt="MVP Marketing Group Logo">
+        </a>
         <nav>
             <a href="#approach">The Approach</a>
             <a href="#consulting">Consulting Options</a>
@@ -302,27 +265,28 @@
     <section class="hero">
         <h2>A Turnkey Solution<br><span>for School Revenue.</span></h2>
         <p>Minimize athletic department staff burnout and maximize grassroot revenue potential. We provide full-service consulting, ad sales, and professional contract fulfillment.</p>
-        <a href="#contact" class="hero-btn">Maximize Your Revenue</a>
     </section>
 
-    <section class="stats">
-        <div class="stat-item">
-            <div class="stat-num">30+ Years</div>
-            <div class="stat-label">Combined Success</div>
+    <div class="stats-container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-num">30+ Years</div>
+                <div class="stat-label">Combined Success</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">80+ Districts</div>
+                <div class="stat-label">Properties Partnered</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">$420K+</div>
+                <div class="stat-label">Fresh Revenue</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">300%+</div>
+                <div class="stat-label">Sponsorship Increase</div>
+            </div>
         </div>
-        <div class="stat-item">
-            <div class="stat-num">80+ Districts</div>
-            <div class="stat-label">& Collegiate Properties Partnered</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-num">$420K+</div>
-            <div class="stat-label">Fresh Revenue (Denton ISD)</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-num">300%+</div>
-            <div class="stat-label">Sponsorship Increase (Mesquite ISD)</div>
-        </div>
-    </section>
+    </div>
 
     <section class="problem">
         <div class="two-col-grid">
@@ -332,7 +296,7 @@
                 <p>MVP Marketing Group bridges this gap, saving clients time, energy, and costs by handling the entire process to maximize long-term revenue potential and sponsorship satisfaction.</p>
             </div>
             <div class="problem-visual">
-                <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="High school stadium lights" style="width: 100%; border-radius: 8px; box-shadow: 0 12px 24px rgba(0,45,98,0.15);">
+                <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="High school stadium under lights" style="width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
             </div>
         </div>
     </section>
@@ -340,7 +304,7 @@
     <section id="approach" class="section-pad">
         <div class="section-header">
             <h2>The TurnKey Approach</h2>
-            <p>We provide comprehensive grassroots solutions—setup virtual or in-person—to identify your wants and needs and discuss customized, custom options around your objectives.</p>
+            <p>We provide comprehensive grassroots solutions—set up virtually or in-person—to identify your wants and needs and discuss customized options around your objectives.</p>
         </div>
         <div class="services-grid">
             <div class="service-card">
@@ -349,7 +313,7 @@
                     <li>Expert asset analysis to discover available inventory.</li>
                     <li>Compelling on-site, digital, and multimedia offerings.</li>
                     <li>Creation of professional marketing plans and materials.</li>
-                    <li>Development of custom sponsorship packages with optimal custom pricing strategies.</li>
+                    <li>Development of packages with optimal custom pricing strategies.</li>
                 </ul>
             </div>
             <div class="service-card">
@@ -358,7 +322,7 @@
                     <li>MVP Team handles the full sales sponsorship funnel.</li>
                     <li>Securing introductory sales meetings.</li>
                     <li>Execution of 1:1 customized presentations.</li>
-                    <li>Management of term negotiations leading to the final signed agreement.</li>
+                    <li>Management of term negotiations leading to the signed agreement.</li>
                 </ul>
             </div>
             <div class="service-card">
@@ -367,39 +331,13 @@
                     <li>Gap fulfillment between agreement collection and delivery.</li>
                     <li>Comprehensive servicing of signed agreements.</li>
                     <li>Ensuring sponsor complete satisfaction and VIP care.</li>
-                    <li>Increased productivity for your staff by removing administrative burden.</li>
+                    <li>Increased productivity for your staff by removing administrative burdens.</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <section class="process">
-        <h2>Your Revenue Roadmap</h2>
-        <div class="process-grid">
-            <div class="process-item">
-                <div class="process-icon">1</div>
-                <h4>Consultation</h4>
-                <p>Virtually or in-person, we identify wants, needs, and long-term objectives with no sales pressure.</p>
-            </div>
-            <div class="process-item">
-                <div class="process-icon">2</div>
-                <h4>Master Plan</h4>
-                <p>We analyze available assets and inventory to craft a professional, custom marketing plan.</p>
-            </div>
-            <div class="process-item">
-                <div class="process-icon">3</div>
-                <h4>Execution</h4>
-                <p>Our expert team handles the pitch, negotiations, and securing signed contracts.</p>
-            </div>
-            <div class="process-item">
-                <div class="process-icon">4</div>
-                <h4>Fulfillment</h4>
-                <p>We service the agreements to ensure total sponsor satisfaction, paving the way for renewals.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="consulting" class="section-pad" style="background-color: var(--gray-light); border-top: 1px solid var(--gray-border);">
+    <section id="consulting" class="section-pad bg-gray">
         <div class="section-header">
             <h2>Consultation Options</h2>
             <p>Expert perspective and assistance customized for your booster club, department, or foundation.</p>
@@ -407,48 +345,39 @@
         <div class="pricing-grid">
             
             <div class="price-card">
-                <div>
-                    <h3>Bronze</h3>
-                    <span class="subtitle">Expert Perspective</span>
-                    <div class="amount">$250<span>/HR</span></div>
-                    <ul>
-                        <li>Review of current marketing plan</li>
-                        <li>Discussion of strategies</li>
-                        <li>Insights into areas of improvement</li>
-                        <li>1:1 Virtual reporting appointment</li>
-                    </ul>
-                </div>
-                <a href="#contact" class="price-btn">Book Consultation</a>
+                <h3>Bronze Package</h3>
+                <span class="subtitle">Quick and Easy</span>
+                <div class="amount">$250<span>/HR</span></div>
+                <ul>
+                    <li>Expert perspective on your strategy</li>
+                    <li>Review of current marketing plan</li>
+                    <li>Insights for areas of improvement</li>
+                    <li>1:1 virtual reporting appointment</li>
+                </ul>
             </div>
 
             <div class="price-card featured">
-                <div>
-                    <h3>Gold Package</h3>
-                    <span class="subtitle">Onsite Training & Coaching</span>
-                    <div class="amount">$20,000</div>
-                    <ul>
-                        <li><strong>Includes all Silver Package services</strong></li>
-                        <li><strong>3 Days of onsite training / sales presentations</strong></li>
-                        <li>Handling of live presentations while you observe</li>
-                        <li>Training on presentation strategies & phrasings</li>
-                    </ul>
-                </div>
-                <a href="#contact" class="price-btn" style="background-color: var(--gold); color: var(--navy);">Book Onsite</a>
+                <h3>Gold Package</h3>
+                <span class="subtitle">Teach me, Show me, Coach me!</span>
+                <div class="amount">$20,000</div>
+                <ul>
+                    <li><strong>Includes all Silver Package services</strong></li>
+                    <li><strong>3 days of onsite training / presentations</strong></li>
+                    <li>We handle sales presentations while you observe</li>
+                    <li>Training on phrasing and best practices</li>
+                </ul>
             </div>
 
             <div class="price-card">
-                <div>
-                    <h3>Silver Package</h3>
-                    <span class="subtitle">Strategic Master Planning</span>
-                    <div class="amount">$5,000</div>
-                    <ul>
-                        <li>Asset analysis and master planning</li>
-                        <li>Sales literature creation</li>
-                        <li>Contract templates provided</li>
-                        <li>Contract fulfillment best practices delivered virtually</li>
-                    </ul>
-                </div>
-                <a href="#contact" class="price-btn">Book Silver</a>
+                <h3>Silver Package</h3>
+                <span class="subtitle">Need help building it?</span>
+                <div class="amount">$5,000</div>
+                <ul>
+                    <li>Asset analysis and master planning</li>
+                    <li>Sales literature creation</li>
+                    <li>Contract templates provided</li>
+                    <li>Contract fulfillment best practices delivered virtually</li>
+                </ul>
             </div>
 
         </div>
@@ -472,7 +401,7 @@
                 </div>
                 <div class="case-study">
                     <h4>Crowley ISD Sports Complex ($30M)</h4>
-                    <p>Crowley ISD initiated contact to योगदान contribute to fostering avenues for enhanced exposure at their new flagship sports facility.</p>
+                    <p>Crowley ISD initiated contact to foster avenues for enhanced exposure and custom sponsorship packages at their new flagship sports facility.</p>
                 </div>
             </div>
 
@@ -494,7 +423,7 @@
         </div>
     </section>
 
-    <section id="team" class="section-pad">
+    <section id="team" class="section-pad bg-gray">
         <div class="section-header">
             <h2>Know Your Team</h2>
             <p>Led by industry leaders and experts in high school marketing and advertising.</p>
@@ -503,19 +432,19 @@
             <div class="team-member">
                 <h4>Michael Vogelaar</h4>
                 <span>CEO / Co-Founder</span>
-                <p>After a decade selling sponsorships with a scoreboard company, Michael founded MVP. Having sold multimillion-dollar naming rights, generated tens of millions in sponsorships, and maintained local, regional, and national relationships for decades, he brings unparalleled expertise to districts directly.</p>
+                <p>After a decade selling sponsorships with a scoreboard company, Michael founded MVP. Having sold multimillion-dollar naming rights, generated tens of millions in sponsorships, and maintained relationships for decades, he brings unparalleled expertise directly to districts.</p>
             </div>
             <div class="team-member">
                 <h4>Drew Mitchell</h4>
                 <span>Co-Founder</span>
-                <p>Bringing extensive experience in strategic grassroots sports marketing, strategic planning, and sales execution, Drew works alongside Mike to deliver turnkey solutions that maximize revenue and sponsorship satisfaction for school districts and collegiate properties across Texas.</p>
+                <p>Bringing extensive experience in strategic grassroots sports marketing, strategic planning, and sales execution, Drew works alongside Mike to deliver turnkey solutions that maximize revenue and sponsorship satisfaction for school districts across Texas.</p>
             </div>
         </div>
     </section>
 
     <footer id="contact">
         <h3 style="color: white; margin-bottom: 20px;">Ready to maximize your revenue?</h3>
-        <p style="margin-bottom: 30px; color: #9CA3AF;">Contact the MVP team to schedule your virtual or in-person consultation.</p>
+        <p style="margin-bottom: 30px;">Contact the MVP team to schedule your virtual or in-person consultation.</p>
         <p>&copy; 2026 MVP Marketing Group. All rights reserved.</p>
     </footer>
 
