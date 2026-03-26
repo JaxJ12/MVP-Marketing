@@ -241,3 +241,135 @@
             .grid-2 {
                 grid-template-columns: 1fr; /* Stacks columns on small screens */
             }
+            .price-card.gold {
+                transform: scale(1); /* Stops the middle card from overlapping on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>MVP Marketing Group</h1>
+        <nav>
+            <a href="#services">Services</a>
+            <a href="#consulting">Consulting</a>
+            <a href="#clients">Case Studies</a>
+            <a href="#team">Team</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>A Turnkey Solution for Schools</h2>
+        <p>Minimize staff burnout and maximize revenue potential. With over 30 years of success generating revenue for 80+ school districts and collegiate properties, we provide full-service sales, marketing solutions, and contract fulfillment.</p>
+        <a href="#services" class="cta-btn">Explore Our Services</a>
+    </section>
+
+    <section id="services" class="services-bg">
+        <h2 class="section-title">Service One: Full Service | TurnKey</h2>
+        <p class="section-subtitle">We handle the heavy lifting. From crafting the master plan to executing sales appointments and delivering signed contracts, we ensure complete sponsor satisfaction from start to renewal.</p>
+        
+        <div class="grid-2">
+            <div class="service-box">
+                <h3>Master Planning & Ad Sales</h3>
+                <p>We do the asset analysis to discover available inventory and create custom pricing strategies. Our team handles the full sponsorship sales funnel—securing meetings, delivering 1:1 customized presentations, and handling negotiations that lead to final signed agreements.</p>
+            </div>
+            <div class="service-box">
+                <h3>Contract Fulfillment</h3>
+                <p>Many clients collect signed agreements but fall behind on deliverables. We fill that gap. We service your agreements, saving your staff time and energy, and ensuring each sponsor gets the attention they deserve.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="consulting">
+        <h2 class="section-title">Service Two: Consultation Options</h2>
+        <p class="section-subtitle">Need perspective or hands-on training for your booster club or foundation? We offer tiered consulting to fit your exact needs.</p>
+        
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>Bronze Package</h3>
+                <p><em>Quick and Easy</em></p>
+                <div class="price">$250<span style="font-size: 1rem; color: #777;">/HR</span></div>
+                <p>For clients looking for expert perspective. We review your current marketing plan, discuss strategies, provide tools, and report findings in a 1:1 virtual appointment.</p>
+            </div>
+            
+            <div class="price-card gold">
+                <h3>Gold Package</h3>
+                <p><em>Teach me, Show me, Coach me!</em></p>
+                <div class="price">$20,000</div>
+                <p>Includes everything in Silver, plus <strong>3 days of onsite training and sales presentations.</strong> We come to your community, handle pitches while you observe, and train you on the exact phrasing and strategies that drive our success.</p>
+            </div>
+
+            <div class="price-card">
+                <h3>Silver Package</h3>
+                <p><em>Need help building it?</em></p>
+                <div class="price">$5,000</div>
+                <p>For teams capable of selling but lacking a professional plan. We provide asset analysis, master planning, sales literature creation, and contract templates delivered virtually.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="clients" class="services-bg">
+        <h2 class="section-title">Proven Results</h2>
+        <p class="section-subtitle">We get the service you deserve. Here is how we've helped districts across Texas.</p>
+
+        <div class="grid-2">
+            <div class="case-study">
+                <h3>Denton Public School Foundation</h3>
+                <p>Despite a significant opportunity, the Foundation lacked the sales capacity for sponsorships. Within months of partnering with MVP Marketing, we successfully generated <strong>over $420K in fresh revenue</strong> for the district and student scholarships.</p>
+            </div>
+            <div class="case-study">
+                <h3>Mesquite ISD</h3>
+                <p>After dealing with the effects of Covid on their local sponsorships, Mesquite ISD partnered with MVP. We were able to <strong>increase their local sponsorship by more than 300%.</strong></p>
+            </div>
+            <div class="case-study">
+                <h3>Crowley ISD ($30M Sports Complex)</h3>
+                <p>Inaugurating a new complex introduces intricate challenges. Taking note of MVP's achievements with Denton ISD, Crowley ISD brought us in to foster avenues for enhanced exposure for their new facility.</p>
+            </div>
+            <div class="case-study">
+                <h3>Burleson ISD</h3>
+                <p>After managing marketing internally, staff changes and time constraints took a toll on renewals. MVP Marketing was enlisted to provide dedicated sponsor care, prioritize contract fulfillment, and secure new partnerships.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2 class="section-title">What Our Partners Say</h2>
+        <div class="quote-grid">
+            <div class="quote-box">
+                "MVP marketing and Mike Vogelaar are first class, innovative and exceptionally professional. We feel fortunate to partner with them here in the Denton ISD."
+                <div class="quote-author">— Joey Florence, TX High School Hall of Fame Coach & Denton ISD AD</div>
+            </div>
+            <div class="quote-box">
+                "In our campaign, we had a lot of moving parts that needed to be overseen, and not a single piece was ever missed. MVP was 100% on top of their game and handled everything we needed and then some."
+                <div class="quote-author">— Jake Laughlin, North Central Texas College</div>
+            </div>
+            <div class="quote-box">
+                "MVP Marketing helped us with a professional level of marketing campaign at the grassroot level. This is difficult to find today with the turnover and limited staffing in every organization. They made it easy and successful."
+                <div class="quote-author">— Stacey Kunz</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team">
+        <h2 class="section-title">Leadership</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <h3>Michael Vogelaar</h3>
+                <strong>CEO / Co-Founder</strong>
+                <p>After over a decade of selling sponsorships with a scoreboard company, Michael saw the incredible demand for marketing from local businesses. Being an industry leader who has sold multimillion-dollar naming rights and tens of millions in sponsorship agreements over decades, he founded MVP Marketing Group to work directly with understaffed schools to execute high-level marketing plans.</p>
+            </div>
+            <div class="team-member">
+                <h3>Drew Mitchell</h3>
+                <strong>Co-Founder</strong>
+                <p>Bringing extensive experience in sports marketing and strategic partnerships, Drew works alongside Mike to deliver turnkey solutions that maximize revenue for high schools and collegiate properties across Texas.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 MVP Marketing Group. Empowering high school athletics through strategic sponsorships.</p>
+    </footer>
+
+</body>
+</html>
