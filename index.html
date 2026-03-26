@@ -9,7 +9,7 @@
         :root {
             --navy: #002244; 
             --gold: #F2A900; 
-            --slate: #1E293B; /* Premium Slate Blue/Gray */
+            --slate: #1E293B; 
             --dark: #111827; 
             --gray-light: #F9FAFB;
             --gray-border: #E5E7EB;
@@ -116,7 +116,7 @@
         .section-header h2 { font-size: 2.6rem; margin-bottom: 15px; letter-spacing: -1px; }
         .section-header p { font-size: 1.1rem; color: #4B5563; max-width: 700px; margin: 0 auto; }
 
-        /* === NEW: Layered "Overlap" Blueprint Section (Slate Blue) === */
+        /* Layered "Overlap" Blueprint Section */
         .bg-slate { background-color: var(--slate); color: var(--white); }
         .bg-slate h2 { color: var(--white); }
         .bg-slate .section-header p { color: #E5E7EB; }
@@ -154,7 +154,6 @@
             position: relative;
         }
         
-        /* The specific layering/overlap offsets */
         .overlap-item:nth-child(odd) .overlap-text { margin-left: -10%; border-left: 4px solid var(--gold); }
         .overlap-item:nth-child(even) .overlap-text { margin-right: -10%; border-right: 4px solid var(--gold); }
         
@@ -248,7 +247,127 @@
         /* Footer */
         footer { background: var(--dark); color: #9CA3AF; text-align: center; padding: 60px 5%; font-size: 0.9rem; }
 
-        /* Mobile Adjustments */
+        /* =========================================
+           CHATBOT WIDGET STYLES 
+           ========================================= */
+        .chat-widget {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 9999;
+            font-family: 'Inter', sans-serif;
+        }
+        .chat-toggle {
+            width: 60px;
+            height: 60px;
+            background-color: var(--navy);
+            border-radius: 50%;
+            box-shadow: 0 5px 20px rgba(0,34,68,0.3);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--white);
+            transition: transform 0.3s ease;
+        }
+        .chat-toggle:hover {
+            transform: scale(1.05);
+            background-color: var(--gold);
+            color: var(--navy);
+        }
+        .chat-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 350px;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            border: 1px solid var(--gray-border);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .chat-window.active {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .chat-header {
+            background-color: var(--navy);
+            color: var(--white);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .chat-header h4 { margin: 0; font-size: 1rem; color: var(--white); display: flex; align-items: center; gap: 8px;}
+        .chat-header .status-dot { width: 8px; height: 8px; background-color: #4CAF50; border-radius: 50%; }
+        .close-chat { cursor: pointer; font-size: 1.2rem; opacity: 0.8; transition: opacity 0.2s;}
+        .close-chat:hover { opacity: 1; }
+        
+        .chat-body {
+            padding: 20px;
+            height: 300px;
+            overflow-y: auto;
+            background-color: var(--gray-light);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .chat-msg { max-width: 80%; padding: 10px 15px; border-radius: 15px; font-size: 0.9rem; line-height: 1.4; }
+        .msg-bot { background-color: var(--white); border: 1px solid var(--gray-border); color: var(--text-main); align-self: flex-start; border-bottom-left-radius: 4px; }
+        .msg-user { background-color: var(--navy); color: var(--white); align-self: flex-end; border-bottom-right-radius: 4px; }
+        
+        .quick-replies { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+        .reply-pill {
+            background-color: rgba(0,34,68,0.05);
+            border: 1px solid var(--navy);
+            color: var(--navy);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .reply-pill:hover { background-color: var(--navy); color: var(--white); }
+
+        .chat-footer {
+            padding: 15px;
+            background: var(--white);
+            border-top: 1px solid var(--gray-border);
+            display: flex;
+            gap: 10px;
+        }
+        .chat-input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid var(--gray-border);
+            border-radius: 20px;
+            outline: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+        }
+        .chat-send {
+            background-color: var(--navy);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+        .chat-send:hover { background-color: var(--gold); }
+        .typing-indicator { display: none; font-size: 0.8rem; color: #888; margin-left: 10px; font-style: italic; }
+
         @media (max-width: 1024px) {
             .pricing-grid, .stats-grid { grid-template-columns: 1fr 1fr; }
             .hero h2 { font-size: 3.5rem; }
@@ -263,6 +382,7 @@
             .overlap-item, .overlap-item:nth-child(even) { flex-direction: column; }
             .overlap-image { width: 100%; height: auto; }
             .overlap-text { width: 90%; margin: -40px auto 0 auto !important; }
+            .chat-window { width: 300px; right: -15px; }
         }
         @media (max-width: 600px) {
             .stats-grid { grid-template-columns: 1fr; }
@@ -466,5 +586,118 @@
         <p>&copy; 2026 MVP Marketing Group. All rights reserved.</p>
     </footer>
 
+    <div class="chat-widget">
+        <div class="chat-toggle" onclick="toggleChat()" id="chat-toggle-btn">
+            🤖
+        </div>
+
+        <div class="chat-window" id="chat-window">
+            <div class="chat-header">
+                <h4><span class="status-dot"></span> MVP Virtual Advisor</h4>
+                <div class="close-chat" onclick="toggleChat()">✖</div>
+            </div>
+            
+            <div class="chat-body" id="chat-body">
+                <div class="chat-msg msg-bot">
+                    Welcome! I'm the MVP Partnership Advisor. How can I help you maximize your athletic revenue today?
+                </div>
+                <div class="quick-replies" id="quick-replies">
+                    <div class="reply-pill" onclick="sendQuickReply('Consulting Prices?')">Consulting Prices?</div>
+                    <div class="reply-pill" onclick="sendQuickReply('What is Turnkey?')">What is Turnkey?</div>
+                    <div class="reply-pill" onclick="sendQuickReply('Case Studies?')">Case Studies?</div>
+                </div>
+                <div class="typing-indicator" id="typing-indicator">Advisor is typing...</div>
+            </div>
+            
+            <div class="chat-footer">
+                <input type="text" id="chat-input" class="chat-input" placeholder="Ask me anything..." onkeypress="handleEnter(event)">
+                <button class="chat-send" onclick="sendMessage()">➤</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const chatWindow = document.getElementById('chat-window');
+        const chatBody = document.getElementById('chat-body');
+        const chatInput = document.getElementById('chat-input');
+        const typingIndicator = document.getElementById('typing-indicator');
+        const quickReplies = document.getElementById('quick-replies');
+
+        // Toggle Open/Close
+        function toggleChat() {
+            chatWindow.classList.toggle('active');
+        }
+
+        // Handle Enter Key
+        function handleEnter(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        // Send a message from quick reply pills
+        function sendQuickReply(text) {
+            quickReplies.style.display = 'none'; // Hide pills after first use
+            processUserMessage(text);
+        }
+
+        // Send a message from the text input
+        function sendMessage() {
+            const text = chatInput.value.trim();
+            if (text === '') return;
+            chatInput.value = '';
+            quickReplies.style.display = 'none'; 
+            processUserMessage(text);
+        }
+
+        // Display User Message and trigger Bot response
+        function processUserMessage(text) {
+            // Append User Message
+            const userMsg = document.createElement('div');
+            userMsg.className = 'chat-msg msg-user';
+            userMsg.innerText = text;
+            chatBody.insertBefore(userMsg, typingIndicator);
+            scrollToBottom();
+
+            // Show typing indicator
+            typingIndicator.style.display = 'block';
+            scrollToBottom();
+
+            // Simulate network delay for bot response
+            setTimeout(() => {
+                typingIndicator.style.display = 'none';
+                generateBotResponse(text);
+            }, 1200);
+        }
+
+        // Simulated AI Logic (Keyword Matching)
+        function generateBotResponse(userText) {
+            const text = userText.toLowerCase();
+            let botReply = "I can definitely connect you with Mike or Drew to discuss that. Would you like me to provide their contact information?";
+
+            // Simple Keyword Routing
+            if (text.includes("price") || text.includes("cost") || text.includes("package")) {
+                botReply = "We offer 3 consulting tiers: Bronze ($250/hr), Silver ($5k flat), and Gold ($20k flat, which includes 3 days of on-site coaching). You can view full details on our 'Consulting Options' page!";
+            } else if (text.includes("turnkey") || text.includes("service")) {
+                botReply = "Our Full-Service Turnkey solution means we handle everything: asset valuation, active market sales pitches, and complete contract fulfillment. We take the burden entirely off your staff.";
+            } else if (text.includes("case") || text.includes("client") || text.includes("denton") || text.includes("proof")) {
+                botReply = "We have a massive track record in Texas! For example, we generated over $420K in fresh revenue for Denton ISD, and increased local sponsorships for Mesquite ISD by over 300%.";
+            } else if (text.includes("contact") || text.includes("email") || text.includes("call")) {
+                botReply = "You can reach out directly to our leadership team. We'd love to set up a virtual or in-person consultation to look at your specific needs.";
+            }
+
+            // Append Bot Message
+            const botMsg = document.createElement('div');
+            botMsg.className = 'chat-msg msg-bot';
+            botMsg.innerText = botReply;
+            chatBody.insertBefore(botMsg, typingIndicator);
+            scrollToBottom();
+        }
+
+        // Keep chat scrolled to the newest message
+        function scrollToBottom() {
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+    </script>
 </body>
 </html>
