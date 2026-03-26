@@ -144,24 +144,42 @@
         .section-header h2 { font-size: 2.6rem; margin-bottom: 15px; letter-spacing: -1px; }
         .section-header p { font-size: 1.1rem; color: #4B5563; max-width: 700px; margin: 0 auto; }
 
-        /* Turnkey Approach */
-        .services-grid {
+        /* The Blueprint Grid (Formerly Turnkey) */
+        .blueprint-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
             max-width: 1200px;
             margin: 0 auto;
         }
-        .service-card {
+        .blueprint-card {
             padding: 40px;
             border-radius: 8px;
             background: var(--white);
             border: 1px solid var(--gray-border);
             box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .service-card h3 { font-size: 1.4rem; margin-bottom: 20px; color: var(--navy); border-bottom: 2px solid var(--gold); padding-bottom: 10px; display: inline-block;}
-        .service-card ul { padding-left: 18px; margin: 0; }
-        .service-card ul li { margin-bottom: 12px; font-size: 1rem; color: #4B5563; }
+        .blueprint-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+        }
+        .blueprint-card .step-num {
+            position: absolute;
+            top: -15px;
+            right: 0px;
+            font-size: 10rem;
+            font-weight: 900;
+            color: var(--gray-light);
+            z-index: 0;
+            line-height: 1;
+            user-select: none;
+        }
+        .blueprint-card h3, .blueprint-card p { position: relative; z-index: 1; }
+        .blueprint-card h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--navy); border-bottom: 2px solid var(--gold); padding-bottom: 10px; display: inline-block;}
+        .blueprint-card p { font-size: 1.05rem; color: #4B5563; line-height: 1.7; }
 
         /* Consulting Teaser Grid */
         .pricing-grid {
@@ -189,17 +207,12 @@
         .price-card h3 { font-size: 1.5rem; margin-bottom: 5px; }
         .price-card .subtitle { color: #6B7280; font-size: 0.95rem; margin-bottom: 20px; display: block; font-style: italic;}
         
-        /* Teaser Checkmark List */
         .price-card ul.teaser-list { list-style: none; padding: 0; margin: 0; flex-grow: 1; }
         .price-card ul.teaser-list li { padding: 12px 0; border-bottom: 1px solid var(--gray-border); color: #4B5563; font-size: 0.95rem; }
         .price-card ul.teaser-list li:last-child { border-bottom: none; }
         .price-card ul.teaser-list li::before { content: "✓"; color: var(--gold); font-weight: bold; margin-right: 10px; font-size: 1.1rem; }
 
-        /* Central CTA Wrapper */
-        .pricing-cta-wrapper {
-            text-align: center;
-            margin-top: 50px;
-        }
+        .pricing-cta-wrapper { text-align: center; margin-top: 50px; }
         .large-btn {
             background-color: var(--navy);
             color: var(--white);
@@ -277,7 +290,7 @@
             <img src="logo.png" alt="MVP Marketing Group Logo">
         </a>
         <nav>
-            <a href="index.html#approach">The Approach</a>
+            <a href="index.html#blueprint">The Blueprint</a>
             <a href="consulting.html">Consulting Options</a>
             <a href="index.html#clients">Success Stories</a>
             <a href="index.html#team">Leadership</a>
@@ -324,38 +337,26 @@
         </div>
     </section>
 
-    <section id="approach" class="section-pad">
+    <section id="blueprint" class="section-pad">
         <div class="section-header">
-            <h2>The TurnKey Approach</h2>
-            <p>We provide comprehensive grassroots solutions—set up virtually or in-person—to identify your wants and needs and discuss customized options around your objectives.</p>
+            <h2>The Full-Service Blueprint</h2>
+            <p>You handle the athletics. We handle the business. When you partner with MVP, we take complete ownership of your sponsorship lifecycle from initial audit to final contract delivery.</p>
         </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>Master Planning</h3>
-                <ul>
-                    <li>Expert asset analysis to discover available inventory.</li>
-                    <li>Compelling on-site, digital, and multimedia offerings.</li>
-                    <li>Creation of professional marketing plans and materials.</li>
-                    <li>Development of packages with optimal custom pricing strategies.</li>
-                </ul>
+        <div class="blueprint-grid">
+            <div class="blueprint-card">
+                <div class="step-num">1</div>
+                <h3>Asset Valuation</h3>
+                <p>We don't just sell; we strategize. We conduct a deep-dive audit of your digital, physical, and multimedia assets to build high-yield, custom sponsorship packages backed by data-driven pricing.</p>
             </div>
-            <div class="service-card">
-                <h3>Ad Sales Process</h3>
-                <ul>
-                    <li>MVP Team handles the full sales sponsorship funnel.</li>
-                    <li>Securing introductory sales meetings.</li>
-                    <li>Execution of 1:1 customized presentations.</li>
-                    <li>Management of term negotiations leading to the signed agreement.</li>
-                </ul>
+            <div class="blueprint-card">
+                <div class="step-num">2</div>
+                <h3>Active Market Sales</h3>
+                <p>We act as an extension of your department. Leveraging our network and proven 1:1 presentation strategies, we actively pitch, negotiate, and close local and regional business partnerships on your behalf.</p>
             </div>
-            <div class="service-card">
-                <h3>Contract Fulfillment</h3>
-                <ul>
-                    <li>Gap fulfillment between agreement collection and delivery.</li>
-                    <li>Comprehensive servicing of signed agreements.</li>
-                    <li>Ensuring sponsor complete satisfaction and VIP care.</li>
-                    <li>Increased productivity for your staff by removing administrative burdens.</li>
-                </ul>
+            <div class="blueprint-card">
+                <div class="step-num">3</div>
+                <h3>White-Glove Fulfillment</h3>
+                <p>A signed contract is just the beginning. We manage the day-to-day deliverables, ensuring your sponsors receive maximum ROI and VIP care, making year-over-year renewals absolutely effortless.</p>
             </div>
         </div>
     </section>
@@ -367,7 +368,6 @@
         </div>
         
         <div class="pricing-grid">
-            
             <div class="price-card">
                 <h3>Bronze Package</h3>
                 <span class="subtitle">Quick and Easy</span>
@@ -378,7 +378,6 @@
                     <li>1:1 Virtual reporting</li>
                 </ul>
             </div>
-
             <div class="price-card">
                 <h3>Silver Package</h3>
                 <span class="subtitle">Need help building it?</span>
@@ -389,7 +388,6 @@
                     <li>Virtual fulfillment best practices</li>
                 </ul>
             </div>
-
             <div class="price-card featured">
                 <h3>Gold Package</h3>
                 <span class="subtitle">Teach me, Show me, Coach me!</span>
@@ -400,7 +398,6 @@
                     <li>In-person pitch coaching</li>
                 </ul>
             </div>
-
         </div>
 
         <div class="pricing-cta-wrapper">
@@ -414,7 +411,6 @@
             <p>Successfully partnering with Celina ISD, Denton ISD, Burleson ISD, Mesquite ISD, Crowley ISD, and North Central Texas College.</p>
         </div>
         <div class="client-grid">
-            
             <div class="case-studies-col">
                 <div class="case-study">
                     <h4>Denton Public School Foundation</h4>
@@ -429,7 +425,6 @@
                     <p>Crowley ISD initiated contact to foster avenues for enhanced exposure and custom sponsorship packages at their new flagship sports facility.</p>
                 </div>
             </div>
-
             <div class="quotes-col">
                 <div class="quote-card">
                     <p>"MVP marketing and Mike Vogelaar are first class, innovative and exceptionally professional. We feel fortunate to partner with them here in the Denton ISD."</p>
@@ -444,7 +439,6 @@
                     <div class="author">— Stacey Kunz</div>
                 </div>
             </div>
-
         </div>
     </section>
 
