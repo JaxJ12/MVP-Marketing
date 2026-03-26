@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Approach | MVP Marketing Group</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #002244; 
+            --gold: #F2A900; 
+            --slate: #1E293B; 
+            --dark: #111827; 
+            --gray-light: #F9FAFB;
+            --gray-border: #E5E7EB;
+            --text-main: #374151;
+            --white: #FFFFFF;
+            --bot-glow: rgba(0, 34, 68, 0.4);
+        }
+        
+        body, html {
+            margin: 0; padding: 0;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background-color: var(--white);
+            scroll-behavior: smooth;
+            font-size: 15px;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 { margin-top: 0; line-height: 1.2; color: var(--navy); font-weight: 800; }
+        p { margin-top: 0; line-height: 1.7; color: var(--text-main); margin-bottom: 1.2rem; }
+
+        /* --- Navigation (Fixed for Subpages) --- */
+        header {
+            background-color: var(--navy); /* Solid navy for subpages */
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo img { height: 45px; width: auto; }
+        nav { display: flex; gap: 30px; align-items: center; }
+        nav a { color: var(--white); text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: color 0.2s; }
+        nav a:hover { color: var(--gold); }
+        .nav-cta {
+            padding: 8px 18px;
+            border-radius: 4px;
+            font-weight: 700;
+            border: 2px solid var(--white);
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+        .nav-cta:hover { background-color: var(--white); color: var(--navy) !important; }
+
+        /* --- Subpage Hero --- */
+        .page-header {
+            background: linear-gradient(rgba(0,34,68,0.9), rgba(0,15,30,0.95)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80') center/cover;
+            padding: 80px 5%;
+            text-align: center;
+            color: var(--white);
+        }
+        .page-header h1 { color: var(--white); font-size: 3rem; letter-spacing: -1.5px; margin-bottom: 10px; }
+        .page-header p { color: var(--gold); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; }
+
+        /* --- Intro Section --- */
+        .intro-section { padding: 80px 5%; max-width: 900px; margin: 0 auto; text-align: center; }
+        .intro-section h2 { font-size: 2.2rem; margin-bottom: 25px; letter-spacing: -1px; }
+        .intro-section p { font-size: 1.15rem; color: #4B5563; }
+
+        /* --- The Pillars (Grid) --- */
+        .pillars-bg { background-color: var(--gray-light); padding: 80px 5%; }
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .pillar-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid var(--gray-border);
+            transition: transform 0.3s ease;
+        }
+        .pillar-card:hover { transform: translateY(-5px); border-color: var(--gold); }
+        .pillar-num { color: var(--gold); font-size: 2.5rem; font-weight: 800; opacity: 0.3; margin-bottom: 10px; display: block; }
+        .pillar-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
+        .pillar-card p { font-size: 0.95rem; margin-bottom: 0; }
+
+        /* --- Strategic Methodology --- */
+        .methodology { padding: 80px 5%; }
+        .method-flex {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .method-content { flex: 1; }
+        .method-image { flex: 1; }
+        .method-image img { width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .check-list { list-style: none; padding: 0; }
+        .check-list li { margin-bottom: 15px; padding-left: 30px; position: relative; font-weight: 600; color: var(--navy); }
+        .check-list li::before { content: '✓'; position: absolute; left: 0; color: var(--gold); font-size: 1.2rem; }
+
+        /* --- SAP STYLE FINAL FOOTER --- */
+        .footer-deep { background: #0A0A0A; padding: 80px 5% 40px; border-top: 1px solid rgba(255,255,255,0.05); }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1.5fr; gap: 60px; max-width: 1200px; margin: 0 auto 60px; text-align: left; }
+        .footer-col h4 { color: white; font-size: 1.1rem; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-col p { color: #9CA3AF; font-size: 0.95rem; line-height: 1.6; }
+        .footer-links { list-style: none; padding: 0; margin: 0; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: #9CA3AF; text-decoration: none; font-size: 0.95rem; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--gold); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 40px; display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+        .footer-bottom p { color: #6B7280; font-size: 0.85rem; margin: 0; }
+        .footer-brand { color: white; font-weight: 800; font-size: 1.1rem; text-decoration: none; }
+
+        /* --- Chatbot Widget --- */
+        .chat-widget { position: fixed; bottom: 30px; right: 30px; z-index: 9999; display: flex; flex-direction: column; align-items: flex-end; }
+        .chat-pop { background: white; padding: 12px 20px; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); margin-bottom: 18px; font-size: 0.9rem; font-weight: 700; color: var(--navy); border: 1px solid var(--gray-border); position: relative; animation: float 3.5s ease-in-out infinite; }
+        .chat-pop::after { content: ''; position: absolute; bottom: -10px; right: 22px; border-width: 10px 10px 0; border-style: solid; border-color: white transparent transparent; }
+        .chat-toggle { width: 65px; height: 65px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 0 0 0 var(--bot-glow); animation: pulse-glow 2.5s infinite; transition: 0.3s; }
+        .chat-toggle svg { width: 30px; height: 30px; fill: white; }
+        .chat-window { position: absolute; bottom: 85px; right: 0; width: 340px; background: white; border-radius: 15px; display: none; flex-direction: column; box-shadow: 0 20px 60px rgba(0,0,0,0.25); border: 1px solid #ddd; overflow: hidden; }
+        .chat-window.active { display: flex; }
+        .chat-header { background: var(--navy); color: white; padding: 18px; display: flex; justify-content: space-between; align-items: center; }
+        .chat-body { height: 330px; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; background: #fdfdfd; }
+        .chat-msg { padding: 12px 16px; border-radius: 18px; font-size: 0.95rem; max-width: 85%; line-height: 1.5; }
+        .msg-bot { background: #f1f5f9; border: 1px solid #e2e8f0; align-self: flex-start; }
+        .msg-user { background: var(--navy); color: white; align-self: flex-end; }
+        .chat-footer { padding: 15px; display: flex; gap: 8px; background: white; border-top: 1px solid #eee; }
+        .chat-input { flex: 1; border: 1px solid #ddd; padding: 10px 18px; border-radius: 30px; outline: none; font-size: 0.95rem; }
+        .chat-send { background: var(--navy); color: white; border: none; border-radius: 50%; width: 42px; height: 42px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+
+        @keyframes pulse-glow { 0% { box-shadow: 0 0 0 0 var(--bot-glow); } 70% { box-shadow: 0 0 0 18px rgba(0, 34, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(0, 34, 68, 0); } }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+        @media (max-width: 1024px) {
+            .pillars-grid, .method-flex, .footer-grid { grid-template-columns: 1fr; }
+            .method-flex { flex-direction: column; text-align: center; }
+            .check-list li { text-align: left; }
+            nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo"><img src="logo.png" alt="MVP Logo"></a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="approach.html" style="color: var(--gold);">Our Approach</a>
+            <a href="consulting.html">Consulting Packages</a>
+            <a href="index.html#clients">Success Stories</a>
+            <a href="index.html#team">Leadership</a>
+            <a href="#contact" class="nav-cta">Contact Us</a>
+        </nav>
+    </header>
+
+    <div class="page-header">
+        <p>The MVP Methodology</p>
+        <h1>Our Approach</h1>
+    </div>
+
+    <section class="intro-section">
+        <h2>Expertise That Drives Results</h2>
+        <p>At MVP Marketing Group, we don't believe in "cookie-cutter" sales. We combine 30+ years of scoreboard and stadium sponsorship experience with a modern, data-driven methodology to unlock revenue that most districts didn't know existed.</p>
+    </section>
+
+    <section class="pillars-bg">
+        <div class="pillars-grid">
+            <div class="pillar-card">
+                <span class="pillar-num">01</span>
+                <h3>Asset Inventory</h3>
+                <p>We perform a comprehensive audit of every physical, digital, and multimedia asset your district owns. From naming rights to social media posts, we find the value in every square inch of your properties.</p>
+            </div>
+            <div class="pillar-card">
+                <span class="pillar-num">02</span>
+                <h3>Targeted Market Analysis</h3>
+                <p>We analyze your local business landscape to identify partners whose brand values align with your district’s mission. We don't just find sponsors; we find long-term partners.</p>
+            </div>
+            <div class="pillar-card">
+                <span class="pillar-num">03</span>
+                <h3>Professional 1:1 Engagement</h3>
+                <p>High-value sponsorships are built on relationships. We use professional sales literature and in-person presentations to communicate the ROI of your district to decision-makers.</p>
+            </div>
+            <div class="pillar-card">
+                <span class="pillar-num">04</span>
+                <h3>Operational Stewardship</h3>
+                <p>The sale is only the beginning. We provide the "white-glove" fulfillment that ensures every logo is placed and every contract term is met, guaranteeing renewals year after year.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="methodology">
+        <div class="method-flex">
+            <div class="method-content">
+                <h2>Why It Works</h2>
+                <p>The gap between high school potential and district resources is widening. Most athletic directors are stretched thin. Our approach removes the burden from your staff while professionalizing the entire experience for the sponsor.</p>
+                <ul class="check-list">
+                    <li>Data-Driven Asset Pricing</li>
+                    <li>Professional Negotiation & Terms</li>
+                    <li>Full Contract Execution Management</li>
+                    <li>Sponsor Satisfaction Reporting</li>
+                </ul>
+            </div>
+            <div class="method-image">
+                <img src="https://images.unsplash.com/photo-1454165833767-1316b3b76021?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Consulting discussion">
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-deep" id="contact">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>The Mission</h4>
+                <p>MVP Marketing Group is dedicated to maximizing revenue for Texas high schools and collegiate properties. We bridge the gap between untapped potential and limited district resources through elite, turnkey sponsorship management.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="approach.html">Our Approach</a></li>
+                    <li><a href="consulting.html">Consulting Packages</a></li>
+                    <li><a href="index.html#clients">Success Stories</a></li>
+                    <li><a href="index.html#team">Leadership Team</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <p>Ready to discuss your district's potential?</p>
+                <ul class="footer-links">
+                    <li><a href="mailto:contact@mvpmarketinggroup.org">contact@mvpmarketinggroup.org</a></li>
+                    <li><a href="#">Inquiry Form →</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <a href="index.html" class="footer-brand">MVP Marketing Group</a>
+            <p>Confidential Partnership Strategy • Spring 2026 • Powered by MVP Marketing Group</p>
+        </div>
+    </footer>
+
+    <div class="chat-widget">
+        <div class="chat-pop" id="chat-pop">Ask Our AI Advisor</div>
+        <div class="chat-toggle" onclick="toggleChat()">
+            <svg viewBox="0 0 24 24"><path d="M20,2H4C2.9,2,2,2.9,2,4v18l4-4h14c1.1,0,2-0.9,2-2V4C22,2.9,21.1,2,20,2z"/></svg>
+        </div>
+        <div class="chat-window" id="chat-window">
+            <div class="chat-header"><h4>MVP Advisor</h4><div onclick="toggleChat()" style="cursor:pointer; font-weight:800;">✖</div></div>
+            <div class="chat-body" id="chat-body">
+                <div class="chat-msg msg-bot">Hello! I'm the MVP Advisor. Ask me anything about our approach or how we audit district assets.</div>
+                <div id="typing-indicator" style="display:none; font-size: 0.75rem; color: #888; padding: 10px;">Advisor is searching...</div>
+            </div>
+            <div class="chat-footer">
+                <input type="text" id="chat-input" class="chat-input" placeholder="Ask about MVP..." onkeypress="if(event.key==='Enter') sendMessage()">
+                <button class="chat-send" onclick="sendMessage()">➤</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleChat() { 
+            document.getElementById('chat-window').classList.toggle('active');
+            document.getElementById('chat-pop').style.display = 'none';
+        }
+        async function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const text = input.value.trim();
+            if (!text) return;
+            appendMessage(text, 'user');
+            input.value = '';
+            document.getElementById('typing-indicator').style.display = 'block';
+            try {
+                const res = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: text })
+                });
+                const data = await res.json();
+                document.getElementById('typing-indicator').style.display = 'none';
+                appendMessage(data.reply, 'bot');
+            } catch (err) {
+                document.getElementById('typing-indicator').style.display = 'none';
+                appendMessage("The advisor is currently optimizing. Please check back shortly.", 'bot');
+            }
+        }
+        function appendMessage(text, side) {
+            const msg = document.createElement('div');
+            msg.className = `chat-msg msg-${side}`;
+            msg.innerText = text;
+            const body = document.getElementById('chat-body');
+            body.insertBefore(msg, document.getElementById('typing-indicator'));
+            body.scrollTop = body.scrollHeight;
+        }
+    </script>
+</body>
+</html>
