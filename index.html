@@ -158,7 +158,8 @@
         .chat-body { height: 330px; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; background: #fdfdfd; }
         .chat-msg { padding: 12px 16px; border-radius: 18px; font-size: 0.95rem; max-width: 85%; line-height: 1.5; }
         .msg-bot { background: #f1f5f9; border: 1px solid #e2e8f0; align-self: flex-start; color: var(--text-main); }
-        .msg-user { background: var(--navy); color: white; align-self: flex-end; }
+        /* FIXED: Added !important to force white text on navy background */
+        .msg-user { background: var(--navy); color: var(--white) !important; align-self: flex-end; }
         .chat-footer { padding: 15px; display: flex; gap: 8px; background: white; border-top: 1px solid #eee; }
         .chat-input { flex: 1; border: 1px solid #ddd; padding: 10px 18px; border-radius: 30px; outline: none; font-size: 0.95rem; }
         .chat-send { background: var(--navy); color: white; border: none; border-radius: 50%; width: 42px; height: 42px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
@@ -226,7 +227,7 @@
                 <div class="overlap-text">
                     <span class="step">Step 01</span>
                     <h3>Asset Valuation</h3>
-                    <p>We don't just sell; we strategize. We conduct deep-dive audits of digital, physical, and multimedia assets to build high-yield, custom sponsorship packages specifically for their state-of-the-art $30M sports complex.</p>
+                    <p>We don't just sell; we strategize. We conduct deep-dive audits of digital, physical, and multimedia assets to build high-yield, custom sponsorship packages backed by data-driven pricing strategies that ensure you aren't leaving money on the table.</p>
                 </div>
             </div>
             <div class="overlap-item">
