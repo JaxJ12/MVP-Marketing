@@ -28,10 +28,8 @@
             overflow-x: hidden;
         }
 
-        /* --- Global Refinements --- */
         h1, h2, h3, h4 { margin-top: 0; line-height: 1.2; color: var(--navy); font-weight: 800; }
         p { margin-top: 0; line-height: 1.7; color: var(--text-main); margin-bottom: 1.2rem; }
-        .section-pad { padding: 80px 5%; }
 
         /* --- Navigation --- */
         header {
@@ -82,12 +80,11 @@
         .stat-num { font-size: 1.9rem; font-weight: 800; color: var(--navy); margin-bottom: 4px; }
         .stat-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
 
-        /* --- Approach Section --- */
+        /* --- Sections --- */
         .approach { padding: 90px 5%; background-color: var(--gray-light); }
         .two-col-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1100px; margin: 0 auto; align-items: center; }
         .approach-text h2 { font-size: 2.5rem; margin-bottom: 25px; letter-spacing: -1px; }
 
-        /* --- Blueprint (Overlapping) --- */
         .bg-slate { background-color: var(--slate); color: var(--white); padding: 90px 5%; }
         .bg-slate h2 { color: var(--white); font-size: 2.5rem; text-align: center; margin-bottom: 70px; letter-spacing: -1px; }
         .overlap-container { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 100px; }
@@ -100,12 +97,10 @@
         .overlap-text h3 { font-size: 1.7rem; margin-bottom: 15px; color: var(--navy); }
         .overlap-text p { color: var(--text-main); font-size: 1rem; margin-bottom: 0; }
 
-        /* --- Value Proposition --- */
         .value-prop { padding: 90px 5%; text-align: center; background: var(--white); }
         .value-prop h2 { font-size: 2.4rem; margin-bottom: 30px; letter-spacing: -1px; }
         .value-prop p { font-size: 1.2rem; max-width: 900px; margin: 0 auto; color: #4B5563; line-height: 1.8; }
 
-        /* --- Consulting Teaser --- */
         .consulting-teaser { padding: 80px 5%; background-color: var(--gray-light); border-top: 1px solid var(--gray-border); }
         .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; max-width: 1100px; margin: 0 auto; }
         .price-card { background: var(--white); padding: 45px 35px; border-radius: 8px; border: 1px solid var(--gray-border); display: flex; flex-direction: column; transition: transform 0.3s ease; }
@@ -117,7 +112,6 @@
         .teaser-list li:last-child { border-bottom: none; }
         .teaser-list li::before { content: "✓"; color: var(--gold); font-weight: bold; margin-right: 10px; }
 
-        /* --- Success Stories --- */
         .bg-navy { background-color: var(--navy); color: var(--white); padding: 100px 5%; }
         .bg-navy h2 { color: var(--white); text-align: center; margin-bottom: 80px; font-size: 2.6rem; letter-spacing: -1px; }
         .client-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 80px; max-width: 1200px; margin: 0 auto; }
@@ -130,31 +124,36 @@
         .quote-card p { font-style: italic; font-size: 1.1rem; color: var(--white); margin-bottom: 15px; }
         .quote-card .author { font-size: 0.85rem; font-weight: 700; color: #9CA3AF; text-transform: uppercase; letter-spacing: 1.5px; }
 
-        /* --- Leadership --- */
         .team-section { padding: 100px 5%; background: var(--white); }
         .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; max-width: 1100px; margin: 0 auto; }
         .team-member { padding: 50px; background: var(--gray-light); border: 1px solid var(--gray-border); border-radius: 12px; transition: box-shadow 0.3s; }
         .team-member:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .team-member h4 { font-size: 1.7rem; margin-bottom: 8px; }
         .team-member span { color: var(--gold); font-weight: 800; text-transform: uppercase; display: block; margin-bottom: 25px; font-size: 0.95rem; letter-spacing: 1px;}
-        .team-member p { line-height: 1.8; font-size: 1.05rem; margin-bottom: 0; }
 
-        /* --- Footer --- */
-        footer { background: #0A0A0A; color: #9CA3AF; text-align: center; padding: 100px 5%; border-top: 1px solid rgba(255,255,255,0.05); }
-        footer h3 { color: white; font-size: 2.2rem; margin-bottom: 25px; letter-spacing: -1px; }
+        /* --- SAP STYLE FINAL FOOTER --- */
+        .footer-deep { background: #0A0A0A; padding: 80px 5% 40px; border-top: 1px solid rgba(255,255,255,0.05); }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1.5fr; gap: 60px; max-width: 1200px; margin: 0 auto 60px; text-align: left; }
+        .footer-col h4 { color: white; font-size: 1.1rem; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-col p { color: #9CA3AF; font-size: 0.95rem; line-height: 1.6; }
+        .footer-links { list-style: none; padding: 0; margin: 0; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: #9CA3AF; text-decoration: none; font-size: 0.95rem; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--gold); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 40px; display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+        .footer-bottom p { color: #6B7280; font-size: 0.85rem; margin: 0; }
+        .footer-brand { color: white; font-weight: 800; font-size: 1.1rem; text-decoration: none; }
 
-        /* --- Chatbot Widget (SAP Style) --- */
+        /* --- Chatbot Widget --- */
         .chat-widget { position: fixed; bottom: 30px; right: 30px; z-index: 9999; display: flex; flex-direction: column; align-items: flex-end; }
-        .chat-pop { background: white; padding: 12px 20px; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); margin-bottom: 18px; font-size: 0.9rem; font-weight: 700; color: var(--navy); border: 1px solid var(--gray-border); position: relative; animation: float 3.5s ease-in-out infinite; }
-        .chat-pop::after { content: ''; position: absolute; bottom: -10px; right: 28px; border-width: 10px 10px 0; border-style: solid; border-color: white transparent transparent; }
+        .chat-pop { background: white; padding: 12px 20px; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); margin-bottom: 15px; font-size: 0.9rem; font-weight: 700; color: var(--navy); border: 1px solid var(--gray-border); position: relative; animation: float 3.5s ease-in-out infinite; }
+        .chat-pop::after { content: ''; position: absolute; bottom: -10px; right: 22px; border-width: 10px 10px 0; border-style: solid; border-color: white transparent transparent; }
         .chat-toggle { width: 65px; height: 65px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 0 0 0 var(--bot-glow); animation: pulse-glow 2.5s infinite; transition: 0.3s; }
         .chat-toggle:hover { transform: scale(1.1); background: var(--gold); }
         .chat-toggle svg { width: 30px; height: 30px; fill: white; }
-        
         .chat-window { position: absolute; bottom: 85px; right: 0; width: 340px; background: white; border-radius: 15px; display: none; flex-direction: column; box-shadow: 0 20px 60px rgba(0,0,0,0.25); border: 1px solid #ddd; overflow: hidden; animation: slideIn 0.3s ease-out; }
         .chat-window.active { display: flex; }
-        .chat-header { background: var(--navy); color: white; padding: 18px; display: flex; justify-content: space-between; align-items: center; }
-        .chat-header h4 { margin: 0; font-size: 1rem; font-weight: 700; color: white; }
+        .chat-header { background: var(--navy); color: white; padding: 18px; display: flex; justify-content: space-between; }
         .chat-body { height: 330px; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; background: #fdfdfd; }
         .chat-msg { padding: 12px 16px; border-radius: 18px; font-size: 0.95rem; max-width: 85%; line-height: 1.5; }
         .msg-bot { background: #f1f5f9; border: 1px solid #e2e8f0; align-self: flex-start; color: var(--text-main); }
@@ -168,12 +167,13 @@
         @keyframes slideIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
         @media (max-width: 1024px) {
-            .pricing-grid, .stats-grid, .two-col-grid, .client-grid, .team-grid { grid-template-columns: 1fr; }
+            .pricing-grid, .stats-grid, .two-col-grid, .client-grid, .team-grid, .footer-grid { grid-template-columns: 1fr; }
             .overlap-item, .overlap-item:nth-child(even) { flex-direction: column; }
             .overlap-image { width: 100%; height: 280px; }
             .overlap-text { width: 92%; margin: -50px auto 0 auto !important; padding: 35px; }
             nav { display: none; }
-            .hero h2 { font-size: 2.8rem; }
+            .footer-grid { gap: 40px; text-align: center; }
+            .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
         }
     </style>
 </head>
@@ -199,7 +199,7 @@
     <div class="stats-container">
         <div class="stats-grid">
             <div class="stat-item"><div class="stat-num">30+ Years</div><div class="stat-label">Combined Success</div></div>
-            <div class="stat-item"><div class="stat-num">80+ Districts</div><div class="stat-label">Properties Partnered</div></div>
+            <div class="stat-item"><div class="stat-num">80+ Districts</div><div class="stat-label">Partnered</div></div>
             <div class="stat-item"><div class="stat-num">$420K+</div><div class="stat-label">Fresh Revenue</div></div>
             <div class="stat-item"><div class="stat-num">300%+</div><div class="stat-label">Increase (Mesquite)</div></div>
         </div>
@@ -322,10 +322,35 @@
         </div>
     </section>
 
-    <footer id="contact">
-        <h3>Ready to maximize your revenue?</h3>
-        <p style="margin-bottom: 35px; color: #9CA3AF; font-size: 1.15rem;">Contact the MVP team to schedule your virtual or in-person consultation.</p>
-        <p>&copy; 2026 MVP Marketing Group. All rights reserved.</p>
+    <footer class="footer-deep" id="contact">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>The Mission</h4>
+                <p>MVP Marketing Group is dedicated to maximizing revenue for Texas high schools and collegiate properties. We bridge the gap between untapped potential and limited district resources through elite, turnkey sponsorship management.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="#approach">Our Approach</a></li>
+                    <li><a href="#blueprint">Full-Service Playbook</a></li>
+                    <li><a href="consulting.html">Consulting Packages</a></li>
+                    <li><a href="#clients">Success Stories</a></li>
+                    <li><a href="#team">Leadership Team</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <p>Ready to discuss your district's potential?</p>
+                <ul class="footer-links">
+                    <li><a href="mailto:contact@mvpmarketinggroup.org">contact@mvpmarketinggroup.org</a></li>
+                    <li><a href="#">Inquiry Form →</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <a href="index.html" class="footer-brand">MVP Marketing Group</a>
+            <p>Confidential Partnership Strategy • Spring 2026 • Powered by MVP Marketing Group</p>
+        </div>
     </footer>
 
     <div class="chat-widget">
@@ -355,13 +380,10 @@
             const input = document.getElementById('chat-input');
             const text = input.value.trim();
             if (!text) return;
-            
             appendMessage(text, 'user');
             input.value = '';
-            
             const indicator = document.getElementById('typing-indicator');
             indicator.style.display = 'block';
-            
             try {
                 const res = await fetch('/api/chat', {
                     method: 'POST',
@@ -373,7 +395,7 @@
                 appendMessage(data.reply, 'bot');
             } catch (err) {
                 indicator.style.display = 'none';
-                appendMessage("The advisor is currently optimizing. Please check your MVP_Marketing_API connection.", 'bot');
+                appendMessage("The advisor is offline. Check your MVP_Marketing_API connection.", 'bot');
             }
         }
         function appendMessage(text, side) {
