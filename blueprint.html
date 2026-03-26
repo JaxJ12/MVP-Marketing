@@ -28,12 +28,12 @@
         p { margin-top: 0; line-height: 1.8; color: var(--text-main); margin-bottom: 1.5rem; font-weight: 400; }
 
         /* --- SCREEN STYLES (100% Synced to Approach Template) --- */
-        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1rem 2.5rem; display: flex; align-items: center; justify-content: space-between; background: rgba(0,34,68,0.97); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .nav-logo { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1rem 2.5rem; display: flex; align-items: center; justify-content: space-between; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(8px); border-bottom: 1px solid #e2e8f0; }
+        .nav-logo { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--navy); display: flex; align-items: center; gap: 10px; text-decoration: none; }
         .nav-mark { width: 34px; height: 34px; background: var(--gold); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: var(--navy); }
         .nav-links { display: flex; list-style: none; gap: 30px; margin: 0; padding: 0; }
-        .nav-links a { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.7); text-decoration: none; padding: 0.5rem 0; transition: color 0.2s; }
-        .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+        .nav-links a { font-size: 13px; font-weight: 600; color: var(--muted); text-decoration: none; padding: 0.5rem 0; transition: color 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--navy); }
         .nav-cta { background: var(--gold) !important; color: var(--navy) !important; border-radius: 4px !important; padding: 8px 18px !important; font-weight: 700 !important; border: none; }
 
         /* --- NEW HERO SECTION (100% Synced to Approach Template) --- */
@@ -48,13 +48,13 @@
 
         /* --- Mobile Nav --- */
         .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-        .nav-hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: all 0.3s; }
+        .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); border-radius: 2px; transition: all 0.3s; }
         .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
         .nav-hamburger.open span:nth-child(2) { opacity: 0; }
         .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-        .nav-mobile { display: none; position: fixed; top: 70px; left: 0; right: 0; background: rgba(0,34,68,0.98); backdrop-filter: blur(10px); z-index: 99; padding: 1rem 2.5rem 1.5rem; flex-direction: column; gap: 0.5rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .nav-mobile { display: none; position: fixed; top: 70px; left: 0; right: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); z-index: 99; padding: 1rem 2.5rem 1.5rem; flex-direction: column; gap: 0.5rem; border-bottom: 1px solid var(--gray-border); }
         .nav-mobile.open { display: flex; }
-        .nav-mobile a { font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.8); text-decoration: none; padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); transition: color 0.2s; }
+        .nav-mobile a { font-size: 15px; font-weight: 600; color: var(--text-main); text-decoration: none; padding: 1rem 0; border-bottom: 1px solid rgba(0,0,0,0.05); transition: color 0.2s; }
         .nav-mobile a:last-child { border-bottom: none; }
         .nav-mobile a:hover, .nav-mobile a.active { color: var(--gold); }
 
@@ -117,6 +117,12 @@
         .msg.me { background: var(--navy); color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; }
         .msg.thinking { background: transparent; color: #94a3b8; align-self: flex-start; font-style: italic; font-size: 12px; padding: 5px 0; }
 
+        .fu-wrap { align-self: flex-start; display: flex; flex-direction: column; gap: 8px; max-width: 90%; margin-top: 5px; }
+        .fu-label { font-size: 10px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.6; }
+        .fu-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+        .fu-chip { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; padding: 6px 12px; border-radius: 100px; border: 1px solid #cbd5e1; background: #fff; color: var(--navy); cursor: pointer; transition: all 0.2s; }
+        .fu-chip:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+
         .chat-quick { padding: 10px 15px; background: #fff; display: flex; flex-wrap: wrap; gap: 6px; border-top: 1px solid #e2e8f0; }
         .q-chip { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; padding: 6px 12px; border-radius: 100px; border: 1px solid #cbd5e1; background: #f8fafc; color: var(--navy); cursor: pointer; transition: all 0.2s; white-space: nowrap; }
         .q-chip:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
@@ -152,7 +158,7 @@
         </a>
         <ul class="nav-links">
             <li><a href="approach.html">The Approach</a></li>
-            <li><a href="blueprint.html" class="active">The Playbook</a></li>
+            <li><a href="blueprint.html" class="active" style="color: var(--navy);">The Playbook</a></li>
             <li><a href="consulting.html">Consulting</a></li>
             <li><a href="clients.html">Success Stories</a></li>
             <li><a href="contact.html" class="nav-cta">Contact</a></li>
@@ -164,7 +170,7 @@
 
     <div class="nav-mobile" id="mobileMenu">
         <a href="approach.html">The Approach</a>
-        <a href="blueprint.html" class="active">The Playbook</a>
+        <a href="blueprint.html" class="active" style="color: var(--gold);">The Playbook</a>
         <a href="consulting.html">Consulting</a>
         <a href="clients.html">Success Stories</a>
         <a href="contact.html" style="color: var(--gold);">Contact</a>
@@ -315,26 +321,92 @@
             m.classList.toggle('open');
         }
 
-        let open=false;
+        let hist=[], open=false;
+        
         function toggleChat(){open=!open;document.getElementById('chatBox').classList.toggle('open',open);document.getElementById('chatTip').style.display='none';}
         function openChat(){open=true;document.getElementById('chatBox').classList.add('open');document.getElementById('chatTip').style.display='none';setTimeout(()=>document.getElementById('chatIn').focus(),100);}
         function chatChip(el){document.getElementById('chatIn').value=el.textContent.trim();chatSend();}
+        function chatFU(q){document.getElementById('chatIn').value=q;chatSend();}
         function setLoad(on){document.getElementById('chatBtn').disabled=on;document.getElementById('chatIn').disabled=on;}
-        function addMsg(text,type){const c=document.getElementById('chatMsgs');const d=document.createElement('div');d.className='msg '+type;d.textContent=text;c.appendChild(d);c.scrollTop=c.scrollHeight;return d;}
+        function md(t){return t.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');}
+        function chips(t){const m=t.match(/\[CHIPS:\s*(.+?)\]/s);return m?m[1].split('|').map(s=>s.trim()).filter(Boolean):null;}
+        function clean(t){return t.replace(/\[CHIPS:\s*.+?\]/s,'').trim();}
+
+        function addMsg(text,type,html){
+            const c=document.getElementById('chatMsgs');
+            const d=document.createElement('div');
+            d.className='msg '+type;
+            if(html) d.innerHTML=text; else d.textContent=text;
+            c.appendChild(d);
+            c.scrollTop=c.scrollHeight;
+            return d;
+        }
+
+        function addFU(c_arr){
+            const c=document.getElementById('chatMsgs');
+            const w=document.createElement('div');
+            w.className='fu-wrap';
+            const l=document.createElement('div');
+            l.className='fu-label';
+            l.textContent='Suggested Follow-ups';
+            w.appendChild(l);
+            const cw=document.createElement('div');
+            cw.className='fu-chips';
+            c_arr.forEach(q=>{
+                const b=document.createElement('button');
+                b.className='fu-chip';
+                b.textContent=q;
+                b.onclick=()=>chatFU(q);
+                cw.appendChild(b);
+            });
+            w.appendChild(cw);
+            c.appendChild(w);
+            c.scrollTop=c.scrollHeight;
+        }
 
         async function chatSend(){
             const inp=document.getElementById('chatIn');const txt=inp.value.trim();if(!txt)return;
-            inp.value='';if(!open)openChat();addMsg(txt,'me');setLoad(true);
-            const th=addMsg('Searching knowledge base...','thinking');
+            inp.value='';if(!open)openChat();addMsg(txt,'me',false);hist.push({role:'user',content:txt});setLoad(true);
+            const th=addMsg('Searching knowledge base...','thinking',false);
             
             try{
-                const res=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:txt})});
-                const d=await res.json();
+                let msgs=[...hist],full='',it=0;
+                while(it<6){it++;
+                    const r=await fetch('/api/chat',{
+                        method:'POST',
+                        headers:{'Content-Type':'application/json'},
+                        body:JSON.stringify({ message:txt, messages:msgs }) // Hybrid payload prevents crash
+                    });
+                    const d=await r.json();
+
+                    if(d.stop_reason){
+                        if(d.stop_reason==='end_turn'){full=d.content.filter(b=>b.type==='text').map(b=>b.text).join('');break;}
+                        if(d.stop_reason==='tool_use'){
+                            const ac=d.content;
+                            msgs.push({role:'assistant',content:ac});th.textContent='Analyzing data...';
+                            const res=ac.filter(b=>b.type==='tool_use').map(b=>({type:'tool_result',tool_use_id:b.id,content:'Search completed.'}));
+                            if(res.length)msgs.push({role:'user',content:res});
+                            else{full=ac.filter(b=>b.type==='text').map(b=>b.text).join('');break;}
+                        } else {
+                            full=(d.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('');break;
+                        }
+                    } else if (d.reply) {
+                        full = d.reply;
+                        break;
+                    } else {
+                        full = "I couldn't process that response.";
+                        break;
+                    }
+                }
                 th.remove();
-                addMsg(d.reply,'bot');
+                if(full){
+                    const c=chips(full),cl=clean(full);
+                    addMsg(md(cl),'bot',true);
+                    hist.push({role:'assistant',content:cl});
+                    if(c&&c.length)addFU(c);
+                }
             }catch(e){
-                th.remove();
-                addMsg('Advisor offline. Please check connection.','bot');
+                th.textContent="I'm having trouble connecting. Please try again.";
             }
             setLoad(false);
         }
