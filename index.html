@@ -9,7 +9,8 @@
         :root {
             --navy: #002244; 
             --gold: #F2A900; 
-            --dark: #111827; /* User suggested dark gray/near-black */
+            --slate: #1E293B; /* Premium Slate Blue/Gray */
+            --dark: #111827; 
             --gray-light: #F9FAFB;
             --gray-border: #E5E7EB;
             --text-main: #374151;
@@ -144,13 +145,13 @@
         .section-header h2 { font-size: 2.6rem; margin-bottom: 15px; letter-spacing: -1px; }
         .section-header p { font-size: 1.1rem; color: #4B5563; max-width: 700px; margin: 0 auto; }
 
-        /* === The Blueprint Vertical Timeline (Refitted for bg-dark) === */
-        .bg-dark {
-            background-color: var(--dark); /* Dark Gray/Near-Black #111827 */
+        /* === The Blueprint Vertical Timeline (Slate Blue Background) === */
+        .bg-slate {
+            background-color: var(--slate); 
             color: var(--white);
         }
-        .bg-dark h2, .bg-dark h3, .bg-dark p { color: var(--white); }
-        .bg-dark .section-header p { color: #E5E7EB; }
+        .bg-slate h2, .bg-slate h3, .bg-slate p { color: var(--white); }
+        .bg-slate .section-header p { color: #E5E7EB; }
 
         .timeline {
             position: relative;
@@ -161,7 +162,7 @@
             content: '';
             position: absolute;
             width: 4px;
-            background-color: rgba(255,255,255,0.1); /* Lighter vertical line for dark bg */
+            background-color: rgba(255,255,255,0.1); 
             top: 0;
             bottom: 0;
             left: 50%;
@@ -182,7 +183,7 @@
             top: 0;
             width: 44px;
             height: 44px;
-            background: var(--dark); /* Matches section bg */
+            background: var(--slate); /* Matches section bg perfectly */
             border: 4px solid var(--gold);
             border-radius: 50%;
             z-index: 10;
@@ -198,11 +199,11 @@
         .timeline-item.right .timeline-circle { left: -26px; }
         
         .timeline-content {
-            background: rgba(255,255,255,0.03); /* Translucent box */
+            background: rgba(255,255,255,0.05); 
             padding: 35px;
             border-radius: 8px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border: 1px solid rgba(255,255,255,0.1); /* Subtle white border */
+            border: 1px solid rgba(255,255,255,0.1); 
             text-align: left;
             position: relative;
             transition: transform 0.3s ease, border-color 0.3s ease;
@@ -211,7 +212,7 @@
         .timeline-content h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--white); }
         .timeline-content p { font-size: 1.05rem; color: #E5E7EB; line-height: 1.7; margin: 0; }
 
-        /* Consulting Teaser Grid (White/Gray Light) */
+        /* Consulting Teaser Grid */
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -297,7 +298,7 @@
         /* Footer */
         footer { background: var(--dark); color: #9CA3AF; text-align: center; padding: 60px 5%; font-size: 0.9rem; }
 
-        /* Mobile Adjustments for Timeline */
+        /* Mobile Adjustments */
         @media (max-width: 1024px) {
             .pricing-grid, .stats-grid { grid-template-columns: 1fr 1fr; }
             .hero h2 { font-size: 3.5rem; }
@@ -375,7 +376,7 @@
         </div>
     </section>
 
-    <section id="blueprint" class="section-pad bg-dark">
+    <section id="blueprint" class="section-pad bg-slate">
         <div class="section-header">
             <h2>The Full-Service Playbook</h2>
             <p>You handle the athletics. We handle the business. When you partner with MVP, we take complete ownership of your sponsorship lifecycle from initial audit to final contract delivery.</p>
