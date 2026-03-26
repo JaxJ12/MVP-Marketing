@@ -29,6 +29,7 @@
             overflow-x: hidden;
         }
 
+        /* GLOBAL H4 RULE - This was causing the conflict */
         h1, h2, h3, h4 { margin-top: 0; line-height: 1.2; color: var(--navy); font-weight: 800; }
         p { margin-top: 0; line-height: 1.7; color: var(--text-main); margin-bottom: 1.2rem; }
 
@@ -132,7 +133,7 @@
         .team-member h4 { font-size: 1.7rem; margin-bottom: 8px; }
         .team-member span { color: var(--gold); font-weight: 800; text-transform: uppercase; display: block; margin-bottom: 25px; font-size: 0.95rem; letter-spacing: 1px;}
 
-        /* --- SAP STYLE FINAL FOOTER --- */
+        /* --- FOOTER --- */
         .footer-deep { background: #0A0A0A; padding: 80px 5% 40px; border-top: 1px solid rgba(255,255,255,0.05); }
         .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1.5fr; gap: 60px; max-width: 1200px; margin: 0 auto 60px; text-align: left; }
         .footer-col h4 { color: white; font-size: 1.1rem; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
@@ -154,12 +155,19 @@
         .chat-toggle svg { width: 30px; height: 30px; fill: white; }
         .chat-window { position: absolute; bottom: 85px; right: 0; width: 340px; background: white; border-radius: 15px; display: none; flex-direction: column; box-shadow: 0 20px 60px rgba(0,0,0,0.25); border: 1px solid #ddd; overflow: hidden; animation: slideIn 0.3s ease-out; }
         .chat-window.active { display: flex; }
-        .chat-header { background: var(--navy); color: white; padding: 18px; display: flex; justify-content: space-between; }
+        
+        /* CHAT HEADER REPAIR */
+        .chat-header { background: var(--navy); color: var(--white) !important; padding: 18px; display: flex; justify-content: space-between; align-items: center; }
+        .chat-header h4 { color: var(--white) !important; margin: 0; font-size: 1rem; }
+        .chat-header div { color: var(--white) !important; }
+
         .chat-body { height: 330px; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; background: #fdfdfd; }
         .chat-msg { padding: 12px 16px; border-radius: 18px; font-size: 0.95rem; max-width: 85%; line-height: 1.5; }
         .msg-bot { background: #f1f5f9; border: 1px solid #e2e8f0; align-self: flex-start; color: var(--text-main); }
-        /* FIXED: Added !important to force white text on navy background */
+        
+        /* USER MSG COLOR REPAIR */
         .msg-user { background: var(--navy); color: var(--white) !important; align-self: flex-end; }
+
         .chat-footer { padding: 15px; display: flex; gap: 8px; background: white; border-top: 1px solid #eee; }
         .chat-input { flex: 1; border: 1px solid #ddd; padding: 10px 18px; border-radius: 30px; outline: none; font-size: 0.95rem; }
         .chat-send { background: var(--navy); color: white; border: none; border-radius: 50%; width: 42px; height: 42px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
@@ -227,7 +235,7 @@
                 <div class="overlap-text">
                     <span class="step">Step 01</span>
                     <h3>Asset Valuation</h3>
-                    <p>We don't just sell; we strategize. We conduct deep-dive audits of digital, physical, and multimedia assets to build high-yield, custom sponsorship packages backed by data-driven pricing strategies that ensure you aren't leaving money on the table.</p>
+                    <p>We conduct deep-dive audits of digital, physical, and multimedia assets to build high-yield, custom sponsorship packages backed by data-driven pricing strategies.</p>
                 </div>
             </div>
             <div class="overlap-item">
@@ -235,7 +243,7 @@
                 <div class="overlap-text">
                     <span class="step">Step 02</span>
                     <h3>Active Market Sales</h3>
-                    <p>Leveraging our extensive Texas network and proven 1:1 presentation strategies, we act as a professional extension of your department. We handle the pitch, the negotiation, and the term closing for local and regional business partnerships.</p>
+                    <p>Leveraging our extensive Texas network and proven 1:1 presentation strategies, we act as a professional extension of your department.</p>
                 </div>
             </div>
             <div class="overlap-item">
@@ -243,7 +251,7 @@
                 <div class="overlap-text">
                     <span class="step">Step 03</span>
                     <h3>White-Glove Fulfillment</h3>
-                    <p>A signed contract is just the beginning. We manage the day-to-day deliverables, ensuring your sponsors receive maximum ROI and VIP care. Our focus on servicing agreements makes year-over-year renewals absolutely effortless for your staff.</p>
+                    <p>We manage the day-to-day deliverables, ensuring your sponsors receive maximum ROI. Our focus makes year-over-year renewals absolutely effortless.</p>
                 </div>
             </div>
         </div>
@@ -251,26 +259,26 @@
 
     <section class="value-prop">
         <h2>Our Value Proposition</h2>
-        <p>Our services will save our Clients time, energy, and minimizing Client department staff burnout costs by providing a full-service MVP Marketing Group experience to maximize long term revenue potential and sponsorship satisfaction. Please schedule a time to visit and let us hear what your needs are and how we can customize a solution for you.</p>
+        <p>Our services save our Clients time and energy by providing a full-service experience to maximize revenue potential and sponsorship satisfaction.</p>
     </section>
 
     <section class="consulting-teaser">
         <div style="text-align: center; margin-bottom: 50px;">
             <h2>Consultation Options</h2>
-            <p>Schedule the exact amount of time and intensity of assistance you need.</p>
+            <p>Schedule the intensity of assistance you need.</p>
         </div>
         <div class="pricing-grid">
             <div class="price-card">
                 <h3>Bronze</h3><span style="font-style:italic; color:#888; margin-bottom:12px; display:block; font-size:0.85rem;">Strategy Review</span>
-                <ul class="teaser-list"><li>Expert strategy review</li><li>Marketing plan analysis</li><li>Long-term insights</li><li>1:1 Virtual reporting</li></ul>
+                <ul class="teaser-list"><li>Expert strategy review</li><li>Marketing plan analysis</li><li>Long-term insights</li></ul>
             </div>
             <div class="price-card">
                 <h3>Silver</h3><span style="font-style:italic; color:#888; margin-bottom:12px; display:block; font-size:0.85rem;">Strategic Planning</span>
-                <ul class="teaser-list"><li>Master marketing planning</li><li>Custom sales literature</li><li>Contract templates</li><li>Fulfillment best practices</li></ul>
+                <ul class="teaser-list"><li>Master marketing planning</li><li>Custom sales literature</li><li>Contract templates</li></ul>
             </div>
             <div class="price-card featured">
                 <h3>Gold</h3><span style="font-style:italic; color:#888; margin-bottom:12px; display:block; font-size:0.85rem;">Onsite Coaching</span>
-                <ul class="teaser-list"><li>Includes all Silver services</li><li>3 days onsite training</li><li>Live sales presentations</li><li>Pitch coaching</li></ul>
+                <ul class="teaser-list"><li>Includes all Silver services</li><li>3 days onsite training</li><li>Live sales presentations</li></ul>
             </div>
         </div>
         <div style="text-align: center; margin-top: 50px;"><a href="consulting.html" style="background:var(--navy); color:white; padding:15px 40px; border-radius:4px; text-decoration:none; font-weight:700; transition:0.3s; border:2px solid var(--navy);">View Full Package Details & Pricing</a></div>
@@ -282,29 +290,21 @@
             <div class="case-studies-col">
                 <div class="case-study">
                     <h4>Denton Public School Foundation</h4>
-                    <p>Faced with limited staffing and expert resources, they turned to MVP. Within months, we successfully generated over **$420K in fresh revenue** for student scholarships and untapped district potential. Our focus on 1:1 engagement helped turn passive assets into active revenue generators.</p>
+                    <p>Within months, we generated over **$420K in fresh revenue** for student scholarships and untapped district potential.</p>
                 </div>
                 <div class="case-study">
-                    <h4>Crowley ISD ($30M Sports Complex)</h4>
-                    <p>Inaugurating a flagship facility introduced complex challenges and tight deadlines. MVP was initiated to foster enhanced community exposure and build custom sponsorship packages specifically for their state-of-the-art $30M sports complex.</p>
-                </div>
-                <div class="case-study">
-                    <h4>Mesquite & Burleson ISD</h4>
-                    <p>Increased local sponsorship by over 300% for Mesquite following the challenges of the pandemic. For Burleson, MVP stepped in during internal staff changes to secure renewals and forge new partnerships immediately, ensuring no revenue was lost during the transition.</p>
+                    <h4>Crowley ISD</h4>
+                    <p>MVP was initiated to foster enhanced community exposure for their state-of-the-art $30M sports complex.</p>
                 </div>
             </div>
             <div class="quotes-col">
                 <div class="quote-card">
-                    <p>"MVP marketing and Mike Vogelaar are first class, innovative and exceptionally professional. We feel fortunate to partner with them here in the Denton ISD."</p>
-                    <div class="author">— Joey Florence, Denton ISD Athletic Director</div>
+                    <p>"MVP marketing and Mike Vogelaar are first class, innovative and exceptionally professional."</p>
+                    <div class="author">— Joey Florence, Denton ISD</div>
                 </div>
                 <div class="quote-card">
-                    <p>"In our campaign, not a single piece was ever missed. MVP was 100% on top of their game and handled everything we needed and then some."</p>
-                    <div class="author">— Jake Laughlin, North Central Texas College</div>
-                </div>
-                <div class="quote-card">
-                    <p>"MVP helped us with a professional level of campaign at the grassroots level. This is difficult to find today. They made it easy and successful."</p>
-                    <div class="author">— Stacey Kunz</div>
+                    <p>"MVP was 100% on top of their game and handled everything we needed and then some."</p>
+                    <div class="author">— Jake Laughlin, NCTC</div>
                 </div>
             </div>
         </div>
@@ -315,11 +315,11 @@
         <div class="team-grid">
             <div class="team-member">
                 <h4>Michael Vogelaar</h4><span>CEO / Co-Founder</span>
-                <p>After a decade selling sponsorships with a scoreboard company, Michael founded MVP Marketing Group. He has generated tens of millions in sponsorships across regional and national levels, securing multimillion-dollar naming rights for organizations and school districts across Texas. His expertise lies in identifying untapped value and building trust with local stakeholders.</p>
+                <p>Michael has generated tens of millions in sponsorships across Texas, identified untapped value, and built trust with local stakeholders.</p>
             </div>
             <div class="team-member">
                 <h4>Drew Mitchell</h4><span>Co-Founder</span>
-                <p>Drew delivers turnkey solutions that maximize revenue and sponsorship satisfaction for organizations and properties across Texas. He brings extensive experience in strategic grassroots sports marketing, planning, and execution. Drew's focus is on the operational excellence that ensures every partnership is fulfilled to the highest standard.</p>
+                <p>Drew delivers turnkey solutions that maximize revenue and sponsorship satisfaction through operational excellence.</p>
             </div>
         </div>
     </section>
@@ -328,7 +328,7 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <h4>The Mission</h4>
-                <p>MVP Marketing Group is dedicated to maximizing revenue for Texas high schools and collegiate properties. We bridge the gap between untapped potential and limited district resources through elite, turnkey sponsorship management.</p>
+                <p>Maximizing revenue for Texas high schools and collegiate properties through elite sponsorship management.</p>
             </div>
             <div class="footer-col">
                 <h4>Navigation</h4>
@@ -336,13 +336,10 @@
                     <li><a href="approach.html">Our Approach</a></li>
                     <li><a href="blueprint.html">Full-Service Playbook</a></li>
                     <li><a href="consulting.html">Consulting Packages</a></li>
-                    <li><a href="clients.html">Success Stories</a></li>
-                    <li><a href="team.html">Leadership Team</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Connect</h4>
-                <p>Ready to discuss your district's potential?</p>
                 <ul class="footer-links">
                     <li><a href="mailto:contact@mvpmarketinggroup.org">contact@mvpmarketinggroup.org</a></li>
                     <li><a href="#">Inquiry Form →</a></li>
@@ -351,7 +348,7 @@
         </div>
         <div class="footer-bottom">
             <a href="index.html" class="footer-brand">MVP Marketing Group</a>
-            <p>Confidential Partnership Strategy • Spring 2026 • Powered by MVP Marketing Group</p>
+            <p>Confidential Partnership Strategy • Spring 2026</p>
         </div>
     </footer>
 
@@ -361,7 +358,10 @@
             <svg viewBox="0 0 24 24"><path d="M20,2H4C2.9,2,2,2.9,2,4v18l4-4h14c1.1,0,2-0.9,2-2V4C22,2.9,21.1,2,20,2z"/></svg>
         </div>
         <div class="chat-window" id="chat-window">
-            <div class="chat-header"><h4>MVP Advisor</h4><div onclick="toggleChat()" style="cursor:pointer; font-weight:800;">✖</div></div>
+            <div class="chat-header">
+                <h4>MVP Advisor</h4>
+                <div onclick="toggleChat()" style="cursor:pointer; font-weight:800;">✖</div>
+            </div>
             <div class="chat-body" id="chat-body">
                 <div class="chat-msg msg-bot">Hello! I'm the MVP Advisor. How can I help you maximize your athletic revenue today?</div>
                 <div id="typing-indicator" style="display:none; font-size: 0.75rem; color: #888; padding: 10px;">Advisor is searching...</div>
@@ -397,7 +397,7 @@
                 appendMessage(data.reply, 'bot');
             } catch (err) {
                 indicator.style.display = 'none';
-                appendMessage("The advisor is offline. Check your MVP_Marketing_API connection.", 'bot');
+                appendMessage("The advisor is offline. Check your API connection.", 'bot');
             }
         }
         function appendMessage(text, side) {
