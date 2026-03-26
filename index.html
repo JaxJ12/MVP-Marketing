@@ -158,8 +158,11 @@
         
         /* CHAT HEADER REPAIR */
         .chat-header { background: var(--navy); color: var(--white) !important; padding: 18px; display: flex; justify-content: space-between; align-items: center; }
-        .chat-header h4 { color: var(--white) !important; margin: 0; font-size: 1rem; }
+        /* Adjusted h4 to align items centrally for the logo */
+        .chat-header h4 { color: var(--white) !important; margin: 0; font-size: 1rem; display: flex; align-items: center; }
         .chat-header div { color: var(--white) !important; }
+        /* Added CSS for the logo inside the header h4 */
+        .chat-header h4 img { height: 24px; width: auto; margin-right: 10px; vertical-align: middle; }
 
         .chat-body { height: 330px; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; background: #fdfdfd; }
         .chat-msg { padding: 12px 16px; border-radius: 18px; font-size: 0.95rem; max-width: 85%; line-height: 1.5; }
@@ -359,7 +362,7 @@
         </div>
         <div class="chat-window" id="chat-window">
             <div class="chat-header">
-                <h4>MVP Advisor</h4>
+                <h4><img src="logo.png" alt="MVP Logo">MVP Advisor</h4>
                 <div onclick="toggleChat()" style="cursor:pointer; font-weight:800;">✖</div>
             </div>
             <div class="chat-body" id="chat-body">
