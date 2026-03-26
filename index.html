@@ -188,34 +188,31 @@
         }
         .price-card h3 { font-size: 1.5rem; margin-bottom: 5px; }
         .price-card .subtitle { color: #6B7280; font-size: 0.95rem; margin-bottom: 20px; display: block; font-style: italic;}
-        .price-card p.desc { color: #4B5563; line-height: 1.6; margin-bottom: 30px; flex-grow: 1; }
         
-        .cta-btn-outline {
-            display: block;
-            text-align: center;
-            border: 2px solid var(--navy);
-            color: var(--navy);
-            padding: 12px 20px;
-            border-radius: 4px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        .cta-btn-outline:hover { background-color: var(--navy); color: var(--white); }
+        /* Teaser Checkmark List */
+        .price-card ul.teaser-list { list-style: none; padding: 0; margin: 0; flex-grow: 1; }
+        .price-card ul.teaser-list li { padding: 12px 0; border-bottom: 1px solid var(--gray-border); color: #4B5563; font-size: 0.95rem; }
+        .price-card ul.teaser-list li:last-child { border-bottom: none; }
+        .price-card ul.teaser-list li::before { content: "✓"; color: var(--gold); font-weight: bold; margin-right: 10px; font-size: 1.1rem; }
 
-        .cta-btn-solid {
-            display: block;
+        /* Central CTA Wrapper */
+        .pricing-cta-wrapper {
             text-align: center;
-            background-color: var(--navy);
-            border: 2px solid var(--navy);
-            color: var(--white);
-            padding: 12px 20px;
-            border-radius: 4px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
+            margin-top: 50px;
         }
-        .cta-btn-solid:hover { background-color: var(--gold); border-color: var(--gold); color: var(--navy); }
+        .large-btn {
+            background-color: var(--navy);
+            color: var(--white);
+            padding: 16px 40px;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: 2px solid var(--navy);
+        }
+        .large-btn:hover { background-color: var(--gold); border-color: var(--gold); color: var(--navy); }
 
         /* Success Stories */
         .bg-navy { background-color: var(--navy); color: var(--white); }
@@ -368,29 +365,46 @@
             <h2>Consultation Options</h2>
             <p>Expert perspective and assistance customized for your booster club, department, or foundation. We offer tiered packages to fit your exact needs and capacity.</p>
         </div>
+        
         <div class="pricing-grid">
             
             <div class="price-card">
                 <h3>Bronze Package</h3>
                 <span class="subtitle">Quick and Easy</span>
-                <p class="desc">Perfect for organizations needing an expert review of their current marketing plan and strategic insights for long-term improvement.</p>
-                <a href="consulting.html" class="cta-btn-outline">View Details & Pricing</a>
-            </div>
-
-            <div class="price-card featured">
-                <h3>Gold Package</h3>
-                <span class="subtitle">Teach me, Show me, Coach me!</span>
-                <p class="desc">Our premier package. We come to your community for 3 days of onsite training, handling live sales presentations while you observe our best practices.</p>
-                <a href="consulting.html" class="cta-btn-solid">View Details & Pricing</a>
+                <ul class="teaser-list">
+                    <li>Expert strategy review</li>
+                    <li>Marketing plan analysis</li>
+                    <li>Long-term improvement insights</li>
+                    <li>1:1 Virtual reporting</li>
+                </ul>
             </div>
 
             <div class="price-card">
                 <h3>Silver Package</h3>
                 <span class="subtitle">Need help building it?</span>
-                <p class="desc">For teams capable of selling but lacking a professional plan. We provide master planning, sales literature, and contract templates.</p>
-                <a href="consulting.html" class="cta-btn-outline">View Details & Pricing</a>
+                <ul class="teaser-list">
+                    <li>Master marketing planning</li>
+                    <li>Custom sales literature</li>
+                    <li>Ready-to-use contract templates</li>
+                    <li>Virtual fulfillment best practices</li>
+                </ul>
             </div>
 
+            <div class="price-card featured">
+                <h3>Gold Package</h3>
+                <span class="subtitle">Teach me, Show me, Coach me!</span>
+                <ul class="teaser-list">
+                    <li><strong>Includes all Silver services</strong></li>
+                    <li><strong>3 days of onsite training</strong></li>
+                    <li>Live sales presentations by MVP</li>
+                    <li>In-person pitch coaching</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="pricing-cta-wrapper">
+            <a href="consulting.html" class="large-btn">View Full Package Details & Pricing</a>
         </div>
     </section>
 
