@@ -28,7 +28,7 @@
         h1, h2, h3, h4 { margin-top: 0; line-height: 1.2; color: var(--navy); font-weight: 800; }
         p { margin-top: 0; line-height: 1.6; color: var(--text-main); }
 
-        /* Transparent, Blended Navigation */
+        /* Transparent Navigation Overlay */
         header {
             background-color: transparent;
             padding: 1.5rem 5%;
@@ -116,7 +116,7 @@
         .section-header h2 { font-size: 2.6rem; margin-bottom: 15px; letter-spacing: -1px; }
         .section-header p { font-size: 1.1rem; color: #4B5563; max-width: 700px; margin: 0 auto; }
 
-        /* Layered "Overlap" Blueprint Section */
+        /* Overlapping Blueprint (Slate Blue) */
         .bg-slate { background-color: var(--slate); color: var(--white); }
         .bg-slate h2 { color: var(--white); }
         .bg-slate .section-header p { color: #E5E7EB; }
@@ -128,274 +128,73 @@
             flex-direction: column;
             gap: 80px;
         }
-        .overlap-item {
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
+        .overlap-item { display: flex; align-items: center; position: relative; }
         .overlap-item:nth-child(even) { flex-direction: row-reverse; }
-        
-        .overlap-image {
-            width: 55%;
-            height: 350px;
-            object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            z-index: 1;
-        }
-        
-        .overlap-text {
-            width: 50%;
-            background: var(--white);
-            padding: 50px;
-            border-radius: 8px;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
-            z-index: 2;
-            position: relative;
-        }
-        
+        .overlap-image { width: 55%; height: 350px; object-fit: cover; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); z-index: 1; }
+        .overlap-text { width: 50%; background: var(--white); padding: 50px; border-radius: 8px; box-shadow: 0 15px 50px rgba(0,0,0,0.15); z-index: 2; position: relative; }
         .overlap-item:nth-child(odd) .overlap-text { margin-left: -10%; border-left: 4px solid var(--gold); }
         .overlap-item:nth-child(even) .overlap-text { margin-right: -10%; border-right: 4px solid var(--gold); }
-        
         .overlap-text .step { font-size: 0.9rem; font-weight: 800; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; display: block; }
         .overlap-text h3 { color: var(--navy); font-size: 1.8rem; margin-bottom: 15px; }
         .overlap-text p { color: var(--text-main); font-size: 1.05rem; line-height: 1.6; margin: 0; }
 
-        /* Consulting Teaser Grid */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .price-card {
-            background: var(--white);
-            padding: 50px 40px;
-            border-radius: 8px;
-            border: 1px solid var(--gray-border);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-        .price-card.featured {
-            border: 2px solid var(--navy);
-            box-shadow: 0 15px 30px rgba(0,34,68,0.08);
-            transform: scale(1.02);
-        }
+        /* Consulting Teaser (Bronze -> Silver -> Gold) */
+        .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .price-card { background: var(--white); padding: 50px 40px; border-radius: 8px; border: 1px solid var(--gray-border); display: flex; flex-direction: column; }
+        .price-card.featured { border: 2px solid var(--navy); box-shadow: 0 15px 30px rgba(0,34,68,0.08); transform: scale(1.02); }
         .price-card h3 { font-size: 1.5rem; margin-bottom: 5px; color: var(--navy); }
         .price-card .subtitle { color: #6B7280; font-size: 0.95rem; margin-bottom: 20px; display: block; font-style: italic;}
-        
         .price-card ul.teaser-list { list-style: none; padding: 0; margin: 0; flex-grow: 1; }
         .price-card ul.teaser-list li { padding: 12px 0; border-bottom: 1px solid var(--gray-border); color: #4B5563; font-size: 0.95rem; }
-        .price-card ul.teaser-list li:last-child { border-bottom: none; }
         .price-card ul.teaser-list li::before { content: "✓"; color: var(--gold); font-weight: bold; margin-right: 10px; font-size: 1.1rem; }
 
         .pricing-cta-wrapper { text-align: center; margin-top: 50px; }
-        .large-btn {
-            background-color: var(--navy);
-            color: var(--white);
-            padding: 16px 40px;
-            border-radius: 4px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            border: 2px solid var(--navy);
-        }
+        .large-btn { background-color: var(--navy); color: var(--white); padding: 16px 40px; border-radius: 4px; font-size: 1.1rem; font-weight: 700; text-decoration: none; display: inline-block; transition: all 0.3s ease; border: 2px solid var(--navy); }
         .large-btn:hover { background-color: var(--gold); border-color: var(--gold); color: var(--navy); }
 
-        /* Success Stories */
+        /* Success Stories & Testimonials */
         .bg-navy { background-color: var(--navy); color: var(--white); }
         .bg-navy h2 { color: var(--white); }
         .bg-navy p { color: #D1D5DB; }
-        .client-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        .client-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1200px; margin: 0 auto; }
         .case-study h4 { color: var(--gold); font-size: 1.2rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px;}
-        .case-study p { color: #E5E7EB; line-height: 1.6; margin-bottom: 30px;}
-        
-        .quote-card {
-            background: rgba(255,255,255,0.05);
-            padding: 35px;
-            border-radius: 8px;
-            border-left: 4px solid var(--gold);
-            margin-bottom: 25px;
-        }
+        .quote-card { background: rgba(255,255,255,0.05); padding: 35px; border-radius: 8px; border-left: 4px solid var(--gold); margin-bottom: 25px; }
         .quote-card p { font-style: italic; font-size: 1.1rem; color: var(--white); margin-bottom: 15px;}
         .quote-card .author { font-size: 0.85rem; font-weight: 700; color: #9CA3AF; text-transform: uppercase; }
 
         /* Team */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .team-member { padding: 40px; background: var(--white); border: 1px solid var(--gray-border); border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
-        .team-member h4 { font-size: 1.5rem; margin-bottom: 5px; color: var(--navy); }
-        .team-member span { color: var(--gold); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; display: block; margin-bottom: 15px;}
-        .team-member p { font-size: 0.95rem; color: #4B5563; }
+        .team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 1000px; margin: 0 auto; }
+        .team-member { padding: 40px; background: var(--white); border: 1px solid var(--gray-border); border-radius: 8px; }
 
-        /* Footer */
-        footer { background: var(--dark); color: #9CA3AF; text-align: center; padding: 60px 5%; font-size: 0.9rem; }
-
-        /* =========================================
-           CHATBOT WIDGET STYLES 
-           ========================================= */
-        .chat-widget {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            z-index: 9999;
-            font-family: 'Inter', sans-serif;
-        }
-        .chat-toggle {
-            width: 60px;
-            height: 60px;
-            background-color: var(--navy);
-            border-radius: 50%;
-            box-shadow: 0 5px 20px rgba(0,34,68,0.3);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            color: var(--white);
-            transition: transform 0.3s ease;
-        }
-        .chat-toggle:hover {
-            transform: scale(1.05);
-            background-color: var(--gold);
-            color: var(--navy);
-        }
-        .chat-window {
-            position: absolute;
-            bottom: 80px;
-            right: 0;
-            width: 350px;
-            background: var(--white);
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-            border: 1px solid var(--gray-border);
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-        .chat-window.active {
-            display: flex;
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .chat-header {
-            background-color: var(--navy);
-            color: var(--white);
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .chat-header h4 { margin: 0; font-size: 1rem; color: var(--white); display: flex; align-items: center; gap: 8px;}
-        .chat-header .status-dot { width: 8px; height: 8px; background-color: #4CAF50; border-radius: 50%; }
-        .close-chat { cursor: pointer; font-size: 1.2rem; opacity: 0.8; transition: opacity 0.2s;}
-        .close-chat:hover { opacity: 1; }
-        
-        .chat-body {
-            padding: 20px;
-            height: 300px;
-            overflow-y: auto;
-            background-color: var(--gray-light);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .chat-msg { max-width: 80%; padding: 10px 15px; border-radius: 15px; font-size: 0.9rem; line-height: 1.4; }
-        .msg-bot { background-color: var(--white); border: 1px solid var(--gray-border); color: var(--text-main); align-self: flex-start; border-bottom-left-radius: 4px; }
-        .msg-user { background-color: var(--navy); color: var(--white); align-self: flex-end; border-bottom-right-radius: 4px; }
-        
-        .quick-replies { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-        .reply-pill {
-            background-color: rgba(0,34,68,0.05);
-            border: 1px solid var(--navy);
-            color: var(--navy);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .reply-pill:hover { background-color: var(--navy); color: var(--white); }
-
-        .chat-footer {
-            padding: 15px;
-            background: var(--white);
-            border-top: 1px solid var(--gray-border);
-            display: flex;
-            gap: 10px;
-        }
-        .chat-input {
-            flex-grow: 1;
-            padding: 10px;
-            border: 1px solid var(--gray-border);
-            border-radius: 20px;
-            outline: none;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-        }
-        .chat-send {
-            background-color: var(--navy);
-            color: var(--white);
-            border: none;
-            border-radius: 50%;
-            width: 38px;
-            height: 38px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.2s;
-        }
-        .chat-send:hover { background-color: var(--gold); }
-        .typing-indicator { display: none; font-size: 0.8rem; color: #888; margin-left: 10px; font-style: italic; }
+        /* Chat Widget Styles */
+        .chat-widget { position: fixed; bottom: 25px; right: 25px; z-index: 9999; font-family: sans-serif; }
+        .chat-toggle { width: 60px; height: 60px; background: #002244; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: transform 0.2s; }
+        .chat-toggle:hover { transform: scale(1.1); background: var(--gold); }
+        .chat-window { position: absolute; bottom: 80px; right: 0; width: 330px; background: white; border-radius: 12px; display: none; flex-direction: column; box-shadow: 0 10px 30px rgba(0,0,0,0.2); border: 1px solid #ddd; overflow: hidden; }
+        .chat-window.active { display: flex; }
+        .chat-header { background: #002244; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .chat-body { height: 300px; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; background: #f9f9f9; }
+        .chat-msg { padding: 10px 14px; border-radius: 15px; font-size: 0.9rem; max-width: 80%; line-height: 1.4; }
+        .msg-bot { background: white; border: 1px solid #ddd; align-self: flex-start; }
+        .msg-user { background: #002244; color: white; align-self: flex-end; }
+        .chat-footer { padding: 10px; display: flex; gap: 5px; background: white; border-top: 1px solid #ddd; }
+        .chat-input { flex: 1; border: 1px solid #ddd; padding: 8px 12px; border-radius: 20px; outline: none; }
+        .chat-send { background: #002244; color: white; border: none; border-radius: 50%; width: 35px; height: 35px; cursor: pointer; }
 
         @media (max-width: 1024px) {
-            .pricing-grid, .stats-grid { grid-template-columns: 1fr 1fr; }
-            .hero h2 { font-size: 3.5rem; }
-            .two-col-grid, .client-grid, .team-grid { grid-template-columns: 1fr; gap: 40px;}
-            .stat-item { border-right: none; border-bottom: 1px solid var(--gray-border); }
-            .stat-item:nth-child(even) { border-right: none; }
-            header { position: relative; background-color: var(--navy); }
-            .stats-container { margin-top: -40px; }
-            nav { display: none; }
-        }
-        @media (max-width: 900px) {
+            .pricing-grid, .stats-grid, .two-col-grid, .client-grid, .team-grid { grid-template-columns: 1fr; }
             .overlap-item, .overlap-item:nth-child(even) { flex-direction: column; }
             .overlap-image { width: 100%; height: auto; }
             .overlap-text { width: 90%; margin: -40px auto 0 auto !important; }
-            .chat-window { width: 300px; right: -15px; }
-        }
-        @media (max-width: 600px) {
-            .stats-grid { grid-template-columns: 1fr; }
-            .pricing-grid { grid-template-columns: 1fr; }
+            nav { display: none; }
+            header { position: relative; background: var(--navy); }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="index.html" class="logo">
-            <img src="logo.png" alt="MVP Marketing Group Logo">
-        </a>
+        <a href="index.html" class="logo"><img src="logo.png" alt="MVP Logo"></a>
         <nav>
             <a href="index.html#blueprint">The Playbook</a>
             <a href="consulting.html">Consulting Options</a>
@@ -407,296 +206,129 @@
 
     <section class="hero">
         <h2>A Turnkey Solution<br><span>for School Revenue.</span></h2>
-        <p>Minimize athletic department staff burnout and maximize grassroot revenue potential. We provide full-service consulting, ad sales, and professional contract fulfillment.</p>
+        <p>Minimize staff burnout and maximize revenue potential with our full-service consulting and ad sales fulfillment.</p>
     </section>
 
     <div class="stats-container">
         <div class="stats-grid">
-            <div class="stat-item">
-                <div class="stat-num">30+ Years</div>
-                <div class="stat-label">Combined Success</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-num">80+ Districts</div>
-                <div class="stat-label">Properties Partnered</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-num">$420K+</div>
-                <div class="stat-label">Fresh Revenue</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-num">300%+</div>
-                <div class="stat-label">Sponsorship Increase</div>
-            </div>
+            <div class="stat-item"><div class="stat-num">30+ Years</div><div class="stat-label">Combined Success</div></div>
+            <div class="stat-item"><div class="stat-num">80+ Districts</div><div class="stat-label">Properties Partnered</div></div>
+            <div class="stat-item"><div class="stat-num">$420K+</div><div class="stat-label">Fresh Revenue</div></div>
+            <div class="stat-item"><div class="stat-num">300%+</div><div class="stat-label">Sponsorship Increase</div></div>
         </div>
     </div>
 
     <section class="problem">
         <div class="two-col-grid">
             <div class="problem-text">
-                <h2>The Gap Between<br>Potential & Resources</h2>
-                <p>High school and district campuses sit on vast, untapped marketing potential. However, every organization is understaffed, needing extra help for the heavy lift of creating marketing plans and executing them successfully.</p>
-                <p>MVP Marketing Group bridges this gap, saving clients time, energy, and costs by handling the entire process to maximize long-term revenue potential and sponsorship satisfaction.</p>
+                <h2>The Resource Gap</h2>
+                <p>High school campuses sit on untapped potential, but organizations are understaffed for the heavy lift of marketing execution.</p>
+                <p>MVP Marketing Group bridges this gap, saving you time and energy while maximizing long-term revenue and sponsorship satisfaction.</p>
             </div>
-            <div class="problem-visual">
-                <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="High school stadium under lights" style="width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
-            </div>
+            <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Stadium" style="width: 100%; border-radius: 8px;">
         </div>
     </section>
 
     <section id="blueprint" class="section-pad bg-slate">
         <div class="section-header">
             <h2>The Full-Service Playbook</h2>
-            <p>You handle the athletics. We handle the business. When you partner with MVP, we take complete ownership of your sponsorship lifecycle from initial audit to final contract delivery.</p>
+            <p>We take complete ownership of your sponsorship lifecycle from initial audit to final contract delivery.</p>
         </div>
-        
         <div class="overlap-container">
             <div class="overlap-item">
-                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Business Strategy" class="overlap-image">
-                <div class="overlap-text">
-                    <span class="step">Step 01</span>
-                    <h3>Asset Valuation</h3>
-                    <p>We don't just sell; we strategize. We conduct a deep-dive audit of your digital, physical, and multimedia assets to build high-yield, custom sponsorship packages backed by data-driven pricing.</p>
-                </div>
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="overlap-image">
+                <div class="overlap-text"><span class="step">Step 01</span><h3>Asset Valuation</h3><p>We conduct a deep-dive audit of your assets to build high-yield, custom sponsorship packages.</p></div>
             </div>
-            
             <div class="overlap-item">
-                <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Active Sales Handshake" class="overlap-image">
-                <div class="overlap-text">
-                    <span class="step">Step 02</span>
-                    <h3>Active Market Sales</h3>
-                    <p>We act as an extension of your department. Leveraging our network and proven 1:1 presentation strategies, we actively pitch, negotiate, and close local and regional business partnerships on your behalf.</p>
-                </div>
+                <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="overlap-image">
+                <div class="overlap-text"><span class="step">Step 02</span><h3>Active Market Sales</h3><p>We act as an extension of your department, pitching and closing regional partnerships on your behalf.</p></div>
             </div>
-            
             <div class="overlap-item">
-                <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="White Glove Service" class="overlap-image">
-                <div class="overlap-text">
-                    <span class="step">Step 03</span>
-                    <h3>White-Glove Fulfillment</h3>
-                    <p>A signed contract is just the beginning. We manage the day-to-day deliverables, ensuring your sponsors receive maximum ROI and VIP care, making year-over-year renewals absolutely effortless.</p>
-                </div>
+                <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="overlap-image">
+                <div class="overlap-text"><span class="step">Step 03</span><h3>White-Glove Fulfillment</h3><p>We manage day-to-day deliverables, ensuring sponsors receive maximum ROI and VIP care for renewals.</p></div>
             </div>
         </div>
     </section>
 
     <section id="consulting" class="section-pad bg-gray">
-        <div class="section-header">
-            <h2>Consultation Options</h2>
-            <p>Expert perspective and assistance customized for your booster club, department, or foundation. We offer tiered packages to fit your exact needs and capacity.</p>
-        </div>
-        
+        <div class="section-header"><h2>Consultation Options</h2><p>Tiered packages to fit your exact needs and capacity.</p></div>
         <div class="pricing-grid">
-            <div class="price-card">
-                <h3>Bronze Package</h3>
-                <span class="subtitle">Quick and Easy</span>
-                <ul class="teaser-list">
-                    <li>Expert strategy review</li>
-                    <li>Marketing plan analysis</li>
-                    <li>Long-term improvement insights</li>
-                    <li>1:1 Virtual reporting</li>
-                </ul>
-            </div>
-            <div class="price-card">
-                <h3>Silver Package</h3>
-                <span class="subtitle">Need help building it?</span>
-                <ul class="teaser-list">
-                    <li>Master marketing planning</li>
-                    <li>Custom sales literature</li>
-                    <li>Ready-to-use contract templates</li>
-                    <li>Virtual fulfillment best practices</li>
-                </ul>
-            </div>
-            <div class="price-card featured">
-                <h3>Gold Package</h3>
-                <span class="subtitle">Teach me, Show me, Coach me!</span>
-                <ul class="teaser-list">
-                    <li><strong>Includes all Silver services</strong></li>
-                    <li><strong>3 days of onsite training</strong></li>
-                    <li>Live sales presentations by MVP</li>
-                    <li>In-person pitch coaching</li>
-                </ul>
-            </div>
+            <div class="price-card"><h3>Bronze</h3><span class="subtitle">Quick and Easy</span><ul class="teaser-list"><li>Expert strategy review</li><li>Marketing plan analysis</li><li>1:1 Virtual reporting</li></ul></div>
+            <div class="price-card"><h3>Silver</h3><span class="subtitle">Help building it</span><ul class="teaser-list"><li>Master planning</li><li>Sales literature</li><li>Contract templates</li></ul></div>
+            <div class="price-card featured"><h3>Gold</h3><span class="subtitle">Onsite Coaching</span><ul class="teaser-list"><li>Includes all Silver services</li><li>3 days of onsite training</li><li>Live pitch coaching</li></ul></div>
         </div>
-
-        <div class="pricing-cta-wrapper">
-            <a href="consulting.html" class="large-btn">View Full Package Details & Pricing</a>
-        </div>
+        <div class="pricing-cta-wrapper"><a href="consulting.html" class="large-btn">View Full Package Details & Pricing</a></div>
     </section>
 
     <section id="clients" class="section-pad bg-navy">
-        <div class="section-header">
-            <h2>A Proven Track Record in Texas</h2>
-            <p>Successfully partnering with Celina ISD, Denton ISD, Burleson ISD, Mesquite ISD, Crowley ISD, and North Central Texas College.</p>
-        </div>
         <div class="client-grid">
             <div class="case-studies-col">
-                <div class="case-study">
-                    <h4>Denton Public School Foundation</h4>
-                    <p>Faced limitations in staffing and expert resources. MVP stepped in, and within months, generated over $420K in fresh revenue for student scholarships.</p>
-                </div>
-                <div class="case-study">
-                    <h4>Mesquite ISD & Burleson ISD</h4>
-                    <p>After Covid impacted Mesquite ISD, we increased local sponsorships by over 300%. For Burleson ISD, we stepped in when internal staff changes took a toll on renewals.</p>
-                </div>
-                <div class="case-study">
-                    <h4>Crowley ISD Sports Complex ($30M)</h4>
-                    <p>Crowley ISD initiated contact to foster avenues for enhanced exposure and custom sponsorship packages at their new flagship sports facility.</p>
-                </div>
+                <div class="case-study"><h4>Denton ISD</h4><p>Generated over $420K in fresh revenue for scholarships within months.</p></div>
+                <div class="case-study"><h4>Mesquite ISD</h4><p>Increased local sponsorships by over 300% after Covid challenges.</p></div>
             </div>
             <div class="quotes-col">
-                <div class="quote-card">
-                    <p>"MVP marketing and Mike Vogelaar are first class, innovative and exceptionally professional. We feel fortunate to partner with them here in the Denton ISD."</p>
-                    <div class="author">— Joey Florence, Denton ISD Athletic Director</div>
-                </div>
-                <div class="quote-card">
-                    <p>"Working with MVP Marketing is a fantastic experience. In our campaign, not a single piece was ever missed. MVP was 100% on top of their game."</p>
-                    <div class="author">— Jake Laughlin, North Central Texas College</div>
-                </div>
-                <div class="quote-card">
-                    <p>"MVP Marketing helped us with a professional level of campaign at the grassroot level. This is difficult to find with limited staffing. They made it easy."</p>
-                    <div class="author">— Stacey Kunz</div>
-                </div>
+                <div class="quote-card"><p>"MVP is first class, innovative and professional."</p><div class="author">— Joey Florence, Denton ISD AD</div></div>
             </div>
         </div>
     </section>
 
     <section id="team" class="section-pad bg-gray">
-        <div class="section-header">
-            <h2>Know Your Team</h2>
-            <p>Led by industry leaders and experts in high school marketing and advertising.</p>
-        </div>
         <div class="team-grid">
-            <div class="team-member">
-                <h4>Michael Vogelaar</h4>
-                <span>CEO / Co-Founder</span>
-                <p>After a decade selling sponsorships with a scoreboard company, Michael founded MVP. Having sold multimillion-dollar naming rights, generated tens of millions in sponsorships, and maintained relationships for decades, he brings unparalleled expertise directly to districts.</p>
-            </div>
-            <div class="team-member">
-                <h4>Drew Mitchell</h4>
-                <span>Co-Founder</span>
-                <p>Bringing extensive experience in strategic grassroots sports marketing, strategic planning, and sales execution, Drew works alongside Mike to deliver turnkey solutions that maximize revenue and sponsorship satisfaction for school districts across Texas.</p>
-            </div>
+            <div class="team-member"><h4>Michael Vogelaar</h4><span>CEO / Co-Founder</span><p>Sold multimillion-dollar naming rights and tens of millions in sponsorships over decades.</p></div>
+            <div class="team-member"><h4>Drew Mitchell</h4><span>Co-Founder</span><p>Expert in strategic grassroots sports marketing and strategic sales execution.</p></div>
         </div>
     </section>
 
     <footer id="contact">
-        <h3 style="color: white; margin-bottom: 20px;">Ready to maximize your revenue?</h3>
-        <p style="margin-bottom: 30px;">Contact the MVP team to schedule your virtual or in-person consultation.</p>
         <p>&copy; 2026 MVP Marketing Group. All rights reserved.</p>
     </footer>
 
     <div class="chat-widget">
-        <div class="chat-toggle" onclick="toggleChat()" id="chat-toggle-btn">
-            🤖
-        </div>
-
+        <div class="chat-toggle" onclick="toggleChat()" id="chat-toggle-btn">🤖</div>
         <div class="chat-window" id="chat-window">
-            <div class="chat-header">
-                <h4><span class="status-dot"></span> MVP Virtual Advisor</h4>
-                <div class="close-chat" onclick="toggleChat()">✖</div>
-            </div>
-            
+            <div class="chat-header"><h4><span class="status-dot"></span> MVP Advisor</h4><div class="close-chat" onclick="toggleChat()">✖</div></div>
             <div class="chat-body" id="chat-body">
-                <div class="chat-msg msg-bot">
-                    Welcome! I'm the MVP Partnership Advisor. How can I help you maximize your athletic revenue today?
-                </div>
-                <div class="quick-replies" id="quick-replies">
-                    <div class="reply-pill" onclick="sendQuickReply('Consulting Prices?')">Consulting Prices?</div>
-                    <div class="reply-pill" onclick="sendQuickReply('What is Turnkey?')">What is Turnkey?</div>
-                    <div class="reply-pill" onclick="sendQuickReply('Case Studies?')">Case Studies?</div>
-                </div>
-                <div class="typing-indicator" id="typing-indicator">Advisor is typing...</div>
+                <div class="chat-msg msg-bot">Hello! I'm the MVP Advisor. How can I help you maximize your revenue today?</div>
+                <div class="typing-indicator" id="typing-indicator" style="display:none; font-size: 0.8rem; color: #888; padding: 10px;">Advisor is thinking...</div>
             </div>
-            
             <div class="chat-footer">
-                <input type="text" id="chat-input" class="chat-input" placeholder="Ask me anything..." onkeypress="handleEnter(event)">
+                <input type="text" id="chat-input" class="chat-input" placeholder="Ask Gemini..." onkeypress="if(event.key==='Enter') sendMessage()">
                 <button class="chat-send" onclick="sendMessage()">➤</button>
             </div>
         </div>
     </div>
 
     <script>
-        const chatWindow = document.getElementById('chat-window');
-        const chatBody = document.getElementById('chat-body');
-        const chatInput = document.getElementById('chat-input');
-        const typingIndicator = document.getElementById('typing-indicator');
-        const quickReplies = document.getElementById('quick-replies');
-
-        // Toggle Open/Close
-        function toggleChat() {
-            chatWindow.classList.toggle('active');
-        }
-
-        // Handle Enter Key
-        function handleEnter(e) {
-            if (e.key === 'Enter') {
-                sendMessage();
+        function toggleChat() { document.getElementById('chat-window').classList.toggle('active'); }
+        async function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const text = input.value.trim();
+            if (!text) return;
+            appendMessage(text, 'user');
+            input.value = '';
+            const indicator = document.getElementById('typing-indicator');
+            indicator.style.display = 'block';
+            try {
+                const res = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: text })
+                });
+                const data = await res.json();
+                indicator.style.display = 'none';
+                appendMessage(data.reply, 'bot');
+            } catch (err) {
+                indicator.style.display = 'none';
+                appendMessage("System offline. Please ensure MVP_Marketing_API is set in Vercel.", 'bot');
             }
         }
-
-        // Send a message from quick reply pills
-        function sendQuickReply(text) {
-            quickReplies.style.display = 'none'; // Hide pills after first use
-            processUserMessage(text);
-        }
-
-        // Send a message from the text input
-        function sendMessage() {
-            const text = chatInput.value.trim();
-            if (text === '') return;
-            chatInput.value = '';
-            quickReplies.style.display = 'none'; 
-            processUserMessage(text);
-        }
-
-        // Display User Message and trigger Bot response
-        function processUserMessage(text) {
-            // Append User Message
-            const userMsg = document.createElement('div');
-            userMsg.className = 'chat-msg msg-user';
-            userMsg.innerText = text;
-            chatBody.insertBefore(userMsg, typingIndicator);
-            scrollToBottom();
-
-            // Show typing indicator
-            typingIndicator.style.display = 'block';
-            scrollToBottom();
-
-            // Simulate network delay for bot response
-            setTimeout(() => {
-                typingIndicator.style.display = 'none';
-                generateBotResponse(text);
-            }, 1200);
-        }
-
-        // Simulated AI Logic (Keyword Matching)
-        function generateBotResponse(userText) {
-            const text = userText.toLowerCase();
-            let botReply = "I can definitely connect you with Mike or Drew to discuss that. Would you like me to provide their contact information?";
-
-            // Simple Keyword Routing
-            if (text.includes("price") || text.includes("cost") || text.includes("package")) {
-                botReply = "We offer 3 consulting tiers: Bronze ($250/hr), Silver ($5k flat), and Gold ($20k flat, which includes 3 days of on-site coaching). You can view full details on our 'Consulting Options' page!";
-            } else if (text.includes("turnkey") || text.includes("service")) {
-                botReply = "Our Full-Service Turnkey solution means we handle everything: asset valuation, active market sales pitches, and complete contract fulfillment. We take the burden entirely off your staff.";
-            } else if (text.includes("case") || text.includes("client") || text.includes("denton") || text.includes("proof")) {
-                botReply = "We have a massive track record in Texas! For example, we generated over $420K in fresh revenue for Denton ISD, and increased local sponsorships for Mesquite ISD by over 300%.";
-            } else if (text.includes("contact") || text.includes("email") || text.includes("call")) {
-                botReply = "You can reach out directly to our leadership team. We'd love to set up a virtual or in-person consultation to look at your specific needs.";
-            }
-
-            // Append Bot Message
-            const botMsg = document.createElement('div');
-            botMsg.className = 'chat-msg msg-bot';
-            botMsg.innerText = botReply;
-            chatBody.insertBefore(botMsg, typingIndicator);
-            scrollToBottom();
-        }
-
-        // Keep chat scrolled to the newest message
-        function scrollToBottom() {
-            chatBody.scrollTop = chatBody.scrollHeight;
+        function appendMessage(text, side) {
+            const msg = document.createElement('div');
+            msg.className = `chat-msg msg-${side}`;
+            msg.innerText = text;
+            const body = document.getElementById('chat-body');
+            body.insertBefore(msg, document.getElementById('typing-indicator'));
+            body.scrollTop = body.scrollHeight;
         }
     </script>
 </body>
