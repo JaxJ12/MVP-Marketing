@@ -5,178 +5,141 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MVP Marketing Group | High School Sponsorship Sales</title>
     <style>
-        /* Base Styles & Sports Marketing Color Palette */
+        /* Base Styles */
         :root {
-            --primary-blue: #003366; /* Trust and professionalism */
-            --accent-gold: #FFC000; /* High energy/sports aesthetic */
-            --text-dark: #333333;
-            --bg-light: #F8F9FA;
+            --primary-blue: #002D62; 
+            --accent-gold: #FFB81C; 
+            --text-dark: #222222;
+            --text-light: #555555;
+            --bg-light: #F4F7F6;
+            --white: #FFFFFF;
         }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
             margin: 0;
             padding: 0;
             color: var(--text-dark);
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
+        h1, h2, h3, h4 {
+            margin-top: 0;
+            line-height: 1.2;
+        }
+        
+        /* Navigation */
         header {
             background-color: var(--primary-blue);
-            color: white;
-            padding: 1rem 5%;
+            color: var(--white);
+            padding: 1.2rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         header h1 {
-            margin: 0;
             font-size: 1.5rem;
+            margin: 0;
             letter-spacing: 1px;
         }
         nav a {
-            color: white;
+            color: var(--white);
             text-decoration: none;
-            margin-left: 20px;
+            margin-left: 25px;
             font-weight: 500;
+            font-size: 0.95rem;
             transition: color 0.3s ease;
         }
         nav a:hover {
             color: var(--accent-gold);
         }
-        
-        /* Hero Section - Optimized for Conversion */
+
+        /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,51,102,0.85), rgba(0,51,102,0.85)), url('https://images.unsplash.com/photo-1504450758481-7338eba7524a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80') center/cover;
-            color: white;
+            background: linear-gradient(rgba(0,45,98,0.85), rgba(0,45,98,0.85)), url('https://images.unsplash.com/photo-1504450758481-7338eba7524a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80') center/cover;
+            color: var(--white);
             text-align: center;
-            padding: 120px 20px;
+            padding: 140px 20px;
         }
         .hero h2 {
-            font-size: 3.2rem;
-            margin-bottom: 15px;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
         }
         .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
+            font-size: 1.25rem;
+            max-width: 800px;
             margin: 0 auto 40px auto;
+            color: #E0E0E0;
         }
         .cta-btn {
             background-color: var(--accent-gold);
             color: var(--primary-blue);
-            padding: 15px 35px;
+            padding: 16px 40px;
             text-decoration: none;
             font-size: 1.1rem;
-            font-weight: bold;
-            border-radius: 4px;
+            font-weight: 700;
+            border-radius: 5px;
+            display: inline-block;
             transition: transform 0.2s ease;
         }
         .cta-btn:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
         }
 
-        /* Services Grid - Highlighting the Sales Strategy */
-        .services {
+        /* General Section Layout */
+        section {
             padding: 80px 5%;
-            background-color: var(--bg-light);
+        }
+        .section-title {
             text-align: center;
-        }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        .service-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--primary-blue);
-            text-align: left;
-        }
-        .service-card h3 {
+            font-size: 2.5rem;
             color: var(--primary-blue);
-            margin-top: 0;
+            margin-bottom: 15px;
         }
-
-        /* Testimonials */
-        .testimonials {
-            padding: 80px 5%;
+        .section-subtitle {
             text-align: center;
-        }
-        .quote {
-            font-style: italic;
             font-size: 1.1rem;
-            color: #555;
-            max-width: 800px;
-            margin: 30px auto;
-            border-left: 4px solid var(--accent-gold);
-            padding-left: 20px;
-            text-align: left;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 50px auto;
         }
-        
-        /* Footer */
-        footer {
-            background-color: #1a1a1a;
-            color: white;
-            text-align: center;
+
+        /* Services / Turnkey */
+        .services-bg {
+            background-color: var(--bg-light);
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+        .service-box {
+            background: var(--white);
             padding: 30px;
-            font-size: 0.9rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary-blue);
+            margin-bottom: 20px;
         }
-    </style>
-</head>
-<body>
 
-    <header>
-        <h1>MVP Marketing Group</h1>
-        <nav>
-            <a href="#services">Services</a>
-            <a href="#clients">Clients</a>
-            <a href="#team">Team</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
-
-    <section class="hero">
-        <h2>A Turnkey Solution for Schools</h2>
-        <p>Maximizing revenue potential at high school and district campuses through strategic sports marketing, asset analysis, and full-service contract fulfillment.</p>
-        <a href="#contact" class="cta-btn">Maximize Your Revenue</a>
-    </section>
-
-    <section id="services" class="services">
-        <h2>Our Strategy & Services</h2>
-        <p>With 30+ years of success generating revenue for over 80 school districts and collegiate properties.</p>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>TurnKey Fulfillment</h3>
-                <p>From crafting master marketing plans to executing sales appointments and delivering signed contracts, we ensure complete sponsor satisfaction from pitch to renewal.</p>
-            </div>
-            <div class="service-card">
-                <h3>Ad Sales Process</h3>
-                <p>We handle the entire sponsorship sales funnel. We take the pressure off your staff by managing 1:1 customized presentations and all final contract negotiations.</p>
-            </div>
-            <div class="service-card">
-                <h3>Master Planning</h3>
-                <p>Expert asset analysis to discover available inventory. We create compelling, custom sponsorship packages backed by an optimized pricing strategy.</p>
-            </div>
-            <div class="service-card">
-                <h3>Consulting</h3>
-                <p>Looking for perspective? We review your current marketing plan, provide strategic insights, and equip your department with the literature and tools for long-term success.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="clients" class="testimonials">
-        <h2>Trusted by Texas Districts</h2>
-        <p>Successfully partnering with Celina ISD, Denton ISD, Burleson ISD, Mesquite ISD, and Crowley ISD.</p>
-        <div class="quote">
-            "MVP marketing and Mike Vogelaar are first class, innovative and exceptionally professional. We feel fortunate to partner with them here in the Denton ISD. Within months, we successfully generated over $420K in fresh revenue for the district."
-            <br><br><strong>— Joey Florence, Denton ISD Athletic Director</strong>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 MVP Marketing Group. Led by Mike Vogelaar & Drew Mitchell.</p>
-    </footer>
-
-</body>
-</html>
+        /* Pricing / Consulting Packages */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .price-card {
+            background: var(--white);
+            border: 1px solid #E0E0E0;
+            border-radius: 8px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+        }
+        .price-card.gold {
+            border: 2px solid var(--accent-gold);
+            transform: scale(1.05);
+            box-shadow: 0 1
