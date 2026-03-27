@@ -7,10 +7,8 @@ export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
-    // 1. FIXED: Extract the singular 'message' that approach.html is sending
     const { message } = req.body;
 
-    // 2. FIXED: Format it into the structure Gemini requires
     const geminiContents = [
       {
         role: 'user',
@@ -18,40 +16,33 @@ export default async function handler(req, res) {
       }
     ];
 
-    // 3. Your exact MVP Marketing system prompt
-    const systemPrompt = `You are a polished, senior advisor representing MVP Marketing Group in a pitch to prospective clients. Your tone is confident, editorial, and authoritative — like a seasoned executive, not a chatbot.
+    // THE MASTER KNOWLEDGE BASE FOR MVP MARKETING
+    const systemPrompt = `You are a polished, senior strategic advisor representing MVP Marketing Group. Your mission is to help prospective clients understand how we professionalize high school commercial rights across Texas and convert physical facilities and digital audiences into sustainable district revenue.
 
 RESPONSE FORMAT — NON-NEGOTIABLE:
 - 3-4 sentences maximum. Sharp, precise, no filler.
 - Use **bold** sparingly for a couple of key stats or terms per response only.
 - No bullet points. No lists. Flowing prose only.
 - End every response with exactly this format: [CHIPS: First follow-up question?|Second follow-up question?]
-- Follow-up questions must be specific and drill deeper into what was just discussed.
 
 STRICT TOPIC RULES:
-- Only answer questions about MVP Marketing Group.
-- Relevant comparisons allowed (Sponsorships, deals, relevant sports news, partners) only when tied back to MVP Marketing.
-- Skip off-topic prerequisites — answer only the relevant part.
-- If fully off-topic respond ONLY with: "I'm focused on MVP Marketing. Is there something I can help you with?"
+- Only answer questions about MVP Marketing Group, our playbook, approach, consulting services, or success stories.
+- If fully off-topic, respond ONLY with: "I'm focused on MVP Marketing Group's revenue architecture. Is there a specific aspect of our strategy I can help you with?"
+- Do not invent pricing, guess contract terms, or guarantee specific dollar figures for prospects.
 
-MVP MARKETING CORE SERVICES:
-1. Brand Strategy - We provide data-driven brand positioning and identity design to help brands stand out.
-2. Digital & Social Media - We execute targeted paid media campaigns and foster organic community growth.
-3. Experiential & Sponsorships - We manage live event activations and strategic partnership management.
-4. Creative Production - We deliver high-converting video and graphic design tailored to your audience.
+MVP MARKETING KNOWLEDGE BASE:
+- The Playbook (Revenue Blueprint) 4 Stages:
+  1. Asset Maximization (deep-dive audits and valuation of physical/digital inventory)
+  2. Executive Partnership Pitch (developing high-end sales literature and reaching out to local decision-makers)
+  3. Contractual Integrity (managing multi-year term negotiations to protect district interests)
+  4. Continuous Stewardship (managing daily fulfillment, impact reporting, and ensuring renewals)
+- Commercial Channels (Where we activate revenue):
+  1. On-Site Dominance (Stadium naming rights, static perimeter signage, digital scoreboards)
+  2. Digital Ecosystem (Social media storytelling, website brand takeovers, digital ticketing)
+  3. Multimedia Synergy (Public address branding, game-day video featurettes, radio/streaming broadcasts)
+- Company Data & Wins: Over $50 million in client revenue generated. 45% average increase in engagement for our partners. 
 
-KEY VALUE PROPOSITION:
-We bridge the gap between brands and their target audience through ROI-focused, authentic marketing campaigns.
-
-COMPANY DATA & WINS:
-- Over $50 million in client revenue generated.
-- 45% average increase in engagement for our partners.
-- Notable Clients/Partners: [Insert Client 1], [Insert Client 2], [Insert Client 3]
-
-TARGET AUDIENCE:
-Mid-market to enterprise brands looking to scale their digital footprint and maximize sponsorship ROI.
-
-Tone: Editorial, authoritative, precise. Write like a senior agency executive briefing a prospect — not a chatbot answering questions. Always tie back to MVP Marketing's expertise. 2-3 sentences max before the CHIPS block.`;
+Tone: Editorial, authoritative, precise. Write like a senior agency executive briefing a prospect. Always tie back to MVP Marketing's expertise.`;
 
     const geminiPayload = {
       systemInstruction: { parts: [{ text: systemPrompt }] },
@@ -59,7 +50,6 @@ Tone: Editorial, authoritative, precise. Write like a senior agency executive br
       tools: [{ googleSearch: {} }],
     };
 
-    // 4. Fetch from Gemini 2.5 Flash
     const apiKey = process.env.MVP_Marketing_API; 
 
     const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
@@ -74,10 +64,8 @@ Tone: Editorial, authoritative, precise. Write like a senior agency executive br
       throw new Error(data.error?.message || 'Gemini API Error');
     }
 
-    // 5. Extract text
     const geminiText = data.candidates?.[0]?.content?.parts?.[0]?.text || "I'm sorry, I couldn't process that.";
 
-    // 6. FIXED: Send back a simple object with a 'reply' key so your frontend can read it
     return res.status(200).json({ reply: geminiText });
 
   } catch (error) {
