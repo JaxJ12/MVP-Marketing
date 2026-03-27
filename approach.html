@@ -407,8 +407,22 @@
     function openChat(){open=true;document.getElementById('chatBox').classList.add('open');document.getElementById('chatTip').style.display='none';setTimeout(()=>document.getElementById('chatIn').focus(),100);}
     function chatChip(el){document.getElementById('chatIn').value=el.textContent.trim();chatSend();}
     function setLoad(on){document.getElementById('chatBtn').disabled=on;document.getElementById('chatIn').disabled=on;}
-    function addMsg(text,type){const c=document.getElementById('chatMsgs');const d=document.createElement('div');d.className='msg '+type;d.textContent=text;c.appendChild(d);c.scrollTop=c.scrollHeight;return d;}
-
+    // YOUR NEW CODE:
+function addMsg(text, type) {
+    const c = document.getElementById('chatMsgs');
+    const d = document.createElement('div');
+    d.className = 'msg ' + type;
+    
+    // 1. Find the ** asterisks and replace them with HTML bold tags
+    const formattedText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    
+    // 2. Use innerHTML so the browser renders the bold tags properly
+    d.innerHTML = formattedText;
+    
+    c.appendChild(d);
+    c.scrollTop = c.scrollHeight;
+    return d;
+}
     async function chatSend(){
       const inp=document.getElementById('chatIn');const txt=inp.value.trim();if(!txt)return;
       inp.value='';if(!open)openChat();addMsg(txt,'me');setLoad(true);
