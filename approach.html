@@ -171,6 +171,22 @@
         .nav-hamburger { display: flex; }
         .page-title { font-size: 3rem; }
     }
+    .chat-tip { 
+    background: var(--navy); 
+    color: #fff; 
+    font-family: 'Inter', sans-serif; 
+    font-size: 13px; 
+    font-weight: 600; 
+    padding: 12px 18px; 
+    border-radius: 8px; 
+    white-space: nowrap; 
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15); 
+    display: none; 
+    align-items: center; 
+    gap: 8px; 
+    cursor: pointer; 
+    border: 1px solid rgba(255,255,255,0.1); 
+}
   </style>
 </head>
 <body>
@@ -423,22 +439,65 @@ function addMsg(text, type) {
     c.scrollTop = c.scrollHeight;
     return d;
 }
-    async function chatSend(){
-      const inp=document.getElementById('chatIn');const txt=inp.value.trim();if(!txt)return;
-      inp.value='';if(!open)openChat();addMsg(txt,'me');setLoad(true);
-      const th=addMsg('Searching knowledge base...','thinking');
-      
-      try{
-        const res=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:txt})});
-        const d=await res.json();
+    async function chatSend() {
+    const inp = document.getElementById('chatIn');
+    const txt = inp.value.trim();
+    if (!txt) return;
+    
+    inp.value = '';
+    if (!open) openChat();
+    addMsg(txt, 'me');
+    setLoad(true);
+    
+    const th = addMsg('Searching knowledge base...', 'thinking');
+    
+    try {
+        const res = await fetch('/api/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: txt })
+        });
+        
+        const d = await res.json();
         th.remove();
-        addMsg(d.reply,'bot');
-      }catch(e){
+        
+        let botReply = d.reply;
+
+        // --- NEW CHIPS LOGIC ---
+        // 1. Look for the [CHIPS: ...] block in the AI's reply
+        const chipMatch = botReply.match(/\[CHIPS:(.*?)\]/);
+        const quickDiv = document.querySelector('.chat-quick');
+        
+        if (chipMatch && quickDiv) {
+            // 2. Split the questions by the | character
+            const questions = chipMatch[1].split('|');
+            quickDiv.innerHTML = ''; // Clear old buttons
+            
+            // 3. Create new clickable chip buttons
+            questions.forEach(q => {
+                const cleanQ = q.trim();
+                if (cleanQ) {
+                    quickDiv.innerHTML += `<span class="q-chip" onclick="chatChip(this)">${cleanQ}</span>`;
+                }
+            });
+            quickDiv.style.display = 'flex'; // Show the buttons
+            
+            // 4. Remove the raw [CHIPS: ...] text from the chat bubble so the user doesn't see it
+            botReply = botReply.replace(/\[CHIPS:(.*?)\]/, '').trim();
+        } else if (quickDiv) {
+            // Hide the button area if the bot didn't suggest any follow-ups
+            quickDiv.style.display = 'none';
+        }
+        // -----------------------
+
+        addMsg(botReply, 'bot');
+        
+    } catch (e) {
         th.remove();
-        addMsg('Advisor offline. Please check connection.','bot');
-      }
-      setLoad(false);
+        addMsg('Advisor offline. Please check connection.', 'bot');
     }
+    setLoad(false);
+}
 
     setTimeout(()=>{const t=document.getElementById('chatTip');if(t)t.style.display='flex';},3000);
     setTimeout(()=>{const t=document.getElementById('chatTip');if(t&&!open)t.style.display='none';},9000);
