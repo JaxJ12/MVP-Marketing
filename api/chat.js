@@ -7,15 +7,18 @@ export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
-    const { messages } = req.body;
+    // 1. FIXED: Extract the singular 'message' that approach.html is sending
+    const { message } = req.body;
 
-    // 1. Convert Anthropic's message format to Gemini's format
-    const geminiContents = messages.map(msg => ({
-      role: msg.role === 'assistant' ? 'model' : 'user',
-      parts: [{ text: typeof msg.content === 'string' ? msg.content : JSON.stringify(msg.content) }]
-    }));
+    // 2. FIXED: Format it into the structure Gemini requires
+    const geminiContents = [
+      {
+        role: 'user',
+        parts: [{ text: message || "Hello" }]
+      }
+    ];
 
-    // 2. Your exact system prompt (UPDATED FOR MVP MARKETING)
+    // 3. Your exact MVP Marketing system prompt
     const systemPrompt = `You are a polished, senior advisor representing MVP Marketing Group in a pitch to prospective clients. Your tone is confident, editorial, and authoritative — like a seasoned executive, not a chatbot.
 
 RESPONSE FORMAT — NON-NEGOTIABLE:
@@ -50,7 +53,6 @@ Mid-market to enterprise brands looking to scale their digital footprint and max
 
 Tone: Editorial, authoritative, precise. Write like a senior agency executive briefing a prospect — not a chatbot answering questions. Always tie back to MVP Marketing's expertise. 2-3 sentences max before the CHIPS block.`;
 
-    // 3. Build the payload with Google Search Grounding enabled
     const geminiPayload = {
       systemInstruction: { parts: [{ text: systemPrompt }] },
       contents: geminiContents,
@@ -58,8 +60,7 @@ Tone: Editorial, authoritative, precise. Write like a senior agency executive br
     };
 
     // 4. Fetch from Gemini 2.5 Flash
-    // TYPO FIXED: Make sure your environment variable matches this spelling exactly
-    const apiKey = process.env.MVP_MARKETING_API; 
+    const apiKey = process.env.MVP_Marketing_API; 
 
     const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
       method: 'POST',
@@ -73,20 +74,14 @@ Tone: Editorial, authoritative, precise. Write like a senior agency executive br
       throw new Error(data.error?.message || 'Gemini API Error');
     }
 
-    // 5. Extract text and mock Anthropic's response structure so the frontend doesn't break
+    // 5. Extract text
     const geminiText = data.candidates?.[0]?.content?.parts?.[0]?.text || "I'm sorry, I couldn't process that.";
 
-    const mockAnthropicResponse = {
-      stop_reason: 'end_turn',
-      content: [
-        { type: 'text', text: geminiText }
-      ]
-    };
-
-    return res.status(200).json(mockAnthropicResponse);
+    // 6. FIXED: Send back a simple object with a 'reply' key so your frontend can read it
+    return res.status(200).json({ reply: geminiText });
 
   } catch (error) {
     console.error('Error:', error);
-    return res.status(500).json({ error: 'Internal server error', details: error.message });
+    return res.status(500).json({ reply: 'I am currently offline or experiencing a connection error. Please try again later.' });
   }
 }
