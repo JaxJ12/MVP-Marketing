@@ -59,7 +59,7 @@ Tone: Editorial, authoritative, precise. Write like a senior agency executive br
 
     // 4. Fetch from Gemini 2.5 Flash
     // TYPO FIXED: Make sure your environment variable matches this spelling exactly
-    const apiKey = process.env.MVP_MARKETING_API; 
+    const apiKey = process.env.MVP_Marketing_API; 
 
     const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
       method: 'POST',
