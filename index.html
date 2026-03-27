@@ -393,19 +393,49 @@
             const input = document.getElementById('chat-input');
             const text = input.value.trim();
             if (!text) return;
+            
             appendMessage(text, 'user');
             input.value = '';
+            
             const indicator = document.getElementById('typing-indicator');
             indicator.style.display = 'block';
+            
             try {
                 const res = await fetch('/api/chat', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ message: text })
                 });
+                
                 const data = await res.json();
                 indicator.style.display = 'none';
-                appendMessage(data.reply, 'bot');
+                
+                let botReply = data.reply;
+
+                // --- CHIPS LOGIC (Customized for index.html) ---
+                const chipMatch = botReply.match(/\[CHIPS:(.*?)\]/);
+                const suggestionsDiv = document.querySelector('.chat-suggestions');
+                
+                if (chipMatch && suggestionsDiv) {
+                    const questions = chipMatch[1].split('|');
+                    suggestionsDiv.innerHTML = ''; 
+                    
+                    questions.forEach(q => {
+                        const cleanQ = q.trim();
+                        if (cleanQ) {
+                            // Using the specific button styling for the homepage
+                            // Also escaping single quotes just in case a question has an apostrophe
+                            suggestionsDiv.innerHTML += `<button class="suggestion-btn" onclick="sendSuggestion('${cleanQ.replace(/'/g, "\\'")}')">${cleanQ}</button>`;
+                        }
+                    });
+                    suggestionsDiv.style.display = 'flex'; 
+                    botReply = botReply.replace(/\[CHIPS:(.*?)\]/, '').trim();
+                } else if (suggestionsDiv) {
+                    suggestionsDiv.style.display = 'none';
+                }
+
+                appendMessage(botReply, 'bot');
+                
             } catch (err) {
                 indicator.style.display = 'none';
                 appendMessage("The advisor is offline. Check your API connection.", 'bot');
@@ -415,7 +445,13 @@
         function appendMessage(text, side) {
             const msg = document.createElement('div');
             msg.className = `chat-msg msg-${side}`;
-            msg.innerText = text;
+            
+            // 1. Find the ** asterisks and replace them with HTML bold tags
+            const formattedText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            
+            // 2. Use innerHTML so the browser renders the bold tags properly
+            msg.innerHTML = formattedText;
+            
             const body = document.getElementById('chat-body');
             body.insertBefore(msg, document.getElementById('typing-indicator'));
             body.scrollTop = body.scrollHeight;
