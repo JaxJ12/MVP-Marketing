@@ -1,63 +1,89 @@
-// api/chat.js
 export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ message: 'Method not allowed' });
-  }
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
-  const { message } = req.body;
-  const apiKey = process.env.MVP_Marketing_API;
-
-  if (!apiKey) {
-    console.error("API Key is missing!");
-    return res.status(500).json({ reply: "Server configuration error. Please check API keys." });
-  }
+  if (req.method === 'OPTIONS') return res.status(200).end();
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+    const { messages } = req.body;
+
+    // 1. Convert Anthropic's message format to Gemini's format
+    const geminiContents = messages.map(msg => ({
+      role: msg.role === 'assistant' ? 'model' : 'user',
+      parts: [{ text: typeof msg.content === 'string' ? msg.content : JSON.stringify(msg.content) }]
+    }));
+
+    // 2. Your exact system prompt
+    const systemPrompt = `You are a polished, senior sponsorship advisor representing Baylor University Athletics in a high-stakes pitch to SAP. Your tone is confident, editorial, and authoritative — like a seasoned executive, not a chatbot.
+
+RESPONSE FORMAT — NON-NEGOTIABLE:
+- 3-4 sentences maximum. Sharp, precise, no filler.
+- Use **bold** sparingly for a couple of key stats or terms per response only.
+- No bullet points. No lists. Flowing prose only.
+- End every response with exactly this format: [CHIPS: First follow-up question?|Second follow-up question?]
+- Follow-up questions must be specific and drill deeper into what was just discussed.
+STRICT TOPIC RULES:
+- Only answer questions about the MVP Marketing Group.
+- Relevant comparisons allowed (Sponsorships, deals, relevant sports news, partners) only when tied back to MVP Marketing.
+- Skip off-topic prerequisites — answer only the relevant part.
+- If fully off-topic respond ONLY with: "I'm focused on MVP Marketing. Is there something I can help you with?"
+
+MVP MARKETING CORE SERVICES:
+1. Brand Strategy - [Insert brief detail, e.g., data-driven brand positioning and identity.]
+2. Digital & Social Media - [Insert brief detail, e.g., targeted paid media and organic community growth.]
+3. Experiential & Sponsorships - [Insert brief detail, e.g., live event activations and partnership management.]
+4. Creative Production - [Insert brief detail, e.g., high-converting video and graphic design.]
+
+KEY VALUE PROPOSITION:
+[Insert MVP's main pitch here, e.g., "We bridge the gap between brands and their target audience through ROI-focused, authentic marketing campaigns."]
+
+COMPANY DATA & WINS:
+- [Insert impressive stat 1, e.g., "$X million in client revenue generated"]
+- [Insert impressive stat 2, e.g., "X% average increase in engagement for our partners"]
+- Notable Clients/Partners: [List 3-4 recognizable clients here]
+
+TARGET AUDIENCE:
+[Describe who MVP is pitching to, e.g., "Mid-market to enterprise brands looking to scale their digital footprint."]
+
+Tone: Editorial, authoritative, precise. Write like a senior agency executive briefing a prospect — not a chatbot answering questions. Always tie back to MVP Marketing's expertise. 2-3 sentences max before the CHIPS block.
+
+    // 3. Build the payload with Google Search Grounding enabled
+    const geminiPayload = {
+      systemInstruction: { parts: [{ text: systemPrompt }] },
+      contents: geminiContents,
+      tools: [{ googleSearch: {} }], 
+    };
+
+    // 4. Fetch from Gemini 2.5 Flash
+    const apiKey = process.env.MVP_Marekting_API;
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        // 1. Official System Instructions placement (AI follows this strictly)
-        systemInstruction: {
-          parts: [{
-            text: `You are the MVP Marketing Advisor. 
-            CORE RULES: 
-            1. ONLY discuss MVP Marketing Group, sports sponsorships, high school ad sales, and leadership (Mike Vogelaar/Drew Mitchell).
-            2. If the user asks about ANYTHING ELSE (politics, coding, other companies, general trivia), politely refuse and pivot back to MVP.
-            3. LIVE SEARCH: You have access to the web. Use it to find latest news about Texas high school athletics or sponsorship trends if asked.
-            4. TONE: Professional, executive, and revenue-focused.`
-          }]
-        },
-        // 2. Clean user message placement
-        contents: [{
-          role: "user",
-          parts: [{ text: message }]
-        }],
-        // 3. Correct syntax for enabling Google Search
-        tools: [
-          { googleSearch: {} }
-        ]
-      })
+      body: JSON.stringify(geminiPayload)
     });
 
     const data = await response.json();
 
-    // 4. Proper error parsing: catch API rejections gracefully
     if (!response.ok) {
-      console.error("Gemini API Error:", data);
-      return res.status(500).json({ reply: "I'm having trouble connecting. Please try again." });
+       throw new Error(data.error?.message || 'Gemini API Error');
     }
 
-    // Safely extract the text from the successful response
-    if (data.candidates && data.candidates.length > 0) {
-      const botReply = data.candidates[0].content.parts[0].text;
-      return res.status(200).json({ reply: botReply });
-    } else {
-      return res.status(500).json({ reply: "I couldn't process a valid response. Please try again." });
-    }
+    // 5. Extract text and mock Anthropic's response structure so the frontend doesn't break
+    const geminiText = data.candidates?.[0]?.content?.parts?.[0]?.text || "I'm sorry, I couldn't process that.";
+    
+    const mockAnthropicResponse = {
+      stop_reason: 'end_turn',
+      content: [
+        { type: 'text', text: geminiText }
+      ]
+    };
+
+    return res.status(200).json(mockAnthropicResponse);
 
   } catch (error) {
-    console.error("Fetch Error:", error);
-    res.status(500).json({ reply: "I'm having trouble connecting. Please try again." });
+    console.error('Error:', error);
+    return res.status(500).json({ error: 'Internal server error', details: error.message });
   }
 }
