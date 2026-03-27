@@ -309,21 +309,71 @@
         function openChat(){open=true;document.getElementById('chatBox').classList.add('open');document.getElementById('chatTip').style.display='none';setTimeout(()=>document.getElementById('chatIn').focus(),100);}
         function chatChip(el){document.getElementById('chatIn').value=el.textContent.trim();chatSend();}
         function setLoad(on){document.getElementById('chatBtn').disabled=on;document.getElementById('chatIn').disabled=on;}
-        function addMsg(text,type){const c=document.getElementById('chatMsgs');const d=document.createElement('div');d.className='msg '+type;d.textContent=text;c.appendChild(d);c.scrollTop=c.scrollHeight;return d;}
-
-        async function chatSend(){
-            const inp=document.getElementById('chatIn');const txt=inp.value.trim();if(!txt)return;
-            inp.value='';if(!open)openChat();addMsg(txt,'me');setLoad(true);
-            const th=addMsg('Searching knowledge base...','thinking');
+       function addMsg(text, type) {
+            const c = document.getElementById('chatMsgs');
+            const d = document.createElement('div');
+            d.className = 'msg ' + type;
             
-            try{
-                const res=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:txt})});
-                const d=await res.json();
+            // 1. Find the ** asterisks and replace them with HTML bold tags
+            const formattedText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            
+            // 2. Use innerHTML so the browser renders the bold tags properly
+            d.innerHTML = formattedText;
+            
+            c.appendChild(d);
+            c.scrollTop = c.scrollHeight;
+            return d;
+        }
+
+        async function chatSend() {
+            const inp = document.getElementById('chatIn');
+            const txt = inp.value.trim();
+            if (!txt) return;
+            
+            inp.value = '';
+            if (!open) openChat();
+            addMsg(txt, 'me');
+            setLoad(true);
+            
+            const th = addMsg('Searching knowledge base...', 'thinking');
+            
+            try {
+                const res = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: txt })
+                });
+                
+                const d = await res.json();
                 th.remove();
-                addMsg(d.reply,'bot');
-            }catch(e){
+                
+                let botReply = d.reply;
+
+                // --- CHIPS LOGIC ---
+                const chipMatch = botReply.match(/\[CHIPS:(.*?)\]/);
+                const quickDiv = document.querySelector('.chat-quick');
+                
+                if (chipMatch && quickDiv) {
+                    const questions = chipMatch[1].split('|');
+                    quickDiv.innerHTML = ''; 
+                    
+                    questions.forEach(q => {
+                        const cleanQ = q.trim();
+                        if (cleanQ) {
+                            quickDiv.innerHTML += `<span class="q-chip" onclick="chatChip(this)">${cleanQ}</span>`;
+                        }
+                    });
+                    quickDiv.style.display = 'flex'; 
+                    botReply = botReply.replace(/\[CHIPS:(.*?)\]/, '').trim();
+                } else if (quickDiv) {
+                    quickDiv.style.display = 'none';
+                }
+
+                addMsg(botReply, 'bot');
+                
+            } catch (e) {
                 th.remove();
-                addMsg('Advisor offline. Please check connection.','bot');
+                addMsg('Advisor offline. Please check connection.', 'bot');
             }
             setLoad(false);
         }
